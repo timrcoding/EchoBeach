@@ -6,26 +6,25 @@ using TMPro;
 
 public class MyspaceTemplate : BaseTemplate
 {
+    [SerializeField] private TextMeshProUGUI AboutMeText;
     [SerializeField] private Image AvatarImage;
     [SerializeField] GameObject LinksBox;
     [SerializeField] GameObject FriendsBox;
 
 
-
-    //TMP ELEMENTS
-    public TextMeshPro TMPAboutMe;
-
     void Start()
     {
-        
+        SetParameters();
     }
 
-    void SetPageElements()
+    public override void SetParameters()
     {
+        base.SetParameters();
+
         SOMusician MSOMusician = (SOMusician)MScriptableObject;
         if (MSOMusician.CharacterNameText != "")
         {
-            TMPName.text = MSOMusician.CharacterNameText;
+            TMPName.text = MScriptableObject.CharacterNameText;
         }
         else
         {
@@ -34,7 +33,7 @@ public class MyspaceTemplate : BaseTemplate
 
         if (MSOMusician.AboutMeText != "")
         {
-            TMPAboutMe.text = MSOMusician.AboutMeText;
+            AboutMeText.text = MSOMusician.AboutMeText;
         }
         else
         {
@@ -49,6 +48,5 @@ public class MyspaceTemplate : BaseTemplate
         {
             Debug.Log("AvatarImageNotSet");
         }
-
     }
 }

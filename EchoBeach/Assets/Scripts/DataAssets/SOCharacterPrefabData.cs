@@ -11,6 +11,9 @@ public class SOCharacterPrefabData : ScriptableObject
     public List<TemplateTypeToTemplatePrefabLookup> TemplateTypeToTemplatePrefabLookups;
     public Dictionary<CharacterPageTemplateType, GameObject> TemplateTypeToTemplatePrefabDictionary;
 
+    public List<ColorLookup> ColorLookups;
+    public Dictionary<ColorName, Color> ColorLookupsDictionary;
+
     private void OnEnable()
     {
         ConstructDictionaries();
@@ -21,6 +24,7 @@ public class SOCharacterPrefabData : ScriptableObject
     {
         CharacterToScriptableObjectDictionary = new Dictionary<CharacterName, ScriptableObject>();
         TemplateTypeToTemplatePrefabDictionary = new Dictionary<CharacterPageTemplateType, GameObject>();
+        ColorLookupsDictionary = new Dictionary<ColorName, Color>();
 
         foreach(CharacterToScriptableObjectLookup ChSo in CharacterToScriptableObjectLookups)
         {
@@ -30,6 +34,11 @@ public class SOCharacterPrefabData : ScriptableObject
         foreach (TemplateTypeToTemplatePrefabLookup TempTyPrLo in TemplateTypeToTemplatePrefabLookups)
         {
             TemplateTypeToTemplatePrefabDictionary.Add(TempTyPrLo.CharacterPageTemplateType, TempTyPrLo.CharacterPagePrefab);
+        }
+
+        foreach (ColorLookup CharCo in ColorLookups)
+        {
+            ColorLookupsDictionary.Add(CharCo.CharacterColor, CharCo.ColorRef);
         }
     }
 
@@ -58,4 +67,29 @@ public struct TemplateTypeToTemplatePrefabLookup
 {
     public CharacterPageTemplateType CharacterPageTemplateType;
     public GameObject CharacterPagePrefab;
+}
+
+public enum ColorName
+{
+    INVALID,
+    Red,
+    LightRed,
+    Blue,
+    LightBlue,
+    Green,
+    LightGreen,
+    Yellow,
+    Orange,
+    Pink,
+    Purple,
+    Brown,
+    White,
+    Black
+}
+
+[System.Serializable]
+public struct ColorLookup
+{
+    public ColorName CharacterColor;
+    public Color ColorRef;
 }

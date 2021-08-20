@@ -10,19 +10,13 @@ public class SOMusician : SOCharacter
     public Sprite CharacterAvatar;
     public string AboutMeText;
     public List<CharacterName> FriendList;
-    
-
-    //COSMETIC
-    public Color CharacterBackgroundColor;
-    public Color CharacterButtonColor;
-    public Sprite BackgroundTexture;
-    public Color BackgroundColor;
 
     //FUNCTIONS
     public Sprite ReturnImage()
     {
         return CharacterAvatar;
     }
+
 }
 
 public struct Link

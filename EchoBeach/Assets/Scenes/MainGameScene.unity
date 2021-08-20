@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 78959846}
   - component: {fileID: 78959845}
+  - component: {fileID: 78959847}
   m_Layer: 0
   m_Name: ==Managers==
   m_TagString: Untagged
@@ -152,7 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ff375353930fe42a639b9f7815c72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterDataTable: {fileID: 11400000, guid: 56ed7db89b99b5a4baaacee4a21a4c06, type: 2}
   WebPageParent: {fileID: 288979694}
   Character: 1
 --- !u!4 &78959846
@@ -169,6 +169,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &78959847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78959844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49608f0017174ca41a2d1b297faaff42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterPrefabData: {fileID: 11400000, guid: 56ed7db89b99b5a4baaacee4a21a4c06, type: 2}
 --- !u!1 &288979693
 GameObject:
   m_ObjectHideFlags: 0

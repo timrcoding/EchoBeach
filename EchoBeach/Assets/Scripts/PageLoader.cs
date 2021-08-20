@@ -5,7 +5,6 @@ using System.Linq;
 
 public class PageLoader : MonoBehaviour
 {
-    [SerializeField] private SOCharacterPrefabData CharacterDataTable;
     [SerializeField] private Transform WebPageParent;
     [SerializeField] private CharacterName Character;
     void Start()
@@ -13,17 +12,26 @@ public class PageLoader : MonoBehaviour
         
     }
 
+    public void DestroyActiveWebPage()
+    {
+        foreach(Transform child in WebPageParent)
+        {
+            Destroy(child.gameObject);
+            Debug.Log("WebPage Destroyed");
+        }
+    }
+
     public void LoadWebPage()
     {
-        if (CharacterDataTable.CharacterToScriptableObjectDictionary != null)
-        {
-            SOCharacter MScriptableObject = (SOCharacter)CharacterDataTable.CharacterToScriptableObjectDictionary[Character];
-            CharacterPageTemplateType TemplateType = MScriptableObject.CharacterPageTemplateType;
-            GameObject Prefab = CharacterDataTable.TemplateTypeToTemplatePrefabDictionary[TemplateType];
+        DestroyActiveWebPage();
+        SOCharacter MScriptableObject = DataResources.ReturnChToSo(Character,DataResources.instance.GetCharacterPrefabData);
+        CharacterPageTemplateType TemplateType = MScriptableObject.CharacterPageTemplateType;
+        GameObject Prefab = DataResources.ReturnTempToPrefab(TemplateType, DataResources.instance.GetCharacterPrefabData);
+        GameObject NewPage = Instantiate(Prefab);
+        NewPage.transform.SetParent(WebPageParent);
+        NewPage.transform.localScale = Vector3.one;
+        NewPage.GetComponent<BaseTemplate>().SetCharacter(Character);
+        Debug.Log("WebPage Created");
 
-            GameObject NewPage = Instantiate(Prefab);
-            NewPage.transform.SetParent(WebPageParent);
-            NewPage.transform.localScale = Vector3.one;
-        }
     }
 }

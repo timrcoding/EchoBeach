@@ -7,6 +7,9 @@ public class SOCharacter : ScriptableObject
 {
     public CharacterName CharacterName;
     public string CharacterNameText;
+    public ColorName BackgroundColor;
+    public ColorName ButtonColor;
+    public ColorName TextColor;
     public List<Link> LinkList;
     public CharacterPageTemplateType CharacterPageTemplateType;
 }
