@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: SpriteLibrary
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Musician
+    m_Hash: -939056271
+    m_CategoryList:
+    - m_Name: EllaNella
+      m_Hash: 603831108
+      m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    - m_Name: Mingbastard
+      m_Hash: -1907684625
+      m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    - m_Name: Adrian
+      m_Hash: 1235757030
+      m_Sprite: {fileID: 0}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Experimental.U2D.Animation;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -7,8 +8,7 @@ using TMPro;
 public class MyspaceTemplate : BaseTemplate
 {
     [SerializeField] private TextMeshProUGUI AboutMeText;
-    [SerializeField] private Image AvatarImage;
-    [SerializeField] GameObject LinksBox;
+    private Image AvatarImage;
     [SerializeField] GameObject FriendsBox;
 
 
@@ -40,13 +40,13 @@ public class MyspaceTemplate : BaseTemplate
             Debug.Log("AboutMeTextNotSet");
         }
 
-        if (MSOMusician.CharacterAvatar != null)
+        Sprite sprite = DataResources.ReturnCharAvatar(MCharacterName, MCharacterCategory, DataResources.instance.GetSpriteLibrary);
+        
+        if(sprite != null)
         {
-            AvatarImage.sprite = MSOMusician.CharacterAvatar;
+          //  AvatarImage.sprite = sprite;
         }
-        else
-        {
-            Debug.Log("AvatarImageNotSet");
-        }
+        
+        
     }
 }

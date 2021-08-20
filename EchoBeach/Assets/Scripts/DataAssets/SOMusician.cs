@@ -10,6 +10,7 @@ public class SOMusician : SOCharacter
     public Sprite CharacterAvatar;
     public string AboutMeText;
     public List<CharacterName> FriendList;
+    public Song Song;
 
     //FUNCTIONS
     public Sprite ReturnImage()
@@ -18,9 +19,10 @@ public class SOMusician : SOCharacter
     }
 
 }
-
-public struct Link
+public enum Song
 {
-    public string LinkName;
-    public CharacterName LinkToCharacter;
+    INVALID,
+    TurnTheHands,
+    Poodles,
+    FoiGrasPourTois,
 }

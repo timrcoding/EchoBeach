@@ -10,19 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cdb99ca89ca95446865def2baf54ec2, type: 3}
-  m_Name: EllaNella
+  m_Name: Mingbastard
   m_EditorClassIdentifier: 
   CharacterCategory: 1
-  CharacterName: 1
-  CharacterNameText: Ella Nella
-  BackgroundColor: 4
-  ButtonColor: 10
-  TextColor: 3
+  CharacterName: 2
+  CharacterNameText: Mingbastard
+  BackgroundColor: 9
+  ButtonColor: 8
+  TextColor: 5
   LinkList:
-  - LinkName: Mingbastad
-    Character: 2
+  - LinkName: Ella
+    Character: 1
+  - LinkName: Ella
+    Character: 1
   CharacterPageTemplateType: 1
-  CharacterAvatar: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  AboutMeText: Just a fun loving Girl
-  FriendList: 02000000
-  Song: 1
+  CharacterAvatar: {fileID: 0}
+  AboutMeText: Hello there!
+  FriendList: 
+  Song: 0

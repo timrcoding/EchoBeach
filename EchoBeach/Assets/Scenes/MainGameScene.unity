@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WebPageParent: {fileID: 288979694}
-  Character: 1
+  Character: 2
 --- !u!4 &78959846
 Transform:
   m_ObjectHideFlags: 0
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterPrefabData: {fileID: 11400000, guid: 56ed7db89b99b5a4baaacee4a21a4c06, type: 2}
+  LASpriteLibraryAsset: {fileID: 11400000, guid: f5ab326c63c5c944aa468412a83b8c73, type: 2}
 --- !u!1 &288979693
 GameObject:
   m_ObjectHideFlags: 0

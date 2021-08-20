@@ -5,11 +5,13 @@ using System.Linq;
 
 public class PageLoader : MonoBehaviour
 {
+    public static PageLoader instance;
+
     [SerializeField] private Transform WebPageParent;
     [SerializeField] private CharacterName Character;
-    void Start()
+    private void Awake()
     {
-        
+        instance = this;
     }
 
     public void DestroyActiveWebPage()
@@ -19,6 +21,12 @@ public class PageLoader : MonoBehaviour
             Destroy(child.gameObject);
             Debug.Log("WebPage Destroyed");
         }
+    }
+
+    public void SetCharacter(CharacterName MCharacterName)
+    {
+        Character = MCharacterName;
+        LoadWebPage();
     }
 
     public void LoadWebPage()
@@ -32,6 +40,5 @@ public class PageLoader : MonoBehaviour
         NewPage.transform.localScale = Vector3.one;
         NewPage.GetComponent<BaseTemplate>().SetCharacter(Character);
         Debug.Log("WebPage Created");
-
     }
 }

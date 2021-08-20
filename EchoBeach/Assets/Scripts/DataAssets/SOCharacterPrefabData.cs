@@ -14,6 +14,8 @@ public class SOCharacterPrefabData : ScriptableObject
     public List<ColorLookup> ColorLookups;
     public Dictionary<ColorName, Color> ColorLookupsDictionary;
 
+
+
     private void OnEnable()
     {
         ConstructDictionaries();

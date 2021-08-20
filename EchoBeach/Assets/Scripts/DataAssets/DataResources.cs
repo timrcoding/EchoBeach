@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.U2D.Animation;
 
 public class DataResources : MonoBehaviour
 {
     public static DataResources instance;
 
     [SerializeField] private SOCharacterPrefabData CharacterPrefabData;
+    [SerializeField] private SpriteLibraryAsset LASpriteLibraryAsset;
     public SOCharacterPrefabData GetCharacterPrefabData { get { return CharacterPrefabData; } }
+    public SpriteLibraryAsset GetSpriteLibrary { get { return LASpriteLibraryAsset; } }
 
     private void Awake()
     {
@@ -28,4 +31,19 @@ public class DataResources : MonoBehaviour
     {
         return CharData.ColorLookupsDictionary[Col];
     }
+
+    public static Sprite ReturnCharAvatar(CharacterName CharName,CharacterCategory category, SpriteLibraryAsset spriteLibraryAsset)
+    {
+        Sprite sprite = spriteLibraryAsset.GetSprite(category.ToString(), CharName.ToString());
+        if (sprite != null)
+        {
+            return sprite;
+        }
+        else
+        {
+            Debug.Log("No Sprite Set");
+            return null;
+        }
+    }
+
 }
