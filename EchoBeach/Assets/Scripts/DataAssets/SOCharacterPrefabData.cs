@@ -19,7 +19,6 @@ public class SOCharacterPrefabData : ScriptableObject
     private void OnEnable()
     {
         ConstructDictionaries();
-        Debug.Log("Dictionaries Constructed");
     }
 
     void ConstructDictionaries()

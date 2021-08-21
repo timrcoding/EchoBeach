@@ -10,12 +10,13 @@ public class BaseTemplate : MonoBehaviour
     protected CharacterCategory MCharacterCategory;
     protected SOCharacter MScriptableObject;
     [SerializeField] protected TextMeshProUGUI TMPName;
-    [SerializeField] protected TextMeshProUGUI[] TextElements;
+    [SerializeField] protected List<TextMeshProUGUI> TextElements;
     [SerializeField] private Image Background;
-    [SerializeField] private Image[] Buttons;
+    [SerializeField] private List<Image> Buttons;
     [SerializeField] private GameObject LinkButtonPrefab;
     [SerializeField] private Transform LinksBox;
-
+    protected Transform[] AllObjects;
+    
     public void SetCharacter(CharacterName CharName)
     {
         MCharacterName = CharName;
@@ -25,6 +26,9 @@ public class BaseTemplate : MonoBehaviour
 
     public virtual void SetParameters()
     {
+        AllObjects = gameObject.GetComponentsInChildren<Transform>();
+        SortObjectsByTag();
+
         Background.color = DataResources.ReturnRefToCol(MScriptableObject.BackgroundColor, DataResources.instance.GetCharacterPrefabData);
 
         foreach(Image button in Buttons)
@@ -38,6 +42,25 @@ public class BaseTemplate : MonoBehaviour
         }
 
         createLinks();
+    }
+
+    void SortObjectsByTag()
+    {
+        foreach(Transform obj in AllObjects)
+        {
+            if (obj.tag == "TMP")
+            {
+                TextElements.Add(obj.GetComponent<TextMeshProUGUI>());
+            }
+            if (obj.tag == "Background")
+            {
+                Background = obj.GetComponent<Image>();
+            }
+            if (obj.tag == "Button")
+            {
+                Buttons.Add(obj.GetComponent<Image>());
+            }
+        }
     }
 
     void createLinks()
