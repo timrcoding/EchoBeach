@@ -14,6 +14,15 @@ public class SOCharacterPrefabData : ScriptableObject
     public List<ColorLookup> ColorLookups;
     public Dictionary<ColorName, Color> ColorLookupsDictionary;
 
+    public List<RealNameToString> RealNameToStrings;
+    public Dictionary<RealName, string> RealNameDictionary;
+
+    public List<AddressToString> AddressToStrings;
+    public Dictionary<Address, string> AddressStringDictionary;
+
+    public List<DOBToString> DOBToStrings;
+    public Dictionary<DOB, string> DOBToStringDictionary;
+
 
 
     private void OnEnable()
@@ -26,6 +35,9 @@ public class SOCharacterPrefabData : ScriptableObject
         CharacterToScriptableObjectDictionary = new Dictionary<CharacterName, ScriptableObject>();
         TemplateTypeToTemplatePrefabDictionary = new Dictionary<CharacterPageTemplateType, GameObject>();
         ColorLookupsDictionary = new Dictionary<ColorName, Color>();
+        RealNameDictionary = new Dictionary<RealName, string>();
+        AddressStringDictionary = new Dictionary<Address, string>();
+        DOBToStringDictionary = new Dictionary<DOB, string>();
 
         foreach(CharacterToScriptableObjectLookup ChSo in CharacterToScriptableObjectLookups)
         {
@@ -41,13 +53,24 @@ public class SOCharacterPrefabData : ScriptableObject
         {
             ColorLookupsDictionary.Add(CharCo.CharacterColor, CharCo.ColorRef);
         }
+
+        foreach (RealNameToString CharNa in RealNameToStrings)
+        {
+            RealNameDictionary.Add(CharNa.RealName,CharNa.RealNameString);
+        }
+
+        foreach (AddressToString AdStr in AddressToStrings)
+        {
+            AddressStringDictionary.Add(AdStr.Address, AdStr.AddressString);
+        }
+
+        foreach (DOBToString DobStr in DOBToStrings)
+        {
+            DOBToStringDictionary.Add(DobStr.DOB, DobStr.DOBString);
+        }
     }
-
-    
+   
 }
-
-
-
 public enum CharacterPageTemplateType
 {
     INVALID,
@@ -68,6 +91,27 @@ public struct TemplateTypeToTemplatePrefabLookup
 {
     public CharacterPageTemplateType CharacterPageTemplateType;
     public GameObject CharacterPagePrefab;
+}
+
+[System.Serializable]
+public struct RealNameToString
+{
+    public RealName RealName;
+    public string RealNameString;
+}
+
+[System.Serializable]
+public struct DOBToString
+{
+    public DOB DOB;
+    public string DOBString;
+}
+
+[System.Serializable]
+public struct AddressToString
+{
+    public Address Address;
+    public string AddressString;
 }
 
 public enum ColorName

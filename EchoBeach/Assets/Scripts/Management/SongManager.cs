@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class SongManager : MonoBehaviour
+public class SongManager : PulloutManager
 {
     public static SongManager instance;
 
     [SerializeField] private List<PositionToObjectInList> PositionToObjectInLists;
     [SerializeField] private Vector2 Buffer;
-    [SerializeField] private Vector2 OutPosition;
-    [SerializeField] private Vector2 AwayPosition;
-                     private Vector2 TargetPosition;
-    [SerializeField] private bool outAway;
+    
     public Vector2 GetBuffer { get { return Buffer; } }
     [SerializeField] private Transform SongPlayer;
     [SerializeField] private GameObject SongButtonPrefab;
@@ -25,18 +22,12 @@ public class SongManager : MonoBehaviour
         TargetPosition = AwayPosition;
     }
 
-    public void OutOrAway()
+    public override void OutOrAway()
     {
-        outAway = !outAway;
-        if (outAway)
-        {
-            TargetPosition = OutPosition;
-        }
-        else
-        {
-            TargetPosition = AwayPosition;
-        }
+        base.OutOrAway();
+        PutAwayMutuallyExclusiveObjects("MutualPullout");
     }
+    
 
     public void AddSong(CharacterName CharName, Song Song, int num = 0)
     {

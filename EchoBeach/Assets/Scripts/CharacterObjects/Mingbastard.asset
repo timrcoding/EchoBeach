@@ -24,6 +24,9 @@ MonoBehaviour:
   - LinkName: Ella
     Character: 1
   CharacterPageTemplateType: 1
+  RealName: 2
+  Address: 2
+  DateOfBirth: 1
   CharacterAvatar: {fileID: 0}
   AboutMeText: Hello there!
   FriendList: 

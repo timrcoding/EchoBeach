@@ -13,6 +13,9 @@ public class SOCharacter : ScriptableObject
     public ColorName TextColor;
     public List<Link> LinkList;
     public CharacterPageTemplateType CharacterPageTemplateType;
+    public RealName RealName;
+    public Address Address;
+    public DOB DateOfBirth;
 }
 
 [System.Serializable]
@@ -20,6 +23,14 @@ public struct Link
 {
     public string LinkName;
     public CharacterName Character;
+}
+
+public enum IdentType
+{
+    INVALID,
+    Name,
+    DOB,
+    Address,
 }
 
 public enum CharacterName
@@ -31,6 +42,29 @@ public enum CharacterName
     Robespierre,
     CallumWinters,
     ShelleyBaby,
+}
+
+public enum RealName
+{
+    INVALID,
+    RosieJones,
+    DavidPritchard,
+    RonCox,
+}
+
+public enum DOB
+{
+    INVALID,
+    TenOctoberEightySix,
+
+}
+
+public enum Address
+{
+    INVALID,
+    SevenRuebakerStreet,
+    TwelveHourglassRoad,
+    StudebakerMansions,
 }
 
 public enum CharacterCategory

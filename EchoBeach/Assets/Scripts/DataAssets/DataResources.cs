@@ -32,6 +32,21 @@ public class DataResources : MonoBehaviour
         return CharData.ColorLookupsDictionary[Col];
     }
 
+    public static string ReturnRealNameToStr(RealName CharName, SOCharacterPrefabData CharData)
+    {
+        return CharData.RealNameDictionary[CharName];
+    }
+
+    public static string ReturnDOBToStr(DOB DobName, SOCharacterPrefabData CharData)
+    {
+        return CharData.DOBToStringDictionary[DobName];
+    }
+
+    public static string ReturnAddrToStr(Address AddrName, SOCharacterPrefabData CharData)
+    {
+        return CharData.AddressStringDictionary[AddrName];
+    }
+
     public static Sprite ReturnCharAvatar(CharacterName CharName,CharacterCategory category, SpriteLibraryAsset spriteLibraryAsset)
     {
         Sprite sprite = spriteLibraryAsset.GetSprite(category.ToString(), CharName.ToString());

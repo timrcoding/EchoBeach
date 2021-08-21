@@ -22,6 +22,9 @@ MonoBehaviour:
   - LinkName: Mingbastad
     Character: 2
   CharacterPageTemplateType: 1
+  RealName: 1
+  Address: 1
+  DateOfBirth: 1
   CharacterAvatar: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   AboutMeText: Just a fun loving Girl
   FriendList: 02000000

@@ -59,15 +59,15 @@ MonoBehaviour:
   m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   blur:
     m_OverrideState: 1
-    m_Value: 0.83
+    m_Value: 0.01
     min: 0.01
     max: 2
   brigtness:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 3.2
     min: 1
     max: 40
   lineSpeed:
@@ -77,7 +77,7 @@ MonoBehaviour:
     max: 10
   mask:
     m_OverrideState: 1
-    m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
+    m_Value: {fileID: 2800000, guid: d94011d49b672f348bf39275fd487de9, type: 3}
   maskChannel:
     m_OverrideState: 0
     m_Value: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
     showEyeDropper: 1
   scanLines:
     m_OverrideState: 1
-    m_Value: 8.7
+    m_Value: 6.4
   speed:
     m_OverrideState: 1
     m_Value: 0.18
@@ -231,6 +231,44 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-7307866406188887606
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
+  m_Name: ColorAdjustments
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  postExposure:
+    m_OverrideState: 0
+    m_Value: 0
+  contrast:
+    m_OverrideState: 0
+    m_Value: 0
+    min: -100
+    max: 100
+  colorFilter:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
+  hueShift:
+    m_OverrideState: 0
+    m_Value: 0
+    min: -180
+    max: 180
+  saturation:
+    m_OverrideState: 1
+    m_Value: -12.5
+    min: -100
+    max: 100
 --- !u!114 &-7089342164676542881
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -247,45 +285,45 @@ MonoBehaviour:
   m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   GlowHalation:
     m_OverrideState: 1
-    m_Value: 2.45
+    m_Value: 0.94
     min: 0
     max: 5
   GlowDifusion:
     m_OverrideState: 1
-    m_Value: 1.22
+    m_Value: 0.27
     min: 0
     max: 2
   MaskColors:
     m_OverrideState: 1
-    m_Value: 1.13
+    m_Value: 0.43
     min: 0
     max: 5
   MaskStrength:
     m_OverrideState: 1
-    m_Value: 0.216
+    m_Value: 0.304
     min: 0
     max: 1
   GammaInput:
     m_OverrideState: 1
-    m_Value: 2.14
+    m_Value: 2.87
     min: 0
     max: 5
   GammaOutput:
     m_OverrideState: 1
-    m_Value: 4.08
+    m_Value: 3.57
     min: 0
     max: 5
   Brightness:
     m_OverrideState: 1
-    m_Value: 0.79
+    m_Value: 1.34
     min: 0
     max: 2.5
   mask:
     m_OverrideState: 1
-    m_Value: {fileID: 2800000, guid: daf7d52f981baf74b81da0b2bf841563, type: 3}
+    m_Value: {fileID: 2800000, guid: eec0b97beb110424284c0a2e34af7320, type: 3}
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
@@ -370,39 +408,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1c62bdc7f018b43a75aef3da42496f, type: 3}
   m_Name: TVEffect
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   fade:
     m_OverrideState: 1
-    m_Value: 0.078
+    m_Value: 0.106
     min: 0
     max: 1
   maskDark:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
     min: 0
     max: 2
   maskLight:
     m_OverrideState: 1
-    m_Value: 0.49
+    m_Value: 0.203
     min: 0
     max: 2
   hardScan:
     m_OverrideState: 1
-    m_Value: -2.5
+    m_Value: 1
     min: -8
     max: 16
   resScale:
     m_OverrideState: 1
-    m_Value: 4
+    m_Value: 5.18
     min: 1
     max: 16
   hardPix:
     m_OverrideState: 1
-    m_Value: -3
+    m_Value: -2.39
     min: -3
     max: 1
   warpMode:
@@ -410,13 +448,13 @@ MonoBehaviour:
     m_Value: 0
   warp:
     m_OverrideState: 1
-    m_Value: {x: 0.28, y: 0.42}
+    m_Value: {x: -16.7, y: 0.42}
   scale:
     m_OverrideState: 1
-    m_Value: 0.67
+    m_Value: 1
   mask:
-    m_OverrideState: 1
-    m_Value: {fileID: 2800000, guid: 293b39656e65a452bb601bed3ea1e78b, type: 3}
+    m_OverrideState: 0
+    m_Value: {fileID: 2800000, guid: 3176b84c751bb0a41bfd45e4b6830b64, type: 3}
   maskChannel:
     m_OverrideState: 0
     m_Value: 0
@@ -614,10 +652,10 @@ MonoBehaviour:
     m_Value: 1
   left:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 1
   right:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 1
   top:
     m_OverrideState: 0
     m_Value: 0
@@ -626,7 +664,7 @@ MonoBehaviour:
     m_Value: 0
   height:
     m_OverrideState: 1
-    m_Value: 0.123
+    m_Value: 0.102
     min: 0.01
     max: 0.5
   tile:
@@ -765,6 +803,9 @@ MonoBehaviour:
   - {fileID: -1931097910198146816}
   - {fileID: 2492817400595108105}
   - {fileID: 1380791119884466956}
+  - {fileID: 734041262048414348}
+  - {fileID: 8833359253865075508}
+  - {fileID: -7307866406188887606}
 --- !u!114 &404739958778104969
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -784,7 +825,7 @@ MonoBehaviour:
     m_Value: 1
   speed:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
     min: 0
     max: 2
   intensity:
@@ -808,6 +849,36 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &734041262048414348
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fa0085f50d5e54f8144f766051a691, type: 3}
+  m_Name: FilmGrain
+  m_EditorClassIdentifier: 
+  active: 0
+  m_AdvancedMode: 0
+  type:
+    m_OverrideState: 1
+    m_Value: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.396
+    min: 0
+    max: 1
+  response:
+    m_OverrideState: 1
+    m_Value: 0.424
+    min: 0
+    max: 1
+  texture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
 --- !u!114 &1380791119884466956
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -820,7 +891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   color:
     m_OverrideState: 1
@@ -833,7 +904,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.399
+    m_Value: 0.294
     min: 0
     max: 1
   smoothness:
@@ -843,7 +914,7 @@ MonoBehaviour:
     max: 1
   rounded:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
 --- !u!114 &1484929923191470386
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -897,7 +968,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.085
+    m_Value: 0.1
     min: -1
     max: 1
   xMultiplier:
@@ -1009,19 +1080,19 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   left:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   right:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   top:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   bottom:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   height:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.5
     min: 0.01
     max: 0.5
@@ -1103,7 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4388191585ea44bb892b7a3954c42607, type: 3}
   m_Name: Bleed
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
@@ -1119,8 +1190,58 @@ MonoBehaviour:
     m_Value: 0
   mask:
     m_OverrideState: 1
-    m_Value: {fileID: 0}
+    m_Value: {fileID: 2800000, guid: 8925d45f02633a84299d53d4c11b6047, type: 3}
   maskChannel:
     m_OverrideState: 0
     m_Value: 0
   bleedModeIndex: 0
+--- !u!114 &8833359253865075508
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d5e41f92d0f43b8b6ff8cad98e0c16, type: 3}
+  m_Name: Fisheye
+  m_EditorClassIdentifier: 
+  active: 0
+  m_AdvancedMode: 0
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  fisheyeType:
+    m_OverrideState: 1
+    m_Value: 1
+  bend:
+    m_OverrideState: 1
+    m_Value: 16.9
+    min: 0
+    max: 50
+  cutOffX:
+    m_OverrideState: 1
+    m_Value: 0.5
+    min: 0
+    max: 50
+  cutOffY:
+    m_OverrideState: 1
+    m_Value: 0.5
+    min: 0
+    max: 50
+  fadeX:
+    m_OverrideState: 1
+    m_Value: 1
+    min: 0
+    max: 50
+  fadeY:
+    m_OverrideState: 1
+    m_Value: 1
+    min: 0
+    max: 50
+  size:
+    m_OverrideState: 1
+    m_Value: 15.2
+    min: 0.001
+    max: 50

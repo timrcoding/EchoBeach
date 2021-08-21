@@ -37,7 +37,8 @@ public class PageLoader : MonoBehaviour
         GameObject Prefab = DataResources.ReturnTempToPrefab(TemplateType, DataResources.instance.GetCharacterPrefabData);
         GameObject NewPage = Instantiate(Prefab);
         NewPage.transform.SetParent(WebPageParent);
-        NewPage.transform.localScale = new Vector3(.85f, .85f, 0);
+        NewPage.transform.localPosition = Vector3.zero;
+        NewPage.transform.localScale = new Vector3(.5f, .5f, 0);
         NewPage.GetComponent<BaseTemplate>().SetCharacter(Character);
         Debug.Log("WebPage Created");
     }

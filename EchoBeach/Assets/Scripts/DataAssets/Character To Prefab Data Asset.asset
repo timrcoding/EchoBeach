@@ -17,6 +17,8 @@ MonoBehaviour:
     ScriptableObject: {fileID: 11400000, guid: 8ef03ed9c16256b4c811ec24568debac, type: 2}
   - CharacterName: 2
     ScriptableObject: {fileID: 11400000, guid: 78a078d85938a694eb32167773412928, type: 2}
+  - CharacterName: 3
+    ScriptableObject: {fileID: 11400000, guid: 1598b29bb8e65a645aff646f0aac2958, type: 2}
   TemplateTypeToTemplatePrefabLookups:
   - CharacterPageTemplateType: 1
     CharacterPagePrefab: {fileID: 6304894569722408474, guid: 2f3c32f7cfed5a74ea84ef3328c2459f, type: 3}
@@ -47,3 +49,20 @@ MonoBehaviour:
     ColorRef: {r: 1, g: 1, b: 1, a: 1}
   - CharacterColor: 13
     ColorRef: {r: 0, g: 0, b: 0, a: 1}
+  RealNameToStrings:
+  - RealName: 1
+    RealNameString: ROSIE JONES
+  - RealName: 2
+    RealNameString: DAVID PRITCHARD
+  - RealName: 3
+    RealNameString: RON COX
+  AddressToStrings:
+  - Address: 1
+    AddressString: RUEBAKER STREET
+  - Address: 2
+    AddressString: HOURGLASS ROAD
+  - Address: 3
+    AddressString: STUDEBAKER MANSIONS
+  DOBToStrings:
+  - DOB: 1
+    DOBString: 10/10/86
