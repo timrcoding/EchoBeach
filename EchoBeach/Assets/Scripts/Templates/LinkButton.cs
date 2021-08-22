@@ -6,30 +6,30 @@ using TMPro;
 
 public class LinkButton : MonoBehaviour
 {
-    private Link MLink;
-    private TextMeshProUGUI TText;
-    private Button UButton;
+    private DeepNetLink DeepNetLink;
+    [SerializeField] private TextMeshProUGUI TText;
+    private Button Button;
     void Start()
     {
-        TText = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        Button btn = GetComponent<Button>();
-        btn.onClick.AddListener(PressLink);
-        SetText();
+        Button = GetComponent<Button>();
+        Button.onClick.AddListener(CreateNewPage);
     }
 
-    public void SetLink(Link link)
+    public void CreateNewPage()
     {
-        MLink = link;
+        DeepnetManager.instance.LoadPageText(DeepNetLink);
+    }
+
+    public void SetDeepNetLink(DeepNetLink Link)
+    {
+        DeepNetLink = Link;
+        SetText();
     }
 
     void SetText()
     {
-        TText.text = MLink.LinkName;
-    }
-
-    public void PressLink()
-    {
-        PageLoader.instance.SetCharacter(MLink.Character);
+        SODeepNetPage Page = DeepNetLookupFunctions.ReturnDeepNetLinkToPage(DeepNetLink, DeepNetLookupFunctions.instance.MSODeepNetLookup);
+        TText.text = Page.LinkTitleForButton;
     }
 
    

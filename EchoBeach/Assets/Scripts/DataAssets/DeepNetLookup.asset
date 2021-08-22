@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024fed0911421804aa7ef2b5187b7247, type: 3}
+  m_Name: DeepNetLookup
+  m_EditorClassIdentifier: 
+  LinkToScriptableObjects:
+  - DeepNetLink: 1
+    SODeepNetPage: {fileID: 11400000, guid: 1617b4bf76e170f4fac6b0f8f936f34a, type: 2}
+  - DeepNetLink: 2
+    SODeepNetPage: {fileID: 11400000, guid: 67d5c60fabc05a147b69c4b5d02c0f41, type: 2}
+  FontToStrings:
+  - Font: 1
+    String: 

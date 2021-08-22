@@ -70,7 +70,7 @@ public class BaseTemplate : MonoBehaviour
             GameObject button = Instantiate(LinkButtonPrefab);
             button.transform.SetParent(LinksBox);
             button.transform.localScale = Vector3.one;
-            button.GetComponent<LinkButton>().SetLink(link);
+           // button.GetComponent<LinkButton>().SetLink(link);
         }
     }
 }

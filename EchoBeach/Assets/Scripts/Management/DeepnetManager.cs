@@ -1,41 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class DeepnetManager : MonoBehaviour
 {
-    [SerializeField] private GameObject ScreenBlackout;
-    private Vector3 TargetScale;
-    [SerializeField] private bool ScreenIsOn;
+    public static DeepnetManager instance;
+
+    //PAGE ELEMENTS
+    [SerializeField] private TextMeshProUGUI TMPHeader;
+    [SerializeField] private TextMeshProUGUI TMPBody;
+    [SerializeField] private Image BackgroundPattern;
+    [SerializeField] private Transform LinkParent;
+    [SerializeField] private GameObject LinkButtonPrefab;
+    [SerializeField] private Scrollbar Scrollbar;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
-        
+        LoadPageText(DeepNetLink.EllaHome);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadPageText(DeepNetLink DeepNetLink)
     {
-        if (ScreenIsOn)
+        //Get Page
+        SODeepNetPage Page = DeepNetLookupFunctions.ReturnDeepNetLinkToPage(DeepNetLink, DeepNetLookupFunctions.instance.MSODeepNetLookup);
+        if (Page != null)
         {
-            TargetScale = Vector3.one;
+            //Set Background
+            BackgroundPattern.sprite = Page.BackgroundPattern;
+            //Add header text
+            TMPHeader.text = Page.HeaderText;
+            //Read textasset and write body text
+            TMPBody.text = "";
+            TMPBody.text += '\n';
+            TMPBody.text += Page.BodyText;
+            Scrollbar.value = 0;
         }
         else
         {
-            TargetScale = Vector3.zero;
+            Debug.Log("DeepNet Page Not Set");
         }
-
-        ScreenBlackout.transform.localScale = Vector3.Lerp(ScreenBlackout.transform.localScale, TargetScale, Time.deltaTime * 5);
+        CreateLinks(Page);
     }
 
-    public void SwitchScreenOn()
+    public void CreateLinks(SODeepNetPage DeepNetPage)
     {
-        if (ScreenIsOn)
+        //Destroy all existing links
+        for(int i = 0; i < LinkParent.transform.childCount; i++)
         {
-            TargetScale = Vector3.one;
+            Destroy(LinkParent.transform.GetChild(i).gameObject);
         }
-        else
+
+        SODeepNetPage Page = DeepNetPage;
+        //Setup Buttons
+        foreach (DeepNetLink Link in Page.DeepNetLinks) 
         {
-            TargetScale = Vector3.zero;
+            GameObject LinkButton = Instantiate(LinkButtonPrefab);
+            LinkButton.transform.SetParent(LinkParent);
+            LinkButton.transform.localScale = Vector3.one;
+            LinkButton.GetComponent<LinkButton>().SetDeepNetLink(Link);
         }
     }
+
+
+
 }

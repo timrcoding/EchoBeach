@@ -18,7 +18,7 @@ public class SongManager : PulloutManager
     void Start()
     {
         instance = this;
-        Buffer.y = SongButtonPrefab.GetComponent<RectTransform>().rect.height/3;
+        //Buffer.y = SongButtonPrefab.GetComponent<RectTransform>().rect.height/3;
         TargetPosition = AwayPosition;
     }
 
