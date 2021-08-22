@@ -43,7 +43,10 @@ public class PulloutManager : MonoBehaviour
         {
             if (obj != gameObject)
             {
-                StartCoroutine(obj.GetComponent<PulloutManager>().PutAway(0));
+                if (obj.GetComponent<PulloutManager>())
+                {
+                    StartCoroutine(obj.GetComponent<PulloutManager>().PutAway(0));
+                }
             }
         }
     }
