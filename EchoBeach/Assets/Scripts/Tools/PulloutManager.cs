@@ -9,6 +9,13 @@ public class PulloutManager : MonoBehaviour
     public Vector2 TargetPosition;
     [SerializeField] public bool outAway;
 
+    protected void HardCodeValues()
+    {
+        OutPosition = new Vector2(OutPosition.x, 200);
+        AwayPosition = new Vector2(AwayPosition.x,200);
+        TargetPosition = AwayPosition;
+    }
+
     public virtual void OutOrAway()
     {
         outAway = !outAway;

@@ -18,6 +18,7 @@ public class TaskManager : PulloutManager
     void Start()
     {
         SetupTask();
+        HardCodeValues();
     }
 
     private void Update()

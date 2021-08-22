@@ -20,11 +20,14 @@ public class SearchableDatabaseManager : PulloutManager
     private void Awake()
     {
         instance = this;
+        HardCodeValues();
     }
     void Start()
     {
         PopulateIDs();
-        TargetPosition = AwayPosition;
+        
+        //TargetPosition = AwayPosition;
+        
     }
 
     public override void OutOrAway()

@@ -20,6 +20,8 @@ public class SongManager : PulloutManager
         instance = this;
         //Buffer.y = SongButtonPrefab.GetComponent<RectTransform>().rect.height/3;
         TargetPosition = AwayPosition;
+        HardCodeValues();
+        
     }
 
     public override void OutOrAway()

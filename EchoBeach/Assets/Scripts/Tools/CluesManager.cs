@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class CluesManager : PulloutManager
 {
+
+    private void Start()
+    {
+        HardCodeValues();
+    }
     private void Update()
     {
         transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
