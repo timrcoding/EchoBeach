@@ -13,7 +13,7 @@ public class DeepNetLookupFunctions : MonoBehaviour
         instance = this;
     }
 
-    public static SODeepNetPage ReturnDeepNetLinkToPage(DeepNetLink Link, SODeepNetLookup Data)
+    public static SODeepNetPage ReturnDeepNetLinkToPage(DeepNetLinkName Link, SODeepNetLookup Data)
     {
         return Data.LinkToScriptableDictionary[Link];
     }
@@ -21,5 +21,10 @@ public class DeepNetLookupFunctions : MonoBehaviour
     public static string ReturnFontToString(Font Font, SODeepNetLookup Data)
     {
         return Data.FontToStringsDictionary[Font];
+    }
+
+    public static TMPro.TMP_FontAsset ReturnFontToTMPFont(Font Font, SODeepNetLookup Data)
+    {
+        return Data.FontRefToTMPFontDictionary[Font];
     }
 }

@@ -6,40 +6,21 @@ using TMPro;
 
 public class SongButton : MonoBehaviour
 {
-    private Dictionary<CharacterName, Song> CharacterAndSongDictionary;
+    private DeepNetLinkName MDeepNetLinkName;
+    private Song MSong;
     [SerializeField] private TextMeshProUGUI TMP;
-    private FMODUnity.StudioEventEmitter AudioSource;
+    private Button Button;
+    private Vector3 OriginalPosition;
     void Start()
     {
-        CharacterAndSongDictionary = new Dictionary<CharacterName, Song>();
+        Button = GetComponent<Button>();
     }
 
-    public void SetCharacterAndSong(CharacterName CharName, Song Song)
+    public void SetCharacterAndSong(DeepNetLinkName CharName, Song Song)
     {
-       // CharacterAndSongDictionary.Add(CharName, Song);
-        TMP.text = $"{CharName} : {Song}";
-    }
-
-    //THIS WILL REQUIRE A LOOKUP FOR SONG TO FMOD EVENT
-
-    void SetEmitter()
-    {
-        AudioSource.Event = "";
-    }
-
-    public void PlayEmitter()
-    {
-        AudioSource.Play();
-    }
-    
-    public void PauseEmitter()
-    {
-        //SAVE POSITION
-    }
-
-    public void StopEmitter()
-    {
-        AudioSource.Stop();
+        MSong = Song;
+        MDeepNetLinkName = CharName;
+        TMP.text = $"{StringEnum.GetStringValue(CharName)} : {StringEnum.GetStringValue(Song)}";
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -49,5 +30,18 @@ public class SongButton : MonoBehaviour
             Debug.Log("Trigger Entered");
             SongManager.instance.SwapObjects(gameObject, other.gameObject);
         }
+    }
+
+    public void StorePosition()
+    {
+        Debug.Log("POSITION STORED");
+        OriginalPosition = transform.position;
+    }
+
+     public void PlaySong()
+    {
+        
+        SongManager.instance.PlaySong(MSong);
+        SongManager.instance.TurnUpSong();
     }
 }

@@ -7,14 +7,16 @@ using TMPro;
 public class DeepnetManager : MonoBehaviour
 {
     public static DeepnetManager instance;
-
+    public AccessAtLevel LevelOfAccess;
     //PAGE ELEMENTS
     [SerializeField] private TextMeshProUGUI TMPHeader;
     [SerializeField] private TextMeshProUGUI TMPBody;
+    [SerializeField] private Image Background;
     [SerializeField] private Image BackgroundPattern;
     [SerializeField] private Transform LinkParent;
     [SerializeField] private GameObject LinkButtonPrefab;
     [SerializeField] private Scrollbar Scrollbar;
+    [SerializeField] private ScrollRect ScrollRect;
 
     private void Awake()
     {
@@ -22,34 +24,49 @@ public class DeepnetManager : MonoBehaviour
     }
     void Start()
     {
-        LoadPageText(DeepNetLink.EllaHome);
+        LoadPageText(DeepNetLinkName.EllaNella);
     }
 
-    public void LoadPageText(DeepNetLink DeepNetLink)
+    public void LoadPageText(DeepNetLinkName DeepNetLink)
     {
         //Get Page
         SODeepNetPage Page = DeepNetLookupFunctions.ReturnDeepNetLinkToPage(DeepNetLink, DeepNetLookupFunctions.instance.MSODeepNetLookup);
         if (Page != null)
         {
             //Set Background
+            Background.color = Page.BackgroundColor;
+
             BackgroundPattern.sprite = Page.BackgroundPattern;
             //Add header text
-            TMPHeader.text = Page.HeaderText;
+            TMPHeader.text = StringEnum.GetStringValue(DeepNetLink);
             //Read textasset and write body text
+            TMPHeader.font = DeepNetLookupFunctions.ReturnFontToTMPFont(Page.Font, DeepNetLookupFunctions.instance.MSODeepNetLookup);
             TMPBody.text = "";
-            TMPBody.text += '\n';
+            TMPBody.text += '\n' + '\n';
             TMPBody.text += Page.BodyText;
-            Scrollbar.value = 0;
+            CreateLinks(Page);
+            ScrollToTop(ScrollRect);
+            if (Page.Song != Song.INVALID && !SongManager.instance.SongTracklist.Contains(Page.Song))
+            {
+                SongManager.instance.AddSong(DeepNetLink, Page.Song);
+                SongManager.instance.PutOut();
+            }
         }
         else
         {
             Debug.Log("DeepNet Page Not Set");
         }
-        CreateLinks(Page);
+            MapManager.instance.ActivateMapElement(DeepNetLink);
+    }
+
+    public void ScrollToTop(ScrollRect scrollRect)
+    {
+        scrollRect.normalizedPosition = new Vector2(0, 1);
     }
 
     public void CreateLinks(SODeepNetPage DeepNetPage)
     {
+
         //Destroy all existing links
         for(int i = 0; i < LinkParent.transform.childCount; i++)
         {
@@ -58,14 +75,17 @@ public class DeepnetManager : MonoBehaviour
 
         SODeepNetPage Page = DeepNetPage;
         //Setup Buttons
-        foreach (DeepNetLink Link in Page.DeepNetLinks) 
+        foreach (DeepNetLinkToLevel Link in Page.DeepNetLinksAndLevelsOfAccess) 
         {
             GameObject LinkButton = Instantiate(LinkButtonPrefab);
             LinkButton.transform.SetParent(LinkParent);
             LinkButton.transform.localScale = Vector3.one;
             LinkButton.GetComponent<LinkButton>().SetDeepNetLink(Link);
+            Debug.Log("LinksCreated");
         }
     }
+
+    
 
 
 

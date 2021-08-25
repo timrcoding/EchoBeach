@@ -8,6 +8,7 @@ public class PulloutManager : MonoBehaviour
     [SerializeField] protected Vector2 AwayPosition;
     public Vector2 TargetPosition;
     [SerializeField] public bool outAway;
+    [SerializeField] private bool DontChangeSibling;
 
     protected void HardCodeValues()
     {
@@ -22,7 +23,10 @@ public class PulloutManager : MonoBehaviour
         if (outAway)
         {
             TargetPosition = OutPosition;
-            transform.SetSiblingIndex(transform.parent.childCount);
+            if (!DontChangeSibling)
+            {
+                transform.SetSiblingIndex(transform.parent.childCount);
+            }
         }
         else
         {

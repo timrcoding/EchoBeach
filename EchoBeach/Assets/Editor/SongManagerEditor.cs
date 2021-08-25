@@ -15,7 +15,7 @@ public class SongManagerEditor : Editor
 
         if (GUILayout.Button("AddSong"))
         {
-            songManager.AddSong(CharacterName.EllaNella,Song.TurnTheHands,1);
+           // songManager.AddSong(CharacterName.EllaNella,Song.TurnTheHands,1);
         }
     }
 }

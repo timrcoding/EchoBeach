@@ -40,10 +40,12 @@ public class DrumMachine : PulloutManager
         {
             StartedOrStopped = true;
             StartCoroutine(PlayDrumLoop());
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Mute", 1);
         }
         else
         {
             StartedOrStopped = false;
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Mute", 0);
         }
     }
 

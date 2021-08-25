@@ -6,15 +6,19 @@ using UnityEngine;
 public class SODeepNetLookup : ScriptableObject
 {
     public List<LinkToScriptableObject> LinkToScriptableObjects;
-    public Dictionary<DeepNetLink, SODeepNetPage> LinkToScriptableDictionary;
+    public Dictionary<DeepNetLinkName, SODeepNetPage> LinkToScriptableDictionary;
 
     public List<FontToString> FontToStrings;
     public Dictionary<Font, string> FontToStringsDictionary;
 
+    public List<FontToFont> FontRefToTMPFont;
+    public Dictionary<Font, TMPro.TMP_FontAsset> FontRefToTMPFontDictionary;
+
     private void OnEnable()
     {
-        LinkToScriptableDictionary = new Dictionary<DeepNetLink, SODeepNetPage>();
+        LinkToScriptableDictionary = new Dictionary<DeepNetLinkName, SODeepNetPage>();
         FontToStringsDictionary = new Dictionary<Font, string>();
+        FontRefToTMPFontDictionary = new Dictionary<Font, TMPro.TMP_FontAsset>();
 
         foreach(LinkToScriptableObject LObj in LinkToScriptableObjects)
         {
@@ -25,13 +29,18 @@ public class SODeepNetLookup : ScriptableObject
         {
             FontToStringsDictionary.Add(FToStr.Font,FToStr.String);
         }
+
+        foreach(FontToFont FToF in FontRefToTMPFont)
+        {
+            FontRefToTMPFontDictionary.Add(FToF.Font, FToF.FontAsset);
+        }
     }
 }
 
 [System.Serializable]
 public struct LinkToScriptableObject
 {
-    public DeepNetLink DeepNetLink;
+    public DeepNetLinkName DeepNetLink;
     public SODeepNetPage SODeepNetPage;
 }
 
@@ -40,4 +49,11 @@ public struct FontToString
 {
     public Font Font;
     public string String;
+}
+
+[System.Serializable]
+public struct FontToFont
+{
+    public Font Font;
+    public TMPro.TMP_FontAsset FontAsset;
 }

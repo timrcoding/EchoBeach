@@ -55,6 +55,6 @@ public class MusicianTemplate : BaseTemplate
 
     public void AddSongToPlaylist()
     {
-       SongManager.instance.AddSong(MCharacterName, MSong);
+      // SongManager.instance.AddSong(MCharacterName, MSong);
     }
 }

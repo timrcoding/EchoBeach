@@ -19,10 +19,3 @@ public class SOMusician : SOCharacter
     }
 
 }
-public enum Song
-{
-    INVALID,
-    TurnTheHands,
-    Poodles,
-    FoiGrasPourTois,
-}

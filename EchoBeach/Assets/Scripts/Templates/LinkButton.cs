@@ -6,12 +6,12 @@ using TMPro;
 
 public class LinkButton : MonoBehaviour
 {
-    private DeepNetLink DeepNetLink;
+    private DeepNetLinkName DeepNetLink;
+    private bool LinkActive;
     [SerializeField] private TextMeshProUGUI TText;
-    private Button Button;
+    [SerializeField] private Button Button;
     void Start()
     {
-        Button = GetComponent<Button>();
         Button.onClick.AddListener(CreateNewPage);
     }
 
@@ -20,16 +20,38 @@ public class LinkButton : MonoBehaviour
         DeepnetManager.instance.LoadPageText(DeepNetLink);
     }
 
-    public void SetDeepNetLink(DeepNetLink Link)
+    public void SetDeepNetLink(DeepNetLinkToLevel Link)
     {
-        DeepNetLink = Link;
+        DeepNetLink = Link.DeepNetLink;
+        if((int)Link.AccessAtLevel <= (int) DeepnetManager.instance.LevelOfAccess)
+        {
+            LinkActive = true;
+        }
+        else
+        {
+            LinkActive = false;
+        }
         SetText();
     }
 
     void SetText()
     {
         SODeepNetPage Page = DeepNetLookupFunctions.ReturnDeepNetLinkToPage(DeepNetLink, DeepNetLookupFunctions.instance.MSODeepNetLookup);
-        TText.text = Page.LinkTitleForButton;
+        foreach(char c in DeepNetLink.ToString())
+        {
+            TText.text += c;
+            if (char.IsUpper(c))
+            {
+                TText.text += "_";
+            }
+        }
+        TText.text = DeepNetLink.ToString();//Page.LinkTitleForButton;
+        if (!LinkActive)
+        {
+            Button.interactable = false;
+            TText.fontStyle = TMPro.FontStyles.Strikethrough;
+        }
+        
     }
 
    

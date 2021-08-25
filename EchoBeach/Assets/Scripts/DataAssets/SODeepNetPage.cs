@@ -1,28 +1,150 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Reflection;
 
 [CreateAssetMenu(fileName = "DeepNetPage", menuName = "ScriptableObjects/DeepNet/DeepNetPage")]
 public class SODeepNetPage : ScriptableObject
 {
-    public string LinkTitleForButton;
-    public string HeaderText;
+   // public string LinkTitleForButton;
+   // public string HeaderText;
+    public Color BackgroundColor;
     public Sprite BackgroundPattern;
     public Font Font;
+    [Multiline(20)]
     public string BodyText;
-    public List<DeepNetLink> DeepNetLinks;
+    public List<DeepNetLinkToLevel> DeepNetLinksAndLevelsOfAccess;
+    public Song Song;
+}
+
+[System.Serializable]
+public struct DeepNetLinkToLevel
+{
+    public DeepNetLinkName DeepNetLink;
+    public AccessAtLevel AccessAtLevel;
 }
 
 public enum Font
 {
     INVALID,
     Londrina,
-    Future,
+    Klee,
+    FutureLight,
 }
 
-public enum DeepNetLink
+public enum DeepNetLinkName
 {
     INVALID,
-    EllaHome,
-    AdrianHome,
+    [StringValue("Ella Nella")]
+    EllaNella,
+    [StringValue("Wronguns")]
+    WrongUns,
+    [StringValue("Future Perfect")]
+    FuturePerfect,
+    [StringValue("Davey Moon")]
+    DaveyMoon,
+    [StringValue("Lady Jane")]
+    LadyJane,
+    [StringValue("Smoking Elvis")]
+    SmokingElvis,
+    [StringValue("Simple Simon")]
+    SimpleSimon,
+    [StringValue("Boyfriend Sweater")]
+    BoyfriendSweater,
+    [StringValue("Sad Girl Tik Tok")]
+    SadGirlTikTok,
+    [StringValue("Grey Gardner")]
+    GreyGardner,
+    [StringValue("Blantano")]
+    Blantano,
+    [StringValue("Baby Bell")]
+    BabyBell,
+    [StringValue("Girlfriend Smirlfriend")]
+    GirlfriendSmirlfriend,
+    [StringValue("Sunburnt County")]
+    SunburntCounty,
+    [StringValue("Viley Curt")]
+    VileyCurt,
+    [StringValue("Adrian")]
+    Adrian,
+    [StringValue("Oodles Of Poodles")]
+    OodlesOfPoodles,
+    [StringValue("Danzig Ostrifier")]
+    DanzigOstrifier,
+    [StringValue("A Felt Mountain")]
+    AFeltMountain,
+    [StringValue("Buried Pleasures")]
+    BuriedPleasures,
+    [StringValue("Chuck & Steven")]
+    ChuckAndSteven,
+    [StringValue("Unleashed Collier")]
+    UnleashedCollier,
+    [StringValue("Twelve Tone Moan")]
+    TwelveToneMoan,
+    [StringValue("Cornell's Kernels")]
+    CornellsKernels,
+    [StringValue("Mealy Adam")]
+    MealyAdam,
+    [StringValue("Shit Parade")]
+    ShitParade,
+    [StringValue("Slick Rick")]
+    SlickRick,
+}
+
+public enum AccessAtLevel
+{
+    One,
+    Two,
+    Three,
+    Four,
+    Five,
+    Six,
+    Seven,
+    Eight,
+    Nine,
+    Ten,
+    INVALID,
+
+}
+public class StringValue : System.Attribute
+{
+    private readonly string _value;
+
+    public StringValue(string value)
+    {
+        _value = value;
+    }
+
+    public string Value
+    {
+        get { return _value; }
+    }
+
+}
+
+public static class StringEnum
+{
+    public static string GetStringValue(Enum value)
+    {
+        string output = null;
+        Type type = value.GetType();
+
+        //Check first in our cached results...
+
+        //Look for our 'StringValueAttribute' 
+
+        //in the field's custom attributes
+
+        FieldInfo fi = type.GetField(value.ToString());
+        StringValue[] attrs =
+           fi.GetCustomAttributes(typeof(StringValue),
+                                   false) as StringValue[];
+        if (attrs.Length > 0)
+        {
+            output = attrs[0].Value;
+        }
+
+        return output;
+    }
 }
