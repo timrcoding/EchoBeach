@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Runtime.InteropServices;
 using System;
+using TMPro;
+
 
 
 public enum Song
@@ -40,12 +42,15 @@ public class SongManager : PulloutManager
     public bool SequenceOrShuffle;
     public int SongIndexSelection;
 
-
+    [SerializeField] private LyricManager LyricManager;
     FMOD.Studio.EventInstance musicInstance;
     FMOD.Studio.EventDescription TimeLineDesc;
     [SerializeField] private Slider Slider;
     bool CanMoveSlider;
     int TimeLineLength;
+
+    //LYRICS
+    [SerializeField] private TextMeshProUGUI LyricText;
 
     private void Awake()
     {
@@ -53,16 +58,23 @@ public class SongManager : PulloutManager
     }
     void Start()
     {
+        LyricManager = GetComponent<LyricManager>();
         TargetPosition = AwayPosition;
         HardCodeValues();
         
     }
+
+    #region Manager Setup
 
     public override void OutOrAway()
     {
         base.OutOrAway();
         PutAwayMutuallyExclusiveObjects("MutualPullout");
     }
+
+    #endregion
+
+    #region Song Playback
 
     public void SetRadioOrMusic()
     {
@@ -184,6 +196,7 @@ public class SongManager : PulloutManager
             StartCoroutine(CheckSongIsPlaying());
             musicInstance = FMODUnity.RuntimeManager.CreateInstance(evt);
             musicInstance.start();
+            LyricManager.AssignBeatEvent(musicInstance);
             SetTimeLineSpecs();
         }
     }
@@ -210,17 +223,9 @@ public class SongManager : PulloutManager
         }
     }
 
-    private void Update()
-    {
-        foreach (PositionToObjectInList posObj in PositionToObjectInLists)
-        {
-            Vector3 pos = posObj.Object.transform.localPosition;
-            posObj.Object.transform.localPosition = Vector3.Lerp(pos, posObj.Position, .1f);  
-        }
-        transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
+#endregion
 
-        GetTimeLineTime();
-    }
+    #region SongSetup;
 
     public void SwapObjects(GameObject obj, GameObject objOther)
     {
@@ -249,6 +254,38 @@ public class SongManager : PulloutManager
     {
         float ButtonYBounds = SongButtonPrefab.GetComponent<RectTransform>().rect.height;
         PositionToObjectInLists.Add(new PositionToObjectInList(new Vector2(Buffer.x, -Buffer.y - ButtonYBounds * PositionToObjectInLists.Count), Obj));
+    }
+
+    #endregion
+
+    #region Lyrics
+
+    public void SetLyrics(string LyricLine)
+    {
+        LyricText.text = LyricLine;
+        StartCoroutine(StartSet(LyricLine.Length));
+        IEnumerator StartSet(int num)
+        {
+            for (int i = 0; i <= num; i++)
+            {
+               LyricText.maxVisibleCharacters = i;
+               yield return new WaitForSeconds(.05f);
+            }
+        }
+    }
+
+    #endregion
+
+    private void Update()
+    {
+        foreach (PositionToObjectInList posObj in PositionToObjectInLists)
+        {
+            Vector3 pos = posObj.Object.transform.localPosition;
+            posObj.Object.transform.localPosition = Vector3.Lerp(pos, posObj.Position, .1f);
+        }
+        transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
+
+        GetTimeLineTime();
     }
 }
 
