@@ -12,8 +12,8 @@ public class PulloutManager : MonoBehaviour
 
     protected void HardCodeValues()
     {
-        OutPosition = new Vector2(OutPosition.x, 300);
-        AwayPosition = new Vector2(AwayPosition.x,300);
+        OutPosition = new Vector2(-850, 300);
+        AwayPosition = new Vector2(-1450,300);
         TargetPosition = AwayPosition;
     }
 

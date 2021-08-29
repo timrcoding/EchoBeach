@@ -8,13 +8,22 @@ public class MapManager : PulloutManager
     public static MapManager instance;
 
     [SerializeField] public Dictionary<DeepNetLinkName, GameObject> MapElementDictionary;
-    [SerializeField] public List<Toggle> ListOfToggles;
+    public List<Toggle> ListOfToggles;
 
     private void Awake()
     {
         instance = this;
         MapElementDictionary = new Dictionary<DeepNetLinkName, GameObject>();
         CompileDictionary();
+    }
+
+    public override void OutOrAway()
+    {
+        base.OutOrAway();
+        if (outAway)
+        {
+            PutAwayMutuallyExclusiveObjects("MutualPullout");
+        }
     }
     private void Update()
     {

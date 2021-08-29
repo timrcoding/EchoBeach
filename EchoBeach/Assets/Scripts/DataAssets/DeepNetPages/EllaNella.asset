@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac727c45768077b4bbf9b590a13eeba7, type: 3}
   m_Name: EllaNella
   m_EditorClassIdentifier: 
-  BackgroundColor: {r: 0.7137255, g: 1, b: 0.57254905, a: 1}
+  BackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   BackgroundPattern: {fileID: 21300000, guid: ac9f347b33172854b9613421c4442666, type: 3}
   Font: 3
   BodyText: "\n\nInside the flat a fruity voice was reading out a list of figures

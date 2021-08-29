@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class DeepnetManager : MonoBehaviour
 {
@@ -18,18 +19,48 @@ public class DeepnetManager : MonoBehaviour
     [SerializeField] private Scrollbar Scrollbar;
     [SerializeField] private ScrollRect ScrollRect;
 
+    [SerializeField] private Material CoverScreenMaterial;
+
     private void Awake()
     {
         instance = this;
     }
     void Start()
     {
+        StartCoroutine(LoadInitialPage());
+    }
+
+
+    IEnumerator LoadInitialPage()
+    {
+        yield return new WaitForSeconds(Time.deltaTime);
+        
         LoadPageText(DeepNetLinkName.EllaNella);
     }
 
+    void CoverPage()
+    {
+        CoverScreenMaterial.SetFloat("_Fade", 1);
+        StartCoroutine(ChangeMat());
+    }
+
+    IEnumerator ChangeMat()
+    {
+        // Debug.Log("RUN");
+        yield return new WaitForSeconds(Time.deltaTime);
+        float fadeVal = CoverScreenMaterial.GetFloat("_Fade");
+        if (fadeVal > 0)
+        {
+            float alph = CoverScreenMaterial.GetFloat("_Fade") - (2 * Time.deltaTime);
+            CoverScreenMaterial.SetFloat("_Fade", alph);
+            StartCoroutine(ChangeMat());
+        }
+    }
+
+
     public void LoadPageText(DeepNetLinkName DeepNetLink)
     {
-        //Get Page
+        CoverPage();
         SODeepNetPage Page = DeepNetLookupFunctions.ReturnDeepNetLinkToPage(DeepNetLink, DeepNetLookupFunctions.instance.MSODeepNetLookup);
         if (Page != null)
         {

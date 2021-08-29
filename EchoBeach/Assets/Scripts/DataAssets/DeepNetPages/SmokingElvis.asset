@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac727c45768077b4bbf9b590a13eeba7, type: 3}
   m_Name: SmokingElvis
   m_EditorClassIdentifier: 
-  LinkTitleForButton: WrongUns
-  HeaderText: WrongUns
-  BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  BackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   BackgroundPattern: {fileID: 21300000, guid: 8925d45f02633a84299d53d4c11b6047, type: 3}
   Font: 1
   BodyText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
@@ -76,3 +74,4 @@ MonoBehaviour:
     AccessAtLevel: 0
   - DeepNetLink: 10
     AccessAtLevel: 2
+  Song: 0

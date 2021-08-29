@@ -49,6 +49,9 @@ public class SongManager : PulloutManager
     bool CanMoveSlider;
     int TimeLineLength;
 
+    [SerializeField] private Song TrickSong;
+    [SerializeField] private int TrickSongStartOffset = 5000;
+
     //LYRICS
     [SerializeField] private TextMeshProUGUI LyricText;
 
@@ -196,6 +199,10 @@ public class SongManager : PulloutManager
             StartCoroutine(CheckSongIsPlaying());
             musicInstance = FMODUnity.RuntimeManager.CreateInstance(evt);
             musicInstance.start();
+            if(Song == TrickSong)
+            {
+                musicInstance.setTimelinePosition(TrickSongStartOffset);
+            }
             LyricManager.AssignBeatEvent(musicInstance);
             SetTimeLineSpecs();
         }
