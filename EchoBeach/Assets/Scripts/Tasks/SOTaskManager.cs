@@ -11,5 +11,5 @@ public class SOTaskManager : ScriptableObject
 [System.Serializable]
 public struct Task
 {
-    public List<CharacterName> CharacterName;
+    public List<DeepNetLinkName> CharacterName;
 }

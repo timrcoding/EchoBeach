@@ -58,13 +58,11 @@ public class SongManager : PulloutManager
     private void Awake()
     {
         instance = this;
+        HardCodeValues();
     }
     void Start()
     {
-        LyricManager = GetComponent<LyricManager>();
-        TargetPosition = AwayPosition;
-        HardCodeValues();
-        
+        LyricManager = GetComponent<LyricManager>(); 
     }
 
     #region Manager Setup
@@ -72,7 +70,6 @@ public class SongManager : PulloutManager
     public override void OutOrAway()
     {
         base.OutOrAway();
-        PutAwayMutuallyExclusiveObjects("MutualPullout");
     }
 
     #endregion
@@ -84,7 +81,6 @@ public class SongManager : PulloutManager
         if (RadioToggle.isOn)
         {
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Volume", 1);
-            Debug.Log("SET");
         }
         else
         {
@@ -227,6 +223,7 @@ public class SongManager : PulloutManager
             SongTracklist.Add(Song);
             AddToList(NewSongButton);
             SongButtons.Add(NewSongButton);
+            TabManager.instance.SetTab(TabManager.instance.ReturnButton(GetComponent<PulloutManager>()),true);
         }
     }
 
@@ -290,7 +287,7 @@ public class SongManager : PulloutManager
             Vector3 pos = posObj.Object.transform.localPosition;
             posObj.Object.transform.localPosition = Vector3.Lerp(pos, posObj.Position, .1f);
         }
-        transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
+      //  transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
 
         GetTimeLineTime();
     }

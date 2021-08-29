@@ -5,17 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Musician", menuName = "ScriptableObjects/Character/Musician")]
 public class SOMusician : SOCharacter
 {
-    //BASIC
-
-    public Sprite CharacterAvatar;
-    public string AboutMeText;
-    public List<CharacterName> FriendList;
-    public Song Song;
-
-    //FUNCTIONS
-    public Sprite ReturnImage()
-    {
-        return CharacterAvatar;
-    }
 
 }

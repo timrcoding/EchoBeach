@@ -18,16 +18,23 @@ public class AnswerArea : MonoBehaviour
     private void Start()
     {
         ClearField();
+        SetArtistName();
     }
     public void SetCharacter(CharacterName CharName)
     {
         CharacterName = CharName;
     }
 
+
+    void SetArtistName()
+    {
+        TMPArtistName.text = StringEnum.GetStringValue(CharacterName);
+    }
+ 
     public void SetCharacterID(CharacterID CharID)
     {
         MCharacterID = CharID;
-        TMPRealName.text = $"AKA: {MCharacterID.MRNameStr}";
+        TMPRealName.text = $"AKA: {MCharacterID.RealNameString}";
         CheckForCorrect();
         BackgroundImage.color = OriginalColor;
     }

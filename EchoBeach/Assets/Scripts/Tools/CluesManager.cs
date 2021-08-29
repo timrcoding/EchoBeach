@@ -5,13 +5,9 @@ using UnityEngine;
 public class CluesManager : PulloutManager
 {
 
-    private void Start()
+    private void Awake()
     {
         HardCodeValues();
-    }
-    private void Update()
-    {
-        transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
     }
 
     public override void OutOrAway()

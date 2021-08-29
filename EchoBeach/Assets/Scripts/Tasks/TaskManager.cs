@@ -14,38 +14,32 @@ public class TaskManager : PulloutManager
     private void Awake()
     {
         instance = this;
+        HardCodeValues();
     }
     void Start()
     {
         SetupTask();
-        HardCodeValues();
-    }
-
-    private void Update()
-    {
-        transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
     }
 
     public override void OutOrAway()
     {
         base.OutOrAway();
-        PutAwayMutuallyExclusiveObjects("MutualPullout");
     }
 
     public void CountdownToPutAway()
     {
-        StartCoroutine(PutAway(15));
+     
     }
 
     public void SetupTask()
     {
         var CurrentTask = SOTasks.Tasks[TaskNumber];
-        foreach(CharacterName CharName in CurrentTask.CharacterName)
+        foreach(CharacterName Character in CurrentTask.CharacterName)
         {
             GameObject NewAnswerArea = Instantiate(TaskAnswerAreaPrefab);
             NewAnswerArea.transform.SetParent(AnswerAreaParent);
             NewAnswerArea.transform.localScale = Vector3.one;
-            NewAnswerArea.GetComponent<AnswerArea>().SetCharacter(CharName);
+            NewAnswerArea.GetComponent<AnswerArea>().SetCharacter(Character);
         }
     }
 }

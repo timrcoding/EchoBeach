@@ -36,7 +36,7 @@ public class ChordManager : PulloutManager
 
     private void Update()
     {
-        transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
+       // transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
     }
 
     private void Start()

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TaskManager
   m_EditorClassIdentifier: 
   Tasks:
-  - CharacterName: 010000000200000003000000
+  - CharacterName: 01000000020000000a000000
   - CharacterName: 

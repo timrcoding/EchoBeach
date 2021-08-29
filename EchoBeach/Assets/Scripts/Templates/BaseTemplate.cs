@@ -26,22 +26,7 @@ public class BaseTemplate : MonoBehaviour
 
     public virtual void SetParameters()
     {
-        AllObjects = gameObject.GetComponentsInChildren<Transform>();
-        SortObjectsByTag();
-
-        Background.color = DataResources.ReturnRefToCol(MScriptableObject.BackgroundColor, DataResources.instance.GetCharacterPrefabData);
-
-        foreach(Image button in Buttons)
-        {
-            button.color = DataResources.ReturnRefToCol(MScriptableObject.ButtonColor, DataResources.instance.GetCharacterPrefabData);
-        }
-
-        foreach(var text in TextElements)
-        {
-            text.color = DataResources.ReturnRefToCol(MScriptableObject.TextColor, DataResources.instance.GetCharacterPrefabData);
-        }
-
-        createLinks();
+     
     }
 
     void SortObjectsByTag()
@@ -65,12 +50,6 @@ public class BaseTemplate : MonoBehaviour
 
     void createLinks()
     {
-        foreach(Link link in MScriptableObject.LinkList)
-        {
-            GameObject button = Instantiate(LinkButtonPrefab);
-            button.transform.SetParent(LinksBox);
-            button.transform.localScale = Vector3.one;
-           // button.GetComponent<LinkButton>().SetLink(link);
-        }
+
     }
 }

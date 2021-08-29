@@ -11,7 +11,7 @@ public class CharIDButton : MonoBehaviour
     public void SetCharacterName(CharacterID CharID,IdentType IDType)
     {
         CharacterID = CharID;
-        TMP.text = CharacterID.MRNameStr;
+        TMP.text = CharacterID.RealNameString;
         TMPIdent.text = IDType.ToString();
     }
 

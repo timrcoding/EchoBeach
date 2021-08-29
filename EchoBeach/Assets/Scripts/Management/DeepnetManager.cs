@@ -30,7 +30,6 @@ public class DeepnetManager : MonoBehaviour
         StartCoroutine(LoadInitialPage());
     }
 
-
     IEnumerator LoadInitialPage()
     {
         yield return new WaitForSeconds(Time.deltaTime);
@@ -80,7 +79,7 @@ public class DeepnetManager : MonoBehaviour
             if (Page.Song != Song.INVALID && !SongManager.instance.SongTracklist.Contains(Page.Song))
             {
                 SongManager.instance.AddSong(DeepNetLink, Page.Song);
-                SongManager.instance.PutOut();
+                
             }
         }
         else
@@ -112,12 +111,6 @@ public class DeepnetManager : MonoBehaviour
             LinkButton.transform.SetParent(LinkParent);
             LinkButton.transform.localScale = Vector3.one;
             LinkButton.GetComponent<LinkButton>().SetDeepNetLink(Link);
-            Debug.Log("LinksCreated");
         }
     }
-
-    
-
-
-
 }

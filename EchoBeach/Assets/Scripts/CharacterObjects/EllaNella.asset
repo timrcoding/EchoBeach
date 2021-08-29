@@ -14,18 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterCategory: 1
   CharacterName: 1
-  CharacterNameText: Ella Nella
-  BackgroundColor: 4
-  ButtonColor: 10
-  TextColor: 3
-  LinkList:
-  - LinkName: Mingbastad
-    Character: 2
-  CharacterPageTemplateType: 1
   RealName: 1
   Address: 1
   DateOfBirth: 1
-  CharacterAvatar: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  AboutMeText: Just a fun loving Girl
-  FriendList: 02000000
-  Song: 1
+  Pet: 1

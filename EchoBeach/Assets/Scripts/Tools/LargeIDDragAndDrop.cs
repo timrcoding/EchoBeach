@@ -5,7 +5,7 @@ using UnityEngine;
 public class LargeIDDragAndDrop : DragAndDrop
 {
     public float FullSizeScale = 1;
-    public float ShrunkScale = .5f;
+    public float ShrunkScale = .3f;
     public float TargetScale;
     public int LerpScaler = 5;
     public bool TransferToAnswers;
@@ -23,7 +23,6 @@ public class LargeIDDragAndDrop : DragAndDrop
     void Update()
     {
         SetMove();
-        transform.localScale = Vector3.Lerp(transform.localScale,new Vector3(TargetScale, TargetScale, 0),Time.deltaTime * LerpScaler);
         if(!CanShrinkOnce && Vector2.Distance(transform.position,OriginalPosition) > .5f)
         {
             ShrinkCard();
@@ -52,9 +51,9 @@ public class LargeIDDragAndDrop : DragAndDrop
         base.StartDrag();
         transform.SetParent(TableContentsManager.instance.TableCardsParent);
         transform.SetSiblingIndex(transform.parent.childCount);
+        SearchableDatabaseManager.instance.PutAway();
         TaskManager.instance.PutOut();
-        TaskManager.instance.PutAwayMutuallyExclusiveObjects("MutualPullout");
-        StartCoroutine(TaskManager.instance.PutAway(12));
+
     }
 
     public override void StopDrag()
@@ -63,18 +62,18 @@ public class LargeIDDragAndDrop : DragAndDrop
         if (TransferToAnswers)
         {
             AnswerArea.GetComponent<AnswerArea>().SetCharacterID(GetComponent<LargeID>().CharacterID);
-            DestroyObject();
+            LeanTween.scale(gameObject, Vector3.zero, .3f).setEaseInOutBack().setOnComplete(DestroyObject);
         }
     }
 
     void ShrinkCard()
     {
-        TargetScale = ShrunkScale; 
+        LeanTween.scale(gameObject,new Vector3(ShrunkScale,ShrunkScale,0),.3f);
     }
 
     void ExpandCard()
     {
-        TargetScale = FullSizeScale;
+        LeanTween.scale(gameObject, new Vector3(FullSizeScale, FullSizeScale, 0), .3f);
     }
 
     public void DestroyObject()

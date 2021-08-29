@@ -10,19 +10,21 @@ public class LargeID : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TMPName;
     [SerializeField] private TextMeshProUGUI TMPDOB;
     [SerializeField] private TextMeshProUGUI TMPAddress;
+    [SerializeField] private TextMeshProUGUI TMPPet;
 
     public void SetCharacterID(CharacterID CharID)
     {
         CharacterID = CharID;
-        gameObject.name = CharID.MRNameStr;
+        gameObject.name = CharID.RealNameString;
         SetText();
     }
 
     void SetText()
     {
-        TMPName.text = $"NAME: {CharacterID.MRNameStr}";
-        TMPDOB.text = $"DOB: {CharacterID.MDobString}";
-        TMPAddress.text = $"ADDRESS: {CharacterID.MAddressStr}";
+        TMPName.text = $"NAME: {CharacterID.RealNameString}";
+        TMPDOB.text = $"DOB: {CharacterID.DOBString}";
+        TMPAddress.text = $"ADDRESS: {CharacterID.AddressString}";
+        TMPPet.text = $"PET: {CharacterID.PetString}";
     }
 
 

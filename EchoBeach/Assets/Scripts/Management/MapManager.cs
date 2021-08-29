@@ -8,6 +8,7 @@ public class MapManager : PulloutManager
     public static MapManager instance;
 
     [SerializeField] public Dictionary<DeepNetLinkName, GameObject> MapElementDictionary;
+    [HideInInspector]
     public List<Toggle> ListOfToggles;
 
     private void Awake()
@@ -27,7 +28,7 @@ public class MapManager : PulloutManager
     }
     private void Update()
     {
-        transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
+    
     }
 
     public void ActivateMapElement(DeepNetLinkName DeepNetLink)

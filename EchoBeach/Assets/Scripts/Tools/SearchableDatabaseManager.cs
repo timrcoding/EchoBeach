@@ -25,9 +25,6 @@ public class SearchableDatabaseManager : PulloutManager
     void Start()
     {
         PopulateIDs();
-        
-        //TargetPosition = AwayPosition;
-        
     }
 
     public override void OutOrAway()
@@ -47,10 +44,6 @@ public class SearchableDatabaseManager : PulloutManager
         }        
     }
 
-    private void Update()
-    {
-        transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
-    }
 
     public void DisplayIDsOnSearch()
     {
@@ -69,12 +62,13 @@ public class SearchableDatabaseManager : PulloutManager
 
         foreach (CharacterID CharID in CharacterIDs)
         {
-            SearchForMatch(Input, CharID.MRNameStr, TempCharacterList, CharID,IdentType.Name);
-            SearchForMatch(Input, CharID.MDobString, TempCharacterList, CharID,IdentType.DOB);
-            SearchForMatch(Input, CharID.MAddressStr, TempCharacterList, CharID,IdentType.Address);
+            SearchForMatch(Input, CharID.RealNameString, TempCharacterList, CharID,IdentType.Name);
+            SearchForMatch(Input, CharID.DOBString, TempCharacterList, CharID,IdentType.DOB);
+            SearchForMatch(Input, CharID.AddressString, TempCharacterList, CharID,IdentType.Address);
+            SearchForMatch(Input, CharID.PetString, TempCharacterList, CharID,IdentType.Pet);
         }
         //ORDER ALPHABETICALLY
-        TempCharacterList = TempCharacterList.OrderBy(x => x.CharacterID.MRNameStr).ToList();
+        TempCharacterList = TempCharacterList.OrderBy(x => x.CharacterID.RealNameString).ToList();
         //CREATE BUTTONS
         foreach(var ID in TempCharacterList)
         {
@@ -87,7 +81,9 @@ public class SearchableDatabaseManager : PulloutManager
 
     void SearchForMatch(string Input, string SearchTerm, List<CharIDAndIdent> CharIdList, CharacterID CharID, IdentType IDType)
     {
-        if (SearchTerm.StartsWith(Input.ToUpper()))
+        string ConvertedSearch = SearchTerm.ToUpper();
+
+        if (ConvertedSearch.StartsWith(Input.ToUpper()))
         {
             if (Input != "")
             {
@@ -130,24 +126,24 @@ public class CharacterID
     public CharacterName MCharacterName;
     public RealName MRName;
     [HideInInspector]
-    public string MRNameStr;
+    public string RealNameString;
     public DOB MDob;
     [HideInInspector]
-    public string MDobString;
+    public string DOBString;
     public Address MAddress;
     [HideInInspector]
-    public string MAddressStr;
+    public string AddressString;
+    public Pet Pet;
+    [HideInInspector]
+    public string PetString;
 
     void SetNameAndAddress()
     {
         SOCharacter SoChar = DataResources.ReturnChToSo(MCharacterName, DataResources.instance.GetCharacterPrefabData);
-        MRName = SoChar.RealName;
-        MAddress = SoChar.Address;
-        MDob = SoChar.DateOfBirth;
-
-        MRNameStr = DataResources.ReturnRealNameToStr(MRName, DataResources.instance.GetCharacterPrefabData);
-        MDobString = DataResources.ReturnDOBToStr(MDob, DataResources.instance.GetCharacterPrefabData);
-        MAddressStr = DataResources.ReturnAddrToStr(MAddress, DataResources.instance.GetCharacterPrefabData);
+        RealNameString = StringEnum.GetStringValue(SoChar.RealName);
+        DOBString = StringEnum.GetStringValue(SoChar.DateOfBirth);
+        AddressString = StringEnum.GetStringValue(SoChar.Address);
+        PetString = StringEnum.GetStringValue(SoChar.Pet);
     }
 }
 

@@ -19,50 +19,8 @@ MonoBehaviour:
     ScriptableObject: {fileID: 11400000, guid: 78a078d85938a694eb32167773412928, type: 2}
   - CharacterName: 3
     ScriptableObject: {fileID: 11400000, guid: 1598b29bb8e65a645aff646f0aac2958, type: 2}
-  TemplateTypeToTemplatePrefabLookups:
-  - CharacterPageTemplateType: 1
-    CharacterPagePrefab: {fileID: 6304894569722408474, guid: 2f3c32f7cfed5a74ea84ef3328c2459f, type: 3}
-  ColorLookups:
-  - CharacterColor: 1
-    ColorRef: {r: 0.8396226, g: 0, b: 0, a: 1}
-  - CharacterColor: 2
-    ColorRef: {r: 1, g: 0.39308167, b: 0.39308167, a: 1}
-  - CharacterColor: 3
-    ColorRef: {r: 0.11006278, g: 0.40993375, b: 1, a: 1}
-  - CharacterColor: 4
-    ColorRef: {r: 0.4827933, g: 0.7260937, b: 0.9716981, a: 1}
-  - CharacterColor: 5
-    ColorRef: {r: 0.14390913, g: 0.7830189, b: 0.064020365, a: 1}
-  - CharacterColor: 6
-    ColorRef: {r: 0.44025153, g: 1, b: 0.52473617, a: 1}
-  - CharacterColor: 7
-    ColorRef: {r: 1, g: 0.9802401, b: 0.38364774, a: 1}
-  - CharacterColor: 8
-    ColorRef: {r: 1, g: 0.6469711, b: 0, a: 1}
-  - CharacterColor: 9
-    ColorRef: {r: 1, g: 0.44025153, b: 0.9511578, a: 1}
-  - CharacterColor: 10
-    ColorRef: {r: 0.6698113, g: 0.0042125667, b: 0.667443, a: 1}
-  - CharacterColor: 11
-    ColorRef: {r: 0.5, g: 0.22496533, b: 0, a: 1}
-  - CharacterColor: 12
-    ColorRef: {r: 1, g: 1, b: 1, a: 1}
-  - CharacterColor: 13
-    ColorRef: {r: 0, g: 0, b: 0, a: 1}
-  RealNameToStrings:
-  - RealName: 1
-    RealNameString: ROSIE JONES
-  - RealName: 2
-    RealNameString: DAVID PRITCHARD
-  - RealName: 3
-    RealNameString: RON COX
-  AddressToStrings:
-  - Address: 1
-    AddressString: RUEBAKER STREET
-  - Address: 2
-    AddressString: HOURGLASS ROAD
-  - Address: 3
-    AddressString: STUDEBAKER MANSIONS
-  DOBToStrings:
-  - DOB: 1
-    DOBString: 10/10/86
+  TemplateTypeToTemplatePrefabLookups: []
+  ColorLookups: []
+  RealNameToStrings: []
+  AddressToStrings: []
+  DOBToStrings: []

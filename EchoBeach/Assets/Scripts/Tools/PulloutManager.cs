@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PulloutManager : MonoBehaviour
 {
-    [SerializeField] protected Vector2 OutPosition;
-    [SerializeField] protected Vector2 AwayPosition;
+    [SerializeField] public Vector2 OutPosition;
+    [SerializeField] public Vector2 AwayPosition;
     public Vector2 TargetPosition;
     [SerializeField] public bool outAway;
     [SerializeField] private bool DontChangeSibling;
@@ -14,7 +14,6 @@ public class PulloutManager : MonoBehaviour
     {
         OutPosition = new Vector2(-850, 300);
         AwayPosition = new Vector2(-1450,300);
-        TargetPosition = AwayPosition;
     }
 
     public virtual void OutOrAway()
@@ -34,17 +33,14 @@ public class PulloutManager : MonoBehaviour
         }
     }
 
-    public IEnumerator PutAway(float seconds)
+    public void PutAway()
     {
-        yield return new WaitForSeconds(seconds);
-        outAway = false;
-        TargetPosition = AwayPosition;
+        LeanTween.moveLocal(gameObject, AwayPosition, .5f).setEaseInOutBack();
     }
 
     public void PutOut()
     {
-        outAway = true;
-        TargetPosition = OutPosition;
+        LeanTween.moveLocal(gameObject, OutPosition, .5f).setEaseInOutBack();
     }
 
     public void PutAwayMutuallyExclusiveObjects(string tag = null)
@@ -56,7 +52,7 @@ public class PulloutManager : MonoBehaviour
             {
                 if (obj.GetComponent<PulloutManager>())
                 {
-                    StartCoroutine(obj.GetComponent<PulloutManager>().PutAway(0));
+                    obj.GetComponent<PulloutManager>().PutAway();
                 }
             }
         }
