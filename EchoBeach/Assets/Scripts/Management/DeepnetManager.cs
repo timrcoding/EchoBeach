@@ -8,7 +8,7 @@ using System.Linq;
 public class DeepnetManager : MonoBehaviour
 {
     public static DeepnetManager instance;
-    public AccessAtLevel LevelOfAccess;
+    public TaskNumber LevelOfAccess;
     //PAGE ELEMENTS
     [SerializeField] private TextMeshProUGUI TMPHeader;
     [SerializeField] private TextMeshProUGUI TMPBody;
@@ -72,8 +72,17 @@ public class DeepnetManager : MonoBehaviour
             //Read textasset and write body text
             TMPHeader.font = DeepNetLookupFunctions.ReturnFontToTMPFont(Page.Font, DeepNetLookupFunctions.instance.MSODeepNetLookup);
             TMPBody.text = "";
-            TMPBody.text += '\n' + '\n';
-            TMPBody.text += Page.BodyText;
+
+            foreach(var Str in Page.StringToLevelOfAccesses)
+            {
+                if((int)Str.TaskNumber <= (int)TaskManager.instance.TaskNumber)
+                {
+                    TMPBody.text += Str.BodyText;
+                    TMPBody.text += '\n';
+                    TMPBody.text += '\n';
+                }
+            }
+            
             CreateLinks(Page);
             ScrollToTop(ScrollRect);
             if (Page.Song != Song.INVALID && !SongManager.instance.SongTracklist.Contains(Page.Song))

@@ -15,22 +15,18 @@ MonoBehaviour:
   BackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   BackgroundPattern: {fileID: 21300000, guid: ac9f347b33172854b9613421c4442666, type: 3}
   Font: 3
-  BodyText: "\n\nInside the flat a fruity voice was reading out a list of figures
-    which had something to do with the production of pig-iron. \r\n\r\nThe voice
-    came from an oblong metal plaque like a dulled mirror which formed part of the
-    surface of the right-hand wall. Winston turned a switch and the voice sank somewhat,
-    though the words were still distinguishable. \r\n\r\nThe instrument (the telescreen,
-    it was called) could be dimmed, but there was no way of shutting it off completely.
-    He moved over to the window: a smallish, frail figure, the meagreness of his
-    body merely emphasized by the blue overalls which were the uniform of the Party.
-    \r\n\r\nHis hair was very fair, his face naturally sanguine, his skin roughened
-    by coarse soap and blunt razor blades and the cold of the winter that had just
-    ended."
+  StringToLevelOfAccesses:
+  - BodyText: Level One
+    TaskNumber: 0
+  - BodyText: Level Two
+    TaskNumber: 1
+  - BodyText: LevelThree
+    TaskNumber: 2
   DeepNetLinksAndLevelsOfAccess:
   - DeepNetLink: 2
-    AccessAtLevel: 0
+    TaskNumber: 0
   - DeepNetLink: 5
-    AccessAtLevel: 0
+    TaskNumber: 0
   - DeepNetLink: 7
-    AccessAtLevel: 0
+    TaskNumber: 0
   Song: 1

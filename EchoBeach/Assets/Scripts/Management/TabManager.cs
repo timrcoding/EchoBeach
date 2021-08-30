@@ -96,6 +96,7 @@ public enum TabType
 {
     INVALID,
     TaskTool,
-    Instrument,
+    DrumMachine,
+    ChordMachine,
     Map,
 }

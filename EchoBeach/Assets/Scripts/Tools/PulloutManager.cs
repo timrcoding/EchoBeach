@@ -41,6 +41,7 @@ public class PulloutManager : MonoBehaviour
     public void PutOut()
     {
         LeanTween.moveLocal(gameObject, OutPosition, .5f).setEaseInOutBack();
+        transform.SetSiblingIndex(transform.parent.childCount);
     }
 
     public void PutAwayMutuallyExclusiveObjects(string tag = null)

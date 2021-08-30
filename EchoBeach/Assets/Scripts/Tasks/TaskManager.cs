@@ -5,11 +5,10 @@ using UnityEngine;
 public class TaskManager : PulloutManager
 {
     public static TaskManager instance;
-
+    public TaskNumber TaskNumber;
     [SerializeField] private SOTaskManager SOTasks;
     [SerializeField] private Transform AnswerAreaParent;
     [SerializeField] private GameObject TaskAnswerAreaPrefab;
-    [SerializeField] int TaskNumber;
 
     private void Awake()
     {
@@ -33,7 +32,7 @@ public class TaskManager : PulloutManager
 
     public void SetupTask()
     {
-        var CurrentTask = SOTasks.Tasks[TaskNumber];
+        var CurrentTask = SOTasks.Tasks[(int)TaskNumber];
         foreach(CharacterName Character in CurrentTask.CharacterName)
         {
             GameObject NewAnswerArea = Instantiate(TaskAnswerAreaPrefab);

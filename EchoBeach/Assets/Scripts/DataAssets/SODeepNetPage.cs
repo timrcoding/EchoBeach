@@ -7,13 +7,10 @@ using System.Reflection;
 [CreateAssetMenu(fileName = "DeepNetPage", menuName = "ScriptableObjects/DeepNet/DeepNetPage")]
 public class SODeepNetPage : ScriptableObject
 {
-   // public string LinkTitleForButton;
-   // public string HeaderText;
     public Color BackgroundColor;
     public Sprite BackgroundPattern;
     public Font Font;
-    [Multiline(20)]
-    public string BodyText;
+    public List<StringToLevelOfAccess> StringToLevelOfAccesses;
     public List<DeepNetLinkToLevel> DeepNetLinksAndLevelsOfAccess;
     public Song Song;
 }
@@ -22,9 +19,15 @@ public class SODeepNetPage : ScriptableObject
 public struct DeepNetLinkToLevel
 {
     public DeepNetLinkName DeepNetLink;
-    public AccessAtLevel AccessAtLevel;
+    public TaskNumber TaskNumber;
 }
-
+[System.Serializable]
+public struct StringToLevelOfAccess
+{
+    [Multiline(20)]
+    public string BodyText;
+    public TaskNumber TaskNumber;
+}
 public enum Font
 {
     INVALID,
@@ -92,7 +95,7 @@ public enum DeepNetLinkName
     SlickRick,
 }
 
-public enum AccessAtLevel
+public enum TaskNumber
 {
     One,
     Two,
@@ -129,13 +132,6 @@ public static class StringEnum
     {
         string output = null;
         Type type = value.GetType();
-
-        //Check first in our cached results...
-
-        //Look for our 'StringValueAttribute' 
-
-        //in the field's custom attributes
-
         FieldInfo fi = type.GetField(value.ToString());
         StringValue[] attrs =
            fi.GetCustomAttributes(typeof(StringValue),

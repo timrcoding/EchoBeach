@@ -23,7 +23,7 @@ public class LinkButton : MonoBehaviour
     public void SetDeepNetLink(DeepNetLinkToLevel Link)
     {
         DeepNetLink = Link.DeepNetLink;
-        if((int)Link.AccessAtLevel <= (int) DeepnetManager.instance.LevelOfAccess)
+        if((int)Link.TaskNumber <= (int) TaskManager.instance.TaskNumber)
         {
             LinkActive = true;
         }

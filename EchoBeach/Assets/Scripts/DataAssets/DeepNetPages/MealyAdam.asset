@@ -15,61 +15,14 @@ MonoBehaviour:
   BackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   BackgroundPattern: {fileID: 21300000, guid: 8925d45f02633a84299d53d4c11b6047, type: 3}
   Font: 1
-  BodyText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-    convallis lacus. Morbi luctus odio augue, et suscipit neque ornare rutrum. Curabitur
-    varius mattis risus sed molestie. Curabitur ultricies dignissim nibh id ultrices.
-    Vestibulum feugiat vestibulum sollicitudin. Duis at augue eu turpis malesuada
-    molestie. Proin in risus dignissim, congue elit eu, molestie eros. Duis ultrices
-    nisl finibus nisi placerat, sit amet pellentesque ante convallis. Orci varius
-    natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce
-    pulvinar sapien diam, in pretium justo dignissim eu. In auctor, nulla sed dignissim
-    efficitur, mi orci fermentum orci, sit amet dictum nisl mauris sed diam. Maecenas
-    facilisis maximus feugiat. Duis sed malesuada arcu. Nulla eleifend, lectus dapibus
-    tempus sagittis, sem elit venenatis diam, id porttitor tortor mi vitae ex.
-
-
-
-    Sed
-    est massa, molestie et libero quis, ultrices pellentesque ex. Sed eu varius neque.
-    Cras accumsan dolor at congue auctor. Nulla iaculis malesuada quam eget fringilla.
-    Vestibulum aliquam, sapien cursus condimentum iaculis, ligula nunc finibus nunc,
-    in varius sapien magna eget enim. Lorem ipsum dolor sit amet, consectetur adipiscing
-    elit. Vestibulum vehicula, mauris sit amet luctus interdum, ligula ex venenatis
-    lectus, vitae eleifend nisl diam vel neque.
-
-
-
-    Etiam enim dui, ornare non
-    sollicitudin quis, congue nec nisl. Maecenas eu facilisis nisi. Pellentesque
-    nec nisi nec neque euismod malesuada vitae vel est. Vestibulum sodales maximus
-    sapien sit amet laoreet. Class aptent taciti sociosqu ad litora torquent per
-    conubia nostra, per inceptos himenaeos. Curabitur condimentum purus et nulla
-    condimentum consectetur. Sed sed arcu elementum dui aliquam accumsan vitae in
-    turpis. In hac habitasse platea dictumst. Morbi quis fermentum mauris, et varius
-    nisl.
-
-
-
-    Praesent neque nibh, dapibus non rhoncus nec, fringilla sed nisi.
-    Donec vel efficitur velit, eleifend rhoncus mi. Ut semper tellus ipsum, sed facilisis
-    lorem tristique non. Cras placerat congue massa. Integer scelerisque bibendum
-    velit vitae tempor. Ut eu ex sollicitudin augue varius vulputate. Interdum et
-    malesuada fames ac ante ipsum primis in faucibus. Aenean varius scelerisque dolor,
-    eget vehicula ipsum eleifend sit amet. Curabitur eleifend in mi eget convallis.
-    Cras in rutrum ante. Nunc quis eros placerat, auctor ante vel, pretium nibh.
-    Sed tellus orci, feugiat a sapien ut, fringilla sagittis elit. Vivamus eu semper
-    dolor.
-
-
-
-    Vivamus faucibus id augue eget eleifend. Nunc ipsum lorem, fermentum
-    efficitur nunc sed, viverra convallis justo. Maecenas ultrices a odio non fermentum.
-    Nam gravida vestibulum mollis. Curabitur quis consequat sapien. Quisque vehicula
-    odio enim, vitae tempus nisl mattis at. Duis faucibus convallis bibendum. Morbi
-    et pellentesque eros. Praesent blandit facilisis nunc, eu hendrerit tellus laoreet
-    at. Donec euismod rhoncus augue et auctor. Nam in lacus eget augue vehicula fringilla.
-    Curabitur imperdiet massa ligula, a feugiat urna aliquet quis.'
+  StringToLevelOfAccesses:
+  - BodyText: Level One
+    TaskNumber: 0
+  - BodyText: Level Two
+    TaskNumber: 1
+  - BodyText: LevelThree
+    TaskNumber: 2
   DeepNetLinksAndLevelsOfAccess:
   - DeepNetLink: 27
-    AccessAtLevel: 0
+    TaskNumber: 0
   Song: 0

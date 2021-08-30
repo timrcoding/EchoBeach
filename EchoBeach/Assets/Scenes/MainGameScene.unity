@@ -496,8 +496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ff375353930fe42a639b9f7815c72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WebPageParent: {fileID: 0}
-  Character: 2
 --- !u!4 &78959846
 Transform:
   m_ObjectHideFlags: 0
@@ -557,26 +555,26 @@ MonoBehaviour:
   - Button: {fileID: 921731560}
     Pullout: {fileID: 552045108}
     TabType: 1
-    IncompatibleWithTabs: 01000000
+    IncompatibleWithTabs: 0100000002000000
   - Button: {fileID: 1614640691}
     Pullout: {fileID: 1579628240}
     TabType: 1
-    IncompatibleWithTabs: 01000000
+    IncompatibleWithTabs: 0100000002000000
   - Button: {fileID: 1789517414}
     Pullout: {fileID: 1261704229}
     TabType: 1
-    IncompatibleWithTabs: 01000000
+    IncompatibleWithTabs: 0100000002000000
   - Button: {fileID: 864465536}
     Pullout: {fileID: 1766461797}
     TabType: 1
-    IncompatibleWithTabs: 01000000
+    IncompatibleWithTabs: 0100000002000000
   - Button: {fileID: 243048597780945937}
     Pullout: {fileID: 243048597780945938}
     TabType: 2
-    IncompatibleWithTabs: 
+    IncompatibleWithTabs: 01000000
   - Button: {fileID: 1834390309}
     Pullout: {fileID: 665961525}
-    TabType: 2
+    TabType: 3
     IncompatibleWithTabs: 
 --- !u!1 &91873970
 GameObject:
@@ -2721,6 +2719,10 @@ PrefabInstance:
     - target: {fileID: 6242498279521770336, guid: 8008568294735204489197225740c677, type: 3}
       propertyPath: m_Name
       value: TaskManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242498279521770350, guid: 8008568294735204489197225740c677, type: 3}
+      propertyPath: TaskNumber
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6242498279521770351, guid: 8008568294735204489197225740c677, type: 3}
       propertyPath: m_Pivot.x
@@ -12302,6 +12304,14 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4566363265931591492, guid: 15ad20e5a5bb2784eb6ce0734b53d2cb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -145.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566363265931591492, guid: 15ad20e5a5bb2784eb6ce0734b53d2cb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -11.34
+      objectReference: {fileID: 0}
     - target: {fileID: 4596162340492449781, guid: 15ad20e5a5bb2784eb6ce0734b53d2cb, type: 3}
       propertyPath: m_Name
       value: Cover Screen
@@ -12438,6 +12448,10 @@ PrefabInstance:
       propertyPath: SquarePrefab
       value: 
       objectReference: {fileID: 1136589958989555458, guid: b172b01d5ae00c047ba04c487154de40, type: 3}
+    - target: {fileID: 8438810021366884094, guid: 15ad20e5a5bb2784eb6ce0734b53d2cb, type: 3}
+      propertyPath: LevelOfAccess
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8438810021366884094, guid: 15ad20e5a5bb2784eb6ce0734b53d2cb, type: 3}
       propertyPath: CoverScreenMaterial
       value: 
