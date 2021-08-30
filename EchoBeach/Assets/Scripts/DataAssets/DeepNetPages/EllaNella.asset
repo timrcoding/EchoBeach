@@ -24,9 +24,9 @@ MonoBehaviour:
     TaskNumber: 2
   DeepNetLinksAndLevelsOfAccess:
   - DeepNetLink: 2
-    TaskNumber: 0
+    TaskNumber: 1
   - DeepNetLink: 5
-    TaskNumber: 0
+    TaskNumber: 1
   - DeepNetLink: 7
-    TaskNumber: 0
+    TaskNumber: 1
   Song: 1

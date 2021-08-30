@@ -97,6 +97,7 @@ public enum DeepNetLinkName
 
 public enum TaskNumber
 {
+    Tutorial,
     One,
     Two,
     Three,
@@ -108,7 +109,6 @@ public enum TaskNumber
     Nine,
     Ten,
     INVALID,
-
 }
 public class StringValue : System.Attribute
 {
