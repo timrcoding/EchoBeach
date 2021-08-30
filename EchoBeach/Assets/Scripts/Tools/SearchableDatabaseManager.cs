@@ -133,7 +133,7 @@ public class CharacterID
     public Address MAddress;
     [HideInInspector]
     public string AddressString;
-    public Pet Pet;
+    public Occupation Pet;
     [HideInInspector]
     public string PetString;
 

@@ -223,7 +223,10 @@ public class SongManager : PulloutManager
             SongTracklist.Add(Song);
             AddToList(NewSongButton);
             SongButtons.Add(NewSongButton);
-            TabManager.instance.SetTab(TabManager.instance.ReturnButton(GetComponent<PulloutManager>()),true);
+            if (TaskManager.instance.TaskNumber != TaskNumber.Tutorial)
+            {
+                TabManager.instance.SetTab(TabManager.instance.ReturnButton(GetComponent<PulloutManager>()), true);
+            }
         }
     }
 

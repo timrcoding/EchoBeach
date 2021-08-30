@@ -10,7 +10,7 @@ public class SOCharacter : ScriptableObject
     public RealName RealName;
     public Address Address;
     public DOB DateOfBirth;
-    public Pet Pet;
+    public Occupation Pet;
 }
 
 public enum IdentType
@@ -156,18 +156,21 @@ public enum Address
     OneStudebakerMansions,
 }
 
-public enum Pet
+public enum Occupation
 {
     INVALID,
-    [StringValue("Dog")]
-    Dog,
-    [StringValue("Cat")]
-    Cat,
-    [StringValue("Hedgehog")]
-    Hedgehog,
-    [StringValue("Tortoise")]
-    Tortoise,
-
+    [StringValue("Teacher")]
+    Teacher,
+    [StringValue("Vet")]
+    Vet,
+    [StringValue("Lawyer")]
+    Lawyer,
+    [StringValue("Policeman")]
+    Policeman,
+    [StringValue("Butcher")]
+    Butcher,
+    [StringValue("House Painter")]
+    HousePainter,
 }
 
 public enum CharacterCategory

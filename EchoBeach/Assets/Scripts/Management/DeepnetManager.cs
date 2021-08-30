@@ -72,8 +72,10 @@ public class DeepnetManager : MonoBehaviour
             //Read textasset and write body text
             TMPHeader.font = DeepNetLookupFunctions.ReturnFontToTMPFont(Page.Font, DeepNetLookupFunctions.instance.MSODeepNetLookup);
             TMPBody.text = "";
+            TMPBody.text += '\n';
+            TMPBody.text += '\n';
 
-            foreach(var Str in Page.StringToLevelOfAccesses)
+            foreach (var Str in Page.StringToLevelOfAccesses)
             {
                 if((int)Str.TaskNumber <= (int)TaskManager.instance.TaskNumber)
                 {

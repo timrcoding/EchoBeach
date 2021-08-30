@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cdb99ca89ca95446865def2baf54ec2, type: 3}
-  m_Name: WrongUns
+  m_Name: DaveyMoon
   m_EditorClassIdentifier: 
   CharacterCategory: 1
-  CharacterName: 2
-  RealName: 4
+  CharacterName: 4
+  RealName: 2
   Address: 2
   DateOfBirth: 1
   Pet: 3

@@ -19,8 +19,5 @@ MonoBehaviour:
     ScriptableObject: {fileID: 11400000, guid: 78a078d85938a694eb32167773412928, type: 2}
   - CharacterName: 3
     ScriptableObject: {fileID: 11400000, guid: 1598b29bb8e65a645aff646f0aac2958, type: 2}
-  TemplateTypeToTemplatePrefabLookups: []
-  ColorLookups: []
-  RealNameToStrings: []
-  AddressToStrings: []
-  DOBToStrings: []
+  - CharacterName: 4
+    ScriptableObject: {fileID: 11400000, guid: fab4577bae6818b43b51d5c413f7dcec, type: 2}

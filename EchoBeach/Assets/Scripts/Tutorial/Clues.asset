@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdb99ca89ca95446865def2baf54ec2, type: 3}
-  m_Name: WrongUns
+  m_Script: {fileID: 11500000, guid: e49c4a73c9de602448f4343b691f8e34, type: 3}
+  m_Name: Clues
   m_EditorClassIdentifier: 
-  CharacterCategory: 1
-  CharacterName: 2
-  RealName: 4
-  Address: 2
-  DateOfBirth: 1
-  Pet: 3
+  Header: Clues
+  SlideDescription: Each case or set of cases comes with clues to help you.
+  TutorialSlide: 6
+  Image: {fileID: 0}
