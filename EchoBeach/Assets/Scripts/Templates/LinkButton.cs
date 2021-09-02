@@ -37,15 +37,8 @@ public class LinkButton : MonoBehaviour
     void SetText()
     {
         SODeepNetPage Page = DeepNetLookupFunctions.ReturnDeepNetLinkToPage(DeepNetLink, DeepNetLookupFunctions.instance.MSODeepNetLookup);
-        foreach(char c in DeepNetLink.ToString())
-        {
-            TText.text += c;
-            if (char.IsUpper(c))
-            {
-                TText.text += "_";
-            }
-        }
-        TText.text = DeepNetLink.ToString();//Page.LinkTitleForButton;
+        
+        TText.text = StringEnum.GetStringValue(DeepNetLink);//Page.LinkTitleForButton;
         if (!LinkActive)
         {
             Button.interactable = false;

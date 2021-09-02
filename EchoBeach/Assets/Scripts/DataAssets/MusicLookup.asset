@@ -17,5 +17,19 @@ MonoBehaviour:
     FMODRef: event:/Music/Angelina
   - Song: 2
     FMODRef: event:/Music/LosAngeles
-  - Song: 5
+  - Song: 3
     FMODRef: event:/Music/EverBeen
+  - Song: 4
+    FMODRef: event:/Music/SeeTheMoon
+  - Song: 5
+    FMODRef: event:/Music/HarvestMoon
+  - Song: 6
+    FMODRef: event:/Music/Delta
+  - Song: 7
+    FMODRef: event:/Music/Overcoat
+  - Song: 8
+    FMODRef: event:/Music/LettuceLaments
+  - Song: 9
+    FMODRef: event:/Music/Listening
+  - Song: 10
+    FMODRef: event:/Music/River

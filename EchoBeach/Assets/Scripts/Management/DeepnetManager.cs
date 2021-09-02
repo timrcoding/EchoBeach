@@ -27,12 +27,12 @@ public class DeepnetManager : MonoBehaviour
     }
     void Start()
     {
-        StartCoroutine(LoadInitialPage());
+        //StartCoroutine(LoadInitialPage());
     }
 
     IEnumerator LoadInitialPage()
     {
-        yield return new WaitForSeconds(Time.deltaTime);
+        yield return new WaitForSeconds(2);
         
         LoadPageText(DeepNetLinkName.EllaNella);
     }
@@ -75,13 +75,18 @@ public class DeepnetManager : MonoBehaviour
             TMPBody.text += '\n';
             TMPBody.text += '\n';
 
-            foreach (var Str in Page.StringToLevelOfAccesses)
+            List<string> TempList = TextManager.instance.ReturnTextListForCharacter(DeepNetLink);
+            for(int i = 0; i < TempList.Count; i++)
             {
-                if((int)Str.TaskNumber <= (int)TaskManager.instance.TaskNumber)
+                if(i <= (int)TaskManager.instance.TaskNumber)
                 {
-                    TMPBody.text += Str.BodyText;
-                    TMPBody.text += '\n';
-                    TMPBody.text += '\n';
+                    string s = TempList[i];
+                    if (!s.StartsWith('/'.ToString())) {
+                        TMPBody.text += s.TrimEnd('(', ')', '1', '2', '3', '4', '5', '6', '7', '8', ' ');
+                        TMPBody.text += '\n';
+                        TMPBody.text += "-----------";
+                        TMPBody.text += '\n';
+                    }
                 }
             }
             

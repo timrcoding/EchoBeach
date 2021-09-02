@@ -92,10 +92,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 33.05
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 4
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -196,11 +196,13 @@ MonoBehaviour:
   MCharacterID:
     MCharacterName: 0
     MRName: 0
-    MRNameStr: 
+    RealNameString: 
     MDob: 0
-    MDobString: 
+    DOBString: 
     MAddress: 0
-    MAddressStr: 
+    AddressString: 
+    Pet: 0
+    PetString: 
   IsCorrect: 0
 --- !u!61 &1676784903301994799
 BoxCollider2D:

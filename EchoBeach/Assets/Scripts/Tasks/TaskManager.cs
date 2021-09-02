@@ -15,6 +15,8 @@ public class TaskManager : PulloutManager
     [SerializeField] private TextMeshProUGUI TaskHeader;
     [SerializeField] private TextMeshProUGUI TaskDescription;
 
+    [SerializeField] private CanvasGroup BlackCoverImage;
+
     private void Awake()
     {
         instance = this;
@@ -22,7 +24,10 @@ public class TaskManager : PulloutManager
     }
     void Start()
     {
-        SetupTask();
+        LeanTween.value(gameObject, 1, 0, 4).setOnUpdate((value) =>
+           {
+               BlackCoverImage.alpha = value;
+           });
     }
 
     public override void OutOrAway()
@@ -33,7 +38,7 @@ public class TaskManager : PulloutManager
     public void DisappearTaskWindow()
     {
         TutorialManager.instance.SetTargetFloat(20f);
-        LeanTween.moveLocal(TaskIntroCard, new Vector3(0,-900,0), .5f).setEaseInOutBack();
+        LeanTween.moveLocal(TaskIntroCard, new Vector3(0,-1050,0), .5f).setEaseInOutBack();
     }
 
 
@@ -42,11 +47,11 @@ public class TaskManager : PulloutManager
         LeanTween.moveLocal(TaskIntroCard, Vector3.zero, .5f).setEaseInOutBack();
         TutorialManager.instance.SetTargetFloat(0.1f);
         var CurrentTask = SOTasks.TaskDictionary[TaskNumber];
-        TaskHeader.text = CurrentTask.Header;
+        TaskHeader.text = $"Day: {TaskNumber}";
         TaskDescription.text = CurrentTask.Description;
         if (CurrentTask.CharacterNames.Count > 0)
         {
-            foreach (CharacterName Character in CurrentTask.CharacterNames)
+            foreach (CharName Character in CurrentTask.CharacterNames)
             {
                 GameObject NewAnswerArea = Instantiate(TaskAnswerAreaPrefab);
                 NewAnswerArea.transform.SetParent(AnswerAreaParent);

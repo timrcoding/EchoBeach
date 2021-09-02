@@ -91,11 +91,12 @@ public class TutorialManager : MonoBehaviour
     {
         TargetFloat = 20;
         Debug.Log("REMOVED");
-        LeanTween.moveLocal(TutorialWindow,new Vector3(1550,0,0), 1f).setEaseInOutBack();
+        LeanTween.moveLocal(TutorialWindow,new Vector3(1750,0,0), 1f).setEaseInOutBack();
         if(TaskManager.instance.TaskNumber == TaskNumber.Tutorial)
         {
             TaskManager.instance.TaskNumber = TaskNumber.One;
             TaskManager.instance.SetupTask();
+            DeepnetManager.instance.LoadPageText(DeepNetLinkName.EllaNella);
         }
     }
 }

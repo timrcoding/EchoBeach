@@ -6,7 +6,7 @@ using TMPro;
 
 public class AnswerArea : MonoBehaviour
 {
-    [SerializeField] private CharacterName CharacterName;
+    [SerializeField] private CharName CharacterName;
     [SerializeField] private TextMeshProUGUI TMPArtistName;
     [SerializeField] private TextMeshProUGUI TMPRealName;
     [SerializeField] private Image BackgroundImage;
@@ -20,7 +20,7 @@ public class AnswerArea : MonoBehaviour
         ClearField();
         SetArtistName();
     }
-    public void SetCharacter(CharacterName CharName)
+    public void SetCharacter(CharName CharName)
     {
         CharacterName = CharName;
     }

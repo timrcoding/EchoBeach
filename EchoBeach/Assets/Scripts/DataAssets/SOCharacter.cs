@@ -6,11 +6,11 @@ using UnityEngine;
 public class SOCharacter : ScriptableObject
 {
     public CharacterCategory CharacterCategory;
-    public CharacterName CharacterName;
+    public CharName CharacterName;
     public RealName RealName;
     public Address Address;
     public DOB DateOfBirth;
-    public Occupation Pet;
+    public Occupation Occupation;
 }
 
 public enum IdentType
@@ -19,10 +19,10 @@ public enum IdentType
     Name,
     DOB,
     Address,
-    Pet
+    Occupation
 }
 
-public enum CharacterName
+public enum CharName
 {
     INVALID,
     [StringValue("Ella Nella")]
@@ -116,8 +116,8 @@ public enum RealName
     JetJetson,
     [StringValue("Bonnie Smiler")]
     BonnieSmiler,
-    [StringValue("Bob Bobson")]
-    BobBobson,
+    [StringValue("Lucy Bristol")]
+    LucyBristol,
     [StringValue("Zippy Simons")]
     ZippySimons,
     [StringValue("Carol Leafer")]
@@ -169,9 +169,10 @@ public enum Occupation
     Policeman,
     [StringValue("Butcher")]
     Butcher,
-    [StringValue("House Painter")]
-    HousePainter,
+    [StringValue("Plumber")]
+    Plumber,
 }
+
 
 public enum CharacterCategory
 {

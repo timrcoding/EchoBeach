@@ -17,7 +17,7 @@ public class DataResources : MonoBehaviour
         instance = this;
     }
 
-    public static SOCharacter ReturnChToSo(CharacterName CharName, SOCharacterPrefabData CharData)
+    public static SOCharacter ReturnChToSo(CharName CharName, SOCharacterPrefabData CharData)
     {
         return (SOCharacter) CharData.CharacterToScriptableObjectDictionary[CharName];
     }

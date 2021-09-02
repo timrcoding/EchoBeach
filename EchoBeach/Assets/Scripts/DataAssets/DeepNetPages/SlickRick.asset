@@ -16,12 +16,22 @@ MonoBehaviour:
   BackgroundPattern: {fileID: 21300000, guid: 8925d45f02633a84299d53d4c11b6047, type: 3}
   Font: 1
   StringToLevelOfAccesses:
-  - BodyText: Level One
-    TaskNumber: 0
-  - BodyText: Level Two
+  - BodyText: 
     TaskNumber: 1
-  - BodyText: LevelThree
+  - BodyText: 
     TaskNumber: 2
+  - BodyText: 
+    TaskNumber: 3
+  - BodyText: 
+    TaskNumber: 4
+  - BodyText: 
+    TaskNumber: 5
+  - BodyText: 
+    TaskNumber: 6
+  - BodyText: 
+    TaskNumber: 7
+  - BodyText: 
+    TaskNumber: 8
   DeepNetLinksAndLevelsOfAccess:
   - DeepNetLink: 26
     TaskNumber: 0

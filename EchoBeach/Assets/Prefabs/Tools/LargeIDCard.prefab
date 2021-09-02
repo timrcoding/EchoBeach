@@ -194,12 +194,12 @@ MonoBehaviour:
     DOBString: 
     MAddress: 0
     AddressString: 
-    Pet: 0
-    PetString: 
+    occupation: 0
+    OccupString: 
   TMPName: {fileID: 4025026921088963759}
   TMPDOB: {fileID: 2519543840177612372}
   TMPAddress: {fileID: 2519543840309757804}
-  TMPPet: {fileID: 5631046778300642163}
+  TMPJob: {fileID: 5631046778300642163}
 --- !u!114 &5531690769536598029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,15 +546,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7075166025070100263, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
       propertyPath: m_Name
-      value: 'IDCardInfo : Pet'
+      value: 'IDCardInfo : Job'
       objectReference: {fileID: 0}
     - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
       propertyPath: m_text
-      value: Pet
+      value: Job
       objectReference: {fileID: 0}
     - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
       propertyPath: m_margin.w
       value: -5.220978
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
+      propertyPath: m_margin.x
+      value: -27.45874
       objectReference: {fileID: 0}
     - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
       propertyPath: m_margin.z
@@ -678,6 +682,10 @@ PrefabInstance:
       value: 'DOB:'
       objectReference: {fileID: 0}
     - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
+      propertyPath: m_margin.x
+      value: -21.805542
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
       propertyPath: m_margin.z
       value: -340.32275
       objectReference: {fileID: 0}
@@ -799,12 +807,24 @@ PrefabInstance:
       value: 'Address: '
       objectReference: {fileID: 0}
     - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
       propertyPath: m_margin.w
       value: -5.221039
       objectReference: {fileID: 0}
     - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
+      propertyPath: m_margin.x
+      value: -25.03601
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
       propertyPath: m_margin.z
       value: -344.03503
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
@@ -918,6 +938,10 @@ PrefabInstance:
     - target: {fileID: 7075166025070100263, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
       propertyPath: m_Name
       value: 'IDCardInfo : Name'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
+      propertyPath: m_margin.x
+      value: -21.805542
       objectReference: {fileID: 0}
     - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
       propertyPath: m_margin.z

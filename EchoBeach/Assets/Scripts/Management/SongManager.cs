@@ -7,8 +7,6 @@ using System.Runtime.InteropServices;
 using System;
 using TMPro;
 
-
-
 public enum Song
 {
     INVALID,
@@ -16,12 +14,22 @@ public enum Song
     Angelina,
     [StringValue("Los Angeles")]
     LosAngeles,
-    [StringValue("Cowboy")]
-    Cowboy,
-    [StringValue("See The Moon")]
-    SeeTheMoon,
     [StringValue("Ever Been")]
     EverBeen,
+    [StringValue("See The Moon")]
+    SeeTheMoon,
+    [StringValue("Harvest Moon")]
+    HarvestMoon,
+    [StringValue("Delta")]
+    Delta,
+    [StringValue("Overcoat")]
+    Overcoat,
+    [StringValue("Lettuce Laments")]
+    LettuceLaments,
+    [StringValue("Listening")]
+    Listening,
+    [StringValue("Like A River")]
+    River,
 }
 public class SongManager : PulloutManager
 {
@@ -113,6 +121,7 @@ public class SongManager : PulloutManager
         musicInstance.getDescription(out TimeLineDesc);
         TimeLineDesc.getLength(out TimeLineLength);
         Slider.maxValue = TimeLineLength;
+        Debug.Log("TIME LINE SET");
     }
 
     public void GetTimeLineTime()
@@ -173,7 +182,7 @@ public class SongManager : PulloutManager
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Mute", 0);
     }
 
-    public void PlaySong(Song Song)
+    public void PlaySong(Song song)
     {
         
         FMOD.Studio.PLAYBACK_STATE PlaybackState;
@@ -189,18 +198,26 @@ public class SongManager : PulloutManager
             Debug.Log("Song Stopped");
         }
 
-        string evt = SoMusicLookup.SongToFMODictionary[Song];
+        string evt = SoMusicLookup.SongToFMODictionary[song];
         if (evt != null)
         {
             StartCoroutine(CheckSongIsPlaying());
             musicInstance = FMODUnity.RuntimeManager.CreateInstance(evt);
             musicInstance.start();
-            if(Song == TrickSong)
+            if(song == TrickSong)
             {
                 musicInstance.setTimelinePosition(TrickSongStartOffset);
             }
             LyricManager.AssignBeatEvent(musicInstance);
             SetTimeLineSpecs();
+            
+            for(int i = 0; i < SongTracklist.Count; i++)
+            {
+                if(song == SongTracklist[i])
+                {
+                    SongIndexSelection = i;
+                }
+            }
         }
     }
 

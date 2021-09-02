@@ -15,16 +15,9 @@ MonoBehaviour:
   BackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   BackgroundPattern: {fileID: 21300000, guid: 8925d45f02633a84299d53d4c11b6047, type: 3}
   Font: 1
-  StringToLevelOfAccesses:
-  - BodyText: Level One
-    TaskNumber: 0
-  - BodyText: Level Two
-    TaskNumber: 1
-  - BodyText: LevelThree
-    TaskNumber: 2
   DeepNetLinksAndLevelsOfAccess:
   - DeepNetLink: 9
     TaskNumber: 0
   - DeepNetLink: 24
     TaskNumber: 0
-  Song: 0
+  Song: 8

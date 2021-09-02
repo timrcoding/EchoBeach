@@ -23,7 +23,6 @@ public class SOTaskManager : ScriptableObject
 public struct Task
 {
     public TaskNumber TaskNumber;
-    public string Header;
     [Multiline(10)]
     public string Description;
     public List<DeepNetLinkName> CharacterNames;

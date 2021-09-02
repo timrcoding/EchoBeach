@@ -30,3 +30,27 @@ MonoBehaviour:
     Header: Day Two
     Description: 
     CharacterNames: 01000000
+  - TaskNumber: 3
+    Header: Day Three
+    Description: 
+    CharacterNames: 0a000000
+  - TaskNumber: 4
+    Header: Day Two
+    Description: 
+    CharacterNames: 0d00000007000000
+  - TaskNumber: 5
+    Header: Day Two
+    Description: 
+    CharacterNames: 1000000005000000
+  - TaskNumber: 6
+    Header: Day Two
+    Description: 
+    CharacterNames: 1600000014000000
+  - TaskNumber: 7
+    Header: Day Two
+    Description: 
+    CharacterNames: 130000001b000000
+  - TaskNumber: 8
+    Header: Day Two
+    Description: 
+    CharacterNames: 0e0000000c000000

@@ -10,7 +10,6 @@ public class SODeepNetPage : ScriptableObject
     public Color BackgroundColor;
     public Sprite BackgroundPattern;
     public Font Font;
-    public List<StringToLevelOfAccess> StringToLevelOfAccesses;
     public List<DeepNetLinkToLevel> DeepNetLinksAndLevelsOfAccess;
     public Song Song;
 }
@@ -24,7 +23,6 @@ public struct DeepNetLinkToLevel
 [System.Serializable]
 public struct StringToLevelOfAccess
 {
-    [Multiline(20)]
     public string BodyText;
     public TaskNumber TaskNumber;
 }

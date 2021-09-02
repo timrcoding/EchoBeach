@@ -24,7 +24,7 @@ public class SearchableDatabaseManager : PulloutManager
     }
     void Start()
     {
-        PopulateIDs();
+        StartCoroutine(PopulateIDs());
     }
 
     public override void OutOrAway()
@@ -33,13 +33,14 @@ public class SearchableDatabaseManager : PulloutManager
         PutAwayMutuallyExclusiveObjects("MutualPullout");
     }
 
-    void PopulateIDs()
+    IEnumerator PopulateIDs()
     {
-        for(int i = 1; i < Enum.GetNames(typeof(CharacterName)).Length; i++)
+        yield return new WaitForSeconds(Time.deltaTime);
+        for(int i = 1; i < Enum.GetNames(typeof(CharName)).Length; i++)
         {
-            if(DataResources.ReturnChToSo((CharacterName)i, DataResources.instance.GetCharacterPrefabData) != null)
+            if(DataResources.ReturnChToSo((CharName)i, DataResources.instance.GetCharacterPrefabData) != null)
             {
-            CharacterIDs.Add(new CharacterID((CharacterName)i));
+            CharacterIDs.Add(new CharacterID((CharName)i));
             }   
         }        
     }
@@ -65,17 +66,22 @@ public class SearchableDatabaseManager : PulloutManager
             SearchForMatch(Input, CharID.RealNameString, TempCharacterList, CharID,IdentType.Name);
             SearchForMatch(Input, CharID.DOBString, TempCharacterList, CharID,IdentType.DOB);
             SearchForMatch(Input, CharID.AddressString, TempCharacterList, CharID,IdentType.Address);
-            SearchForMatch(Input, CharID.PetString, TempCharacterList, CharID,IdentType.Pet);
+            SearchForMatch(Input, CharID.OccupString, TempCharacterList, CharID,IdentType.Occupation);
         }
         //ORDER ALPHABETICALLY
         TempCharacterList = TempCharacterList.OrderBy(x => x.CharacterID.RealNameString).ToList();
         //CREATE BUTTONS
-        foreach(var ID in TempCharacterList)
+        int count = new int();
+        foreach (var ID in TempCharacterList)
         {
-            GameObject newCharId = Instantiate(CharacterIDButtonPrefab);
-            newCharId.transform.SetParent(ResultsParent);
-            newCharId.transform.localScale = Vector3.one;
-            newCharId.GetComponent<CharIDButton>().SetCharacterName(ID.CharacterID,ID.IdentType);
+            if (count < 5)
+            {
+                GameObject newCharId = Instantiate(CharacterIDButtonPrefab);
+                newCharId.transform.SetParent(ResultsParent);
+                newCharId.transform.localScale = Vector3.one;
+                newCharId.GetComponent<CharIDButton>().SetCharacterName(ID.CharacterID, ID.IdentType);
+                count++;
+            }
         }
     }
 
@@ -83,7 +89,7 @@ public class SearchableDatabaseManager : PulloutManager
     {
         string ConvertedSearch = SearchTerm.ToUpper();
 
-        if (ConvertedSearch.StartsWith(Input.ToUpper()))
+        if (ConvertedSearch.Contains(Input.ToUpper()))
         {
             if (Input != "")
             {
@@ -117,13 +123,13 @@ public class CharIDAndIdent
 [System.Serializable]
 public class CharacterID
 {
-    public CharacterID(CharacterName CharName)
+    public CharacterID(CharName CharName)
     {
         MCharacterName = CharName;
         SetNameAndAddress();
     }
 
-    public CharacterName MCharacterName;
+    public CharName MCharacterName;
     public RealName MRName;
     [HideInInspector]
     public string RealNameString;
@@ -133,9 +139,9 @@ public class CharacterID
     public Address MAddress;
     [HideInInspector]
     public string AddressString;
-    public Occupation Pet;
+    public Occupation occupation;
     [HideInInspector]
-    public string PetString;
+    public string OccupString;
 
     void SetNameAndAddress()
     {
@@ -143,7 +149,7 @@ public class CharacterID
         RealNameString = StringEnum.GetStringValue(SoChar.RealName);
         DOBString = StringEnum.GetStringValue(SoChar.DateOfBirth);
         AddressString = StringEnum.GetStringValue(SoChar.Address);
-        PetString = StringEnum.GetStringValue(SoChar.Pet);
+        OccupString = StringEnum.GetStringValue(SoChar.Occupation);
     }
 }
 

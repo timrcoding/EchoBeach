@@ -6,7 +6,7 @@ using TMPro;
 
 public class BaseTemplate : MonoBehaviour
 {
-    protected CharacterName MCharacterName;
+    protected CharName MCharacterName;
     protected CharacterCategory MCharacterCategory;
     protected SOCharacter MScriptableObject;
     [SerializeField] protected TextMeshProUGUI TMPName;
@@ -17,7 +17,7 @@ public class BaseTemplate : MonoBehaviour
     [SerializeField] private Transform LinksBox;
     protected Transform[] AllObjects;
     
-    public void SetCharacter(CharacterName CharName)
+    public void SetCharacter(CharName CharName)
     {
         MCharacterName = CharName;
         MScriptableObject = DataResources.ReturnChToSo(CharName,DataResources.instance.GetCharacterPrefabData);

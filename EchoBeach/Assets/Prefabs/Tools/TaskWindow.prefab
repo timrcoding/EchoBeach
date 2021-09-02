@@ -431,9 +431,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7415701633674294765, guid: 921ef592642547a449911211f98b4cbc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415701633674294765, guid: 921ef592642547a449911211f98b4cbc, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7415701633674294767, guid: 921ef592642547a449911211f98b4cbc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7415701633745476771, guid: 921ef592642547a449911211f98b4cbc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -510,6 +518,10 @@ PrefabInstance:
     - target: {fileID: 7415701634245470878, guid: 921ef592642547a449911211f98b4cbc, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415701634499337970, guid: 921ef592642547a449911211f98b4cbc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 921ef592642547a449911211f98b4cbc, type: 3}

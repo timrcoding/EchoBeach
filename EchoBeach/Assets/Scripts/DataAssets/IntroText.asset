@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1915c4ea7c9719a4ba37cf36c08f9c44, type: 3}
+  m_Name: IntroText
+  m_EditorClassIdentifier: 
+  StringToTypes:
+  - Text: "My day is very boring, \n\nI'm an office clerk.\n\nSound familiar?"
+    Typer: 1
+  - Text: I work for the Ministry of Human Correction.
+    Typer: 1
+  - Text: 'It''s been 10 years since all music was banned.
+
+
+      For productivity
+      reasons, apparently.
+
+
+      So, this is what I do all day...'
+    Typer: 1
+  - Text: "I infiltrate MusicNet - \n\nThe musicians' last hiding place.\n\nThen
+      I identify and apprehend them.\n\nQuite a life."
+    Typer: 1
+  - Text: 'INCOMING MESSAGE
+
+      ---------------------'
+    Typer: 2
+  - Text: "\"ATTENTION EMPLOYEES, WE HAVE PARTNERED WITH OUR AMERICAN BRETHREN TO
+      BRING YOU A SPECIAL COMPETITION. \r\n\nTHE WORKER WHO CLAIMS THE MOST ARRESTS
+      IN THE NEXT EIGHT DAYS WILL WIN AN ALL EXPENSES PAID TRIP TO THE FAMOUS ECHO
+      BEACH, CALIFORNIA\"."
+    Typer: 2
+  - Text: GOOD LUCK AND HAPPY HUNTING.
+    Typer: 2
+  - Text: That could be me.
+    Typer: 1

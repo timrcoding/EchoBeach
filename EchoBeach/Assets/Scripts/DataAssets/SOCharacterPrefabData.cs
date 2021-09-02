@@ -6,7 +6,7 @@ using UnityEngine;
 public class SOCharacterPrefabData : ScriptableObject
 {
     public List<CharacterToScriptableObjectLookup> CharacterToScriptableObjectLookups;
-    public Dictionary<CharacterName, ScriptableObject> CharacterToScriptableObjectDictionary;
+    public Dictionary<CharName, ScriptableObject> CharacterToScriptableObjectDictionary;
     private void OnEnable()
     {
         ConstructDictionaries();
@@ -14,7 +14,7 @@ public class SOCharacterPrefabData : ScriptableObject
 
     void ConstructDictionaries()
     {
-        CharacterToScriptableObjectDictionary = new Dictionary<CharacterName, ScriptableObject>();
+        CharacterToScriptableObjectDictionary = new Dictionary<CharName, ScriptableObject>();
         foreach(var Char in CharacterToScriptableObjectLookups)
         {
             CharacterToScriptableObjectDictionary.Add(Char.CharacterName, Char.ScriptableObject);
@@ -25,6 +25,6 @@ public class SOCharacterPrefabData : ScriptableObject
 [System.Serializable]
 public struct CharacterToScriptableObjectLookup
 {
-    public CharacterName CharacterName;
+    public CharName CharacterName;
     public ScriptableObject ScriptableObject;
 }
