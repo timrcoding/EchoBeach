@@ -56,9 +56,14 @@ public class SongManager : PulloutManager
     [SerializeField] private Slider Slider;
     bool CanMoveSlider;
     int TimeLineLength;
+    bool StopButtonPressed;
 
     [SerializeField] private Song TrickSong;
     [SerializeField] private int TrickSongStartOffset = 5000;
+
+    public FMOD.Studio.EventInstance AmbienceInstance;
+    [FMODUnity.EventRef]
+    [SerializeField] private string Ambience;
 
     //LYRICS
     [SerializeField] private TextMeshProUGUI LyricText;
@@ -70,7 +75,16 @@ public class SongManager : PulloutManager
     }
     void Start()
     {
-        LyricManager = GetComponent<LyricManager>(); 
+        LyricManager = GetComponent<LyricManager>();
+        foreach (var song in SaveManager.instance.ActiveSave.SongTracklist)
+        {
+            SongTracklist.Add(song.Song);
+            AddSong(song.LinkName, song.Song, 1);
+        };
+
+        AmbienceInstance = FMODUnity.RuntimeManager.CreateInstance(Ambience);
+        AmbienceInstance.start();
+
     }
 
     #region Manager Setup
@@ -105,7 +119,7 @@ public class SongManager : PulloutManager
         {
             StartCoroutine(CheckSongIsPlaying());
         }
-        else if (PlaybackState == FMOD.Studio.PLAYBACK_STATE.STOPPED)
+        else if (PlaybackState == FMOD.Studio.PLAYBACK_STATE.STOPPED && !StopButtonPressed)
         {
             SelectSong();
         }
@@ -142,7 +156,7 @@ public class SongManager : PulloutManager
         }
         int time;
         musicInstance.getTimelinePosition(out time);
-        if (time >= TimeLineLength)
+        if (time >= TimeLineLength && !StopButtonPressed)
         {
             SelectSong();
         }
@@ -184,7 +198,14 @@ public class SongManager : PulloutManager
 
     public void PlaySong(Song song)
     {
-        
+        StopButtonPressed = false;
+        float vol;
+        musicInstance.getVolume(out vol);
+        LeanTween.value(gameObject,vol, 0,1).setOnUpdate((value) =>
+        {
+            AmbienceInstance.setVolume(value);
+        });
+
         FMOD.Studio.PLAYBACK_STATE PlaybackState;
         musicInstance.getPlaybackState(out PlaybackState);
 
@@ -221,6 +242,18 @@ public class SongManager : PulloutManager
         }
     }
 
+    public void StopSong()
+    {
+        StopButtonPressed = true;
+        SetLyrics("");
+        musicInstance.release();
+        musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        LeanTween.value(gameObject, 0, 1, 5).setOnUpdate((value) =>
+        {
+            AmbienceInstance.setVolume(value);
+        });
+    }
+
     public void AddSong(DeepNetLinkName CharName, Song Song, int num = 0)
     {
         if (!SongTracklist.Contains(Song) || num != 0)
@@ -244,6 +277,11 @@ public class SongManager : PulloutManager
             {
                 TabManager.instance.SetTab(TabManager.instance.ReturnButton(GetComponent<PulloutManager>()), true);
             }
+            if(num == 0)
+            {
+                SaveManager.instance.ActiveSave.SongTracklist.Add(new LinkAndSong(CharName, Song));
+            }
+
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TaskManager : PulloutManager
 {
@@ -24,10 +25,26 @@ public class TaskManager : PulloutManager
     }
     void Start()
     {
+        SaveManager.instance.ActiveSave.CurrentTargets.Clear();
         LeanTween.value(gameObject, 1, 0, 4).setOnUpdate((value) =>
            {
                BlackCoverImage.alpha = value;
            });
+
+        SetTaskFromSave(); 
+    }
+
+    public void SetTaskFromSave()
+    {
+        TaskNumber = SaveManager.instance.ActiveSave.MTaskNumber;
+        SetupTask();
+    }
+
+    public void IncrementTask()
+    {
+        int TaskAsInt = (int)TaskNumber;
+        TaskNumber = (TaskNumber)TaskAsInt + 1;
+        SetupTask();
     }
 
     public override void OutOrAway()
@@ -39,6 +56,53 @@ public class TaskManager : PulloutManager
     {
         TutorialManager.instance.SetTargetFloat(20f);
         LeanTween.moveLocal(TaskIntroCard, new Vector3(0,-1050,0), .5f).setEaseInOutBack();
+    }
+
+    public void SumbitButton()
+    {
+        if (CheckAllCorrect())
+        {
+            float vol;
+            SongManager.instance.StopSong();
+            SongManager.instance.AmbienceInstance.getVolume(out vol);
+            LeanTween.value(vol, 0, 4).setOnUpdate((value) =>
+            {
+                SongManager.instance.AmbienceInstance.setVolume(value);
+            });
+
+            LeanTween.value(0, 1, 5).setOnUpdate((value) =>
+            {
+                if (BlackCoverImage != null)
+                {
+                    BlackCoverImage.alpha = value;
+                }
+            }).setOnComplete(LoadConfirmScene);
+        }
+        else
+        {
+            Debug.Log("NOT ALL CORRECT");
+        }
+    }
+
+    void LoadConfirmScene()
+    {
+        SongManager.instance.AmbienceInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        SongManager.instance.AmbienceInstance.release();
+        SceneManager.LoadScene("ConfirmScene");
+    }
+
+
+
+    public bool CheckAllCorrect()
+    {
+        foreach(Transform ans in AnswerAreaParent)
+        {
+            if (!ans.GetComponent<AnswerArea>().IsCorrect)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 
@@ -57,6 +121,7 @@ public class TaskManager : PulloutManager
                 NewAnswerArea.transform.SetParent(AnswerAreaParent);
                 NewAnswerArea.transform.localScale = Vector3.one;
                 NewAnswerArea.GetComponent<AnswerArea>().SetCharacter(Character);
+                SaveManager.instance.ActiveSave.CurrentTargets.Add(Character);
             }
         }
     }

@@ -39,8 +39,8 @@ public enum DeepNetLinkName
     INVALID,
     [StringValue("Ella Nella")]
     EllaNella,
-    [StringValue("Wronguns")]
-    WrongUns,
+    [StringValue("Cuckoo Song")]
+    CuckooSong,
     [StringValue("Future Perfect")]
     FuturePerfect,
     [StringValue("Davey Moon")]

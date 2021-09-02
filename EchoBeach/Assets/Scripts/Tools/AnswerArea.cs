@@ -13,7 +13,7 @@ public class AnswerArea : MonoBehaviour
     [SerializeField] private Color OriginalColor;
     [SerializeField] private Color ChangeColor;
     [SerializeField] private CharacterID MCharacterID;
-    [SerializeField] private bool IsCorrect = false;
+    [SerializeField] public bool IsCorrect = false;
 
     private void Start()
     {

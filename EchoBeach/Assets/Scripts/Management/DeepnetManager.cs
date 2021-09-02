@@ -27,14 +27,14 @@ public class DeepnetManager : MonoBehaviour
     }
     void Start()
     {
-        //StartCoroutine(LoadInitialPage());
+        StartCoroutine(LoadInitialPage());
     }
 
     IEnumerator LoadInitialPage()
     {
         yield return new WaitForSeconds(2);
         
-        LoadPageText(DeepNetLinkName.EllaNella);
+        LoadPageText(DeepNetLinkName.CuckooSong);
     }
 
     void CoverPage()

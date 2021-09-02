@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1915c4ea7c9719a4ba37cf36c08f9c44, type: 3}
+  m_Name: InterimTwo
+  m_EditorClassIdentifier: 
+  StringToTypes:
+  - Text: 'CUCKOOSONG
+
+      -----------
+
+
+      Hey Future, I really need someone
+      to talk to.
+
+
+      Oh God, it''s all messed up.
+
+
+      I''m a clerk at MHC,
+      I''ve been on MusicNet investigating you guys.'
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      -----------
+
+
+      THAT WAS YOU?
+
+
+      THE ONE
+      WHO DISAPPEARED DAVEY AND ELLA AND JANE.'
+    Typer: 3
+  - Text: 'CUCKOOSONG
+
+      -----------
+
+
+      Look, I know it''s bad. It''s really
+      bad.
+
+
+      I just wanted to say, I see it now.
+
+
+      What you have. Had.
+      Is so special.
+
+
+      I''m so sorry.'
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      -----------
+
+
+      I HEAR YOU MAN.
+
+
+      BUT,
+      SORRY ISN''T ENOUGH'
+    Typer: 3
+  - Text: 'CUCKOOSONG
+
+      -----------
+
+
+      Yeah,'
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      -----------
+
+      WHAT YOU''VE DONE IS BAD ENOUGH.
+
+
+      BUT
+      ON TOP OF IT, YOU CAN''T HAVE IT BOTH WAYS.
+
+
+      YOU''VE BEEN HERE DESTROYING
+      OUR COMMUNITY FOR PERSONAL GAIN.
+
+
+      AND YOU EXPECT US TO BE HERE FOR YOU
+      WHEN YOU NEED US?'
+    Typer: 3
+  - Text: 'CUCKOOSONG
+
+      -----------
+
+
+      I, I''m sorry.'
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      -----------
+
+
+      ENOUGH MAN, TAKE CARE.'
+    Typer: 3
+  - Text: 'CUCKOOSONG
+
+      -----------
+
+
+      ...'
+    Typer: 1
+  - Text: 'INCOMING MAIL
+
+      -----------
+
+      CONGRATULATIONS WORKER. YOU HAVE
+      BEEN OUR MOST PRODUCTIVE EMPLOYEE, MAKING 13 ARRESTS IN 8 DAYS.
+
+
+      PLEASE
+      PROCEED TO THE LOBBY TO COLLECT YOUR PRIZE.'
+    Typer: 2
+  - Text: 'CUCKOOSONG
+
+      -----------
+
+
+      Echo Beach...'
+    Typer: 2
