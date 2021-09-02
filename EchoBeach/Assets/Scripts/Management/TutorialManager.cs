@@ -28,8 +28,11 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         CompileDictionary();
-        SetSlide();
-        StartCoroutine(MoveTutorialWindow());
+        if (SaveManager.instance.ActiveSave.MTaskNumber == TaskNumber.Tutorial)
+        {
+            SetSlide();
+            StartCoroutine(MoveTutorialWindow());
+        }
         Volume.profile.TryGet<DepthOfField>(out DOF);
     }
 
@@ -57,10 +60,7 @@ public class TutorialManager : MonoBehaviour
     {
         yield return new WaitForSeconds(Time.deltaTime);
         TargetFloat = 0.1f;
-        if(TaskManager.instance.TaskNumber == TaskNumber.Tutorial)
-        {
-            LeanTween.moveLocal(TutorialWindow,Vector3.zero,1f).setEaseInOutBack();
-        }
+        LeanTween.moveLocal(TutorialWindow,Vector3.zero,1f).setEaseInOutBack();
     }
 
     void SetSlide()
@@ -94,7 +94,8 @@ public class TutorialManager : MonoBehaviour
         LeanTween.moveLocal(TutorialWindow,new Vector3(1750,0,0), 1f).setEaseInOutBack();
         if(TaskManager.instance.TaskNumber == TaskNumber.Tutorial)
         {
-            TaskManager.instance.TaskNumber = TaskNumber.One;
+            SaveManager.instance.ActiveSave.MTaskNumber = TaskNumber.One;
+            TaskManager.instance.SetTaskFromSave();
             TaskManager.instance.SetupTask();
             DeepnetManager.instance.LoadPageText(DeepNetLinkName.EllaNella);
         }

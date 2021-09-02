@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InterimText: {fileID: 11400000, guid: b896eeb8901cc6649ab9b557d9cab277, type: 2}
-  IntroCount: 0
+  IntroCount: 4
   IntroTMP: {fileID: 1803137618}
   CanAdvance: 0
   button: {fileID: 1366576818}
@@ -489,10 +489,18 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612383, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 301072164288783345, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1252344804}
+    - target: {fileID: 301072164461259124, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 301072165151349948, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
       propertyPath: m_Name
       value: TextCanvas

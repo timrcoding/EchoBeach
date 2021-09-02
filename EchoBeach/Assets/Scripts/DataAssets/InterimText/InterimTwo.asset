@@ -22,11 +22,11 @@ MonoBehaviour:
       to talk to.
 
 
-      Oh God, it''s all messed up.
+      Oh God, I''ve really messed up.
 
 
-      I''m a clerk at MHC,
-      I''ve been on MusicNet investigating you guys.'
+      I''m a clerk at
+      MHC, I''ve been on MusicNet investigating you guys.'
     Typer: 1
   - Text: 'FUTURE PERFECT
 
@@ -125,8 +125,12 @@ MonoBehaviour:
       BEEN OUR MOST PRODUCTIVE EMPLOYEE, MAKING 13 ARRESTS IN 8 DAYS.
 
 
-      PLEASE
-      PROCEED TO THE LOBBY TO COLLECT YOUR PRIZE.'
+      YOU
+      ARE A CREDIT TO THE ORGANISATION.
+
+
+      PLEASE PROCEED TO THE LOBBY TO COLLECT
+      YOUR PRIZE.'
     Typer: 2
   - Text: 'CUCKOOSONG
 

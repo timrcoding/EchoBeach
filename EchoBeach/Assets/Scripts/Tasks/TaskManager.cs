@@ -30,14 +30,19 @@ public class TaskManager : PulloutManager
            {
                BlackCoverImage.alpha = value;
            });
-
-        SetTaskFromSave(); 
+        if (SaveManager.instance.ActiveSave.MTaskNumber != TaskNumber.Tutorial)
+        {
+            SetTaskFromSave();
+        }
     }
 
     public void SetTaskFromSave()
     {
         TaskNumber = SaveManager.instance.ActiveSave.MTaskNumber;
-        SetupTask();
+        if (TaskNumber != TaskNumber.Tutorial)
+        {
+            SetupTask();
+        }
     }
 
     public void IncrementTask()

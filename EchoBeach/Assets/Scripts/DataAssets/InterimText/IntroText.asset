@@ -15,16 +15,18 @@ MonoBehaviour:
   StringToTypes:
   - Text: "My day is very boring, \n\nI'm an office clerk.\n\nSound familiar?"
     Typer: 1
-  - Text: I work for the Ministry of Human Correction.
-    Typer: 1
-  - Text: 'It''s been 10 years since all music was banned.
+  - Text: 'I work for the Ministry of Human Correction.
 
 
-      For productivity
-      reasons, apparently.
+      It''s been 10 years
+      since all music was banned.
 
 
-      So, this is what I do all day...'
+      For productivity reasons, apparently.
+
+
+      So,
+      this is what I do all day...'
     Typer: 1
   - Text: 'I infiltrate MusicNet,
 
@@ -33,17 +35,15 @@ MonoBehaviour:
 
 
       Then
-      I identify and arrest them.
+      I identify them for arrest.
 
 
       Quite a life.'
     Typer: 1
-  - Text: "INCOMING MESSAGE\n------------------\n\n\"ATTENTION EMPLOYEES, WE HAVE
-      PARTNERED WITH OUR AMERICAN BRETHREN TO BRING YOU A SPECIAL COMPETITION. \r\n\nTHE
-      WORKER WHO CLAIMS THE MOST ARRESTS IN THE NEXT EIGHT DAYS WILL WIN AN ALL EXPENSES
-      PAID TRIP TO THE FAMOUS ECHO BEACH CALIFORNIA\"."
-    Typer: 2
-  - Text: GOOD LUCK AND HAPPY HUNTING.
+  - Text: "INCOMING MESSAGE\n----------------\n\n\"ATTENTION EMPLOYEES, WE HAVE PARTNERED
+      WITH OUR AMERICAN BRETHREN TO BRING YOU A SPECIAL COMPETITION. \r\n\nTHE WORKER
+      WHO CLAIMS THE MOST ARRESTS IN THE NEXT EIGHT DAYS WILL WIN AN ALL EXPENSES
+      PAID TRIP TO THE FAMOUS ECHO BEACH CALIFORNIA\".\n\nGOOD LUCK AND HAPPY HUNTING."
     Typer: 2
   - Text: That could be me.
     Typer: 1

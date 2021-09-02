@@ -19,7 +19,7 @@ MonoBehaviour:
     Typer: 1
   - Text: "FUTURE PERFECT\n-----------\n\nHEY MAN, HOW'S IT GOING. YOU NEW ROUND
       HERE I SEE. \n\nFINDING IT ALL PLEASANT?"
-    Typer: 3
+    Typer: 2
   - Text: 'CUCKOOSONG
 
       -----------
@@ -30,7 +30,7 @@ MonoBehaviour:
 
       Amazing
       music, Amazing people. Know any of the personally?'
-    Typer: 3
+    Typer: 1
   - Text: 'FUTURE PERFECT
 
       -----------
@@ -46,14 +46,14 @@ MonoBehaviour:
 
 
       YOU COULD BE ANYONE!'
-    Typer: 3
+    Typer: 2
   - Text: 'CUCKOOSONG
 
       -----------
 
 
       Or at least someone!'
-    Typer: 3
+    Typer: 1
   - Text: 'FUTURE PERFECT
 
       -----------
@@ -66,7 +66,7 @@ MonoBehaviour:
       ANY STUFF? WHAT''S YOUR STYLE?
 
 '
-    Typer: 3
+    Typer: 2
   - Text: 'CUCKOOSONG
 
       -----------
@@ -81,7 +81,7 @@ MonoBehaviour:
 
 
       Hard to get these days.'
-    Typer: 3
+    Typer: 1
   - Text: 'FUTURE PERFECT
 
       -----------
@@ -98,11 +98,11 @@ MonoBehaviour:
 
       NEED
       TO GO CATCH YOU SOON.'
-    Typer: 3
+    Typer: 2
   - Text: 'CUCKOOSONG
 
       -----------
 
 
       See you.'
-    Typer: 3
+    Typer: 1

@@ -400,7 +400,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: 
-  sourceBankPath: Banks
+  sourceBankPath: D:/Personal/Game Projects/EchoBeach/EchoBeach/EchoBeach/Banks
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
