@@ -33,12 +33,12 @@ MonoBehaviour:
 
 
       Then
-      I identify and apprehend them.
+      I identify and arrest them.
 
 
       Quite a life.'
     Typer: 1
-  - Text: "INCOMING MESSAGE\n---------------------\n\n\"ATTENTION EMPLOYEES, WE HAVE
+  - Text: "INCOMING MESSAGE\n------------------\n\n\"ATTENTION EMPLOYEES, WE HAVE
       PARTNERED WITH OUR AMERICAN BRETHREN TO BRING YOU A SPECIAL COMPETITION. \r\n\nTHE
       WORKER WHO CLAIMS THE MOST ARRESTS IN THE NEXT EIGHT DAYS WILL WIN AN ALL EXPENSES
       PAID TRIP TO THE FAMOUS ECHO BEACH CALIFORNIA\"."

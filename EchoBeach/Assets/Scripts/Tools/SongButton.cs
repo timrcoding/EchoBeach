@@ -7,13 +7,14 @@ using TMPro;
 public class SongButton : MonoBehaviour
 {
     private DeepNetLinkName MDeepNetLinkName;
-    private Song MSong;
+    public Song MSong;
     [SerializeField] private TextMeshProUGUI TMP;
     private Button Button;
     private Vector3 OriginalPosition;
     void Start()
     {
         Button = GetComponent<Button>();
+        name = MSong.ToString();
     }
 
     public void SetCharacterAndSong(DeepNetLinkName CharName, Song Song)

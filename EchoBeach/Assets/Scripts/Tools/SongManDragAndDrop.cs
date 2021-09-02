@@ -24,4 +24,10 @@ public class SongManDragAndDrop : DragAndDrop
             transform.position = new Vector3(transform.position.x, Returned, 0);
         }
     }
+
+    public override void StopDrag()
+    {
+        base.StopDrag();
+        SongManager.instance.ResortSongList();
+    }
 }

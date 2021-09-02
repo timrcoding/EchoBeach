@@ -37,8 +37,11 @@ MonoBehaviour:
 
 
       THE ONE
-      WHO DISAPPEARED DAVEY AND ELLA AND JANE.'
-    Typer: 3
+      WHO DISAPPEARED DAVEY, AND ELLA, AND JANE.
+
+
+      YOU''RE A MONSTER.'
+    Typer: 2
   - Text: 'CUCKOOSONG
 
       -----------
@@ -67,13 +70,13 @@ MonoBehaviour:
 
       BUT,
       SORRY ISN''T ENOUGH'
-    Typer: 3
+    Typer: 2
   - Text: 'CUCKOOSONG
 
       -----------
 
 
-      Yeah,'
+      Yeah, I know'
     Typer: 1
   - Text: 'FUTURE PERFECT
 
@@ -86,13 +89,13 @@ MonoBehaviour:
       ON TOP OF IT, YOU CAN''T HAVE IT BOTH WAYS.
 
 
-      YOU''VE BEEN HERE DESTROYING
-      OUR COMMUNITY FOR PERSONAL GAIN.
+      YOU''VE DESTROYED OUR COMMUNITY
+      FOR PERSONAL GAIN.
 
 
-      AND YOU EXPECT US TO BE HERE FOR YOU
-      WHEN YOU NEED US?'
-    Typer: 3
+      AND YOU EXPECT US TO BE HERE FOR YOU WHEN YOU NEED
+      US?'
+    Typer: 2
   - Text: 'CUCKOOSONG
 
       -----------
@@ -106,7 +109,7 @@ MonoBehaviour:
 
 
       ENOUGH MAN, TAKE CARE.'
-    Typer: 3
+    Typer: 2
   - Text: 'CUCKOOSONG
 
       -----------
@@ -131,4 +134,4 @@ MonoBehaviour:
 
 
       Echo Beach...'
-    Typer: 2
+    Typer: 1

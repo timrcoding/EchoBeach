@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InterimText: {fileID: 11400000, guid: 4ab09a64fcee8614d951c3773d0b7d89, type: 2}
-  IntroCount: 9
+  IntroCount: 0
   IntroTMP: {fileID: 153053553}
   CanAdvance: 0
   button: {fileID: 153053551}

@@ -23,10 +23,12 @@ public class MiddleTextScene : InterimTextManager
             if (SaveManager.instance.ActiveSave.GameCompleted)
             {
                 InterimText = SecondInterim;
+                GameCompleted = true;
             }
             else
             {
                 InterimText = FirstInterim;
+                GameCompleted = false;
             }
         }
     }

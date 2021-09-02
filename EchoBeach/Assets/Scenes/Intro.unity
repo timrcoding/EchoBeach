@@ -271,18 +271,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1150866e820d83f4fbaea29439cac59a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IntroText: {fileID: 11400000, guid: b896eeb8901cc6649ab9b557d9cab277, type: 2}
+  InterimText: {fileID: 11400000, guid: b896eeb8901cc6649ab9b557d9cab277, type: 2}
   IntroCount: 0
   IntroTMP: {fileID: 1803137618}
   CanAdvance: 0
   button: {fileID: 1366576818}
   Ambience: event:/Ambient/Office
-  Music: event:/Music/LettuceLaments
   KeyboardClick: event:/Ambient/ComputerClick
   ComputerClick: event:/Ambient/Blip
+  MusicianClick: 
+  SetForSceneAdvance: 0
   BlackCoverImage: {fileID: 302881847}
   TitleTMP: {fileID: 1262224441}
   SubTMP: {fileID: 1457544862}
+  Music: event:/Music/LettuceLaments
 --- !u!4 &1252344805
 Transform:
   m_ObjectHideFlags: 0

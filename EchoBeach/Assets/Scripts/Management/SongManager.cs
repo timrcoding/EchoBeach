@@ -270,7 +270,10 @@ public class SongManager : PulloutManager
             }
             NewSongButton.transform.localScale = Vector3.one;
             NewSongButton.GetComponent<SongButton>().SetCharacterAndSong(CharName, Song);
-            SongTracklist.Add(Song);
+            if (num == 0)
+            {
+                SongTracklist.Add(Song);
+            }
             AddToList(NewSongButton);
             SongButtons.Add(NewSongButton);
             if (TaskManager.instance.TaskNumber != TaskNumber.Tutorial)
@@ -291,6 +294,7 @@ public class SongManager : PulloutManager
 
     public void SwapObjects(GameObject obj, GameObject objOther)
     {
+        
         int ObjIndex = new int(); ;
         int ObjOtherIndex = new int();
 
@@ -310,7 +314,17 @@ public class SongManager : PulloutManager
         GameObject other = objOther;
         PositionToObjectInLists[ObjOtherIndex].Object = obj;
         PositionToObjectInLists[ObjIndex].Object = other;
+        
+    }
 
+    public void ResortSongList()
+    {
+        SongButtons = SongButtons.OrderBy(x => -x.transform.position.y ).ToList();
+
+        for(int i = 0; i < SongPlayer.childCount; i++)
+        {
+            SongTracklist[i] = SongButtons[i].GetComponent<SongButton>().MSong;
+        }
     }
     void AddToList(GameObject Obj)
     {
@@ -345,8 +359,6 @@ public class SongManager : PulloutManager
             Vector3 pos = posObj.Object.transform.localPosition;
             posObj.Object.transform.localPosition = Vector3.Lerp(pos, posObj.Position, .1f);
         }
-      //  transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
-
         GetTimeLineTime();
     }
 }

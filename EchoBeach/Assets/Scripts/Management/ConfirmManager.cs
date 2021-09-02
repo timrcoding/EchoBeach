@@ -83,11 +83,30 @@ public class ConfirmManager : InterimTextManager
 
     void LoadGameScene()
     {
-        float vol;
-        MusicInst.getVolume(out vol);
+
         MusicInst.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         MusicInst.release();
-        SceneManager.LoadScene("MainGameScene");
+        int currentTask = (int)SaveManager.instance.ActiveSave.MTaskNumber;
+
+        if (SaveManager.instance != null)
+        {
+            SaveManager.instance.ActiveSave.MTaskNumber = (TaskNumber)currentTask + 1;
+            if (SaveManager.instance.ActiveSave.MTaskNumber == TaskNumber.Three || SaveManager.instance.ActiveSave.GameCompleted)
+            {
+                SceneManager.LoadScene("InterimScene");
+            }
+            else
+            {
+                SceneManager.LoadScene("MainGameScene");
+            }
+        }
+        else
+        {
+            SceneManager.LoadScene("MainGameScene");
+
+        }
+        
+        
     }
 
 
