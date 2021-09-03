@@ -45,7 +45,7 @@ public class IntroManager : InterimTextManager
     {
         if (!SetForSceneAdvance)
         {
-            if (IntroCount < InterimText.StringToTypes.Count && CanAdvance)
+            if (IntroCount < CutSceneTextScriptableObject.StringToTypes.Count && CanAdvance)
             {
 
                 SetText();

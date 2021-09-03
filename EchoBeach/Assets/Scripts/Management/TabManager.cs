@@ -27,7 +27,6 @@ public class TabManager : MonoBehaviour
         {
             if (tab.Pullout == pullout)
             {
-                Debug.Log(tab.Button);
                 return tab.Button;
             }
         }
@@ -55,14 +54,14 @@ public class TabManager : MonoBehaviour
                 {
                     if (mButton != LastButton)
                     {
-                        SetTween(tab.Pullout.gameObject, tab.Pullout.OutPosition, 1);
+                        SetTween(tab.Pullout.gameObject, tab.Pullout.GetOutPosition, 1);
                         LastButton = mButton;
                     }
                     else 
                     {
                         if (!b)
                         {
-                            SetTween(tab.Pullout.gameObject, tab.Pullout.AwayPosition, 1);
+                            SetTween(tab.Pullout.gameObject, tab.Pullout.GetAwayPosition, 1);
                             LastButton = null;
                             return;
                         }
@@ -70,7 +69,7 @@ public class TabManager : MonoBehaviour
                 }
                 else if(MTab.IncompatibleWithTabs.Contains(tab.TabType))
                 {
-                    SetTween(tab.Pullout.gameObject, tab.Pullout.AwayPosition, 1);
+                    SetTween(tab.Pullout.gameObject, tab.Pullout.GetAwayPosition, 1);
                 }
             } 
         }
@@ -88,7 +87,6 @@ public class TabManager : MonoBehaviour
         public PulloutManager Pullout;
         public TabType TabType;
         public List<TabType> IncompatibleWithTabs;
-
     }
 }
 

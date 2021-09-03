@@ -11,14 +11,13 @@ public class TutorialManager : MonoBehaviour
     public static TutorialManager instance;
 
     [SerializeField] private List<SOTutorial> TutorialScriptableObjects;
-    private Dictionary<TutSlide, SOTutorial> TutorialDictionary;
+    private Dictionary<TutorialSlide, SOTutorial> TutorialDictionary;
     private int TutorialCount = 2;
     [SerializeField] private GameObject TutorialWindow;
     [SerializeField] private TextMeshProUGUI HeaderText;
     [SerializeField] private TextMeshProUGUI DescriptText;
     [SerializeField] private Image Image;
-    [SerializeField] private Volume Volume;
-    [SerializeField] private DepthOfField DOF;
+    
     private float TargetFloat;
 
     private void Awake()
@@ -31,16 +30,9 @@ public class TutorialManager : MonoBehaviour
         if (SaveManager.instance.ActiveSave.MTaskNumber == TaskNumber.Tutorial)
         {
             SetSlide();
-            StartCoroutine(MoveTutorialWindow());
+            IntroduceTutorialWindow();
         }
-        Volume.profile.TryGet<DepthOfField>(out DOF);
     }
-
-    private void Update()
-    {
-        DOF.focusDistance.value = Mathf.Lerp(DOF.focusDistance.value, TargetFloat, .1f);
-    }
-
     public void SetTargetFloat(float f)
     {
         TargetFloat = f;
@@ -48,24 +40,36 @@ public class TutorialManager : MonoBehaviour
 
     void CompileDictionary()
     {
-        TutorialDictionary = new Dictionary<TutSlide, SOTutorial>();
+        TutorialDictionary = new Dictionary<TutorialSlide, SOTutorial>();
         foreach (var Tut in TutorialScriptableObjects)
         {
             TutorialDictionary.Add(Tut.TutorialSlide, Tut);
         }
     }
 
-
-    IEnumerator MoveTutorialWindow()
+    void IntroduceTutorialWindow()
     {
-        yield return new WaitForSeconds(Time.deltaTime);
-        TargetFloat = 0.1f;
+        GameSceneManager.instance.BlurBackground();
         LeanTween.moveLocal(TutorialWindow,Vector3.zero,1f).setEaseInOutBack();
+    }
+
+    public void RemoveTutorial()
+    {
+        TargetFloat = 20;
+        Debug.Log("REMOVED");
+        LeanTween.moveLocal(TutorialWindow, new Vector3(1750, 0, 0), 1f).setEaseInOutBack();
+        if (SaveManager.instance.ActiveSave.MTaskNumber == TaskNumber.Tutorial)
+        {
+            SaveManager.instance.ActiveSave.MTaskNumber = TaskNumber.One;
+            TaskManager.instance.SetTaskFromSave();
+            TaskManager.instance.SetupTask();
+            DeepnetManager.instance.LoadPageText(DeepNetLinkName.EllaNella);
+        }
     }
 
     void SetSlide()
     {
-        var Tutorial = TutorialDictionary[(TutSlide)TutorialCount];
+        var Tutorial = TutorialDictionary[(TutorialSlide)TutorialCount];
         HeaderText.text = Tutorial.Header;
         DescriptText.text = Tutorial.SlideDescription;
         if (Image.sprite != null)
@@ -87,22 +91,9 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    public void RemoveTutorial()
-    {
-        TargetFloat = 20;
-        Debug.Log("REMOVED");
-        LeanTween.moveLocal(TutorialWindow,new Vector3(1750,0,0), 1f).setEaseInOutBack();
-        if(TaskManager.instance.TaskNumber == TaskNumber.Tutorial)
-        {
-            SaveManager.instance.ActiveSave.MTaskNumber = TaskNumber.One;
-            TaskManager.instance.SetTaskFromSave();
-            TaskManager.instance.SetupTask();
-            DeepnetManager.instance.LoadPageText(DeepNetLinkName.EllaNella);
-        }
-    }
+    
 }
-
-public enum TutSlide
+public enum TutorialSlide
 {
     INVALID,
     Intro,

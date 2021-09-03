@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb09a96b2f64fb498e450f50ca9d929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InterimText: {fileID: 11400000, guid: 4ab09a64fcee8614d951c3773d0b7d89, type: 2}
+  CutSceneTextScriptableObject: {fileID: 0}
   IntroCount: 0
   IntroTMP: {fileID: 153053553}
   CanAdvance: 0
@@ -487,8 +487,13 @@ MonoBehaviour:
   MusicianClick: 
   SetForSceneAdvance: 0
   BlackCoverImage: {fileID: 153053552}
-  FirstInterim: {fileID: 11400000, guid: b1a99010372c0a6459f1bb7ee310f981, type: 2}
-  SecondInterim: {fileID: 11400000, guid: 4ab09a64fcee8614d951c3773d0b7d89, type: 2}
+  DialogueSceneLookup:
+  - DialogueScene: 1
+    DialogueScriptable: {fileID: 11400000, guid: b896eeb8901cc6649ab9b557d9cab277, type: 2}
+  - DialogueScene: 2
+    DialogueScriptable: {fileID: 11400000, guid: b1a99010372c0a6459f1bb7ee310f981, type: 2}
+  - DialogueScene: 3
+    DialogueScriptable: {fileID: 11400000, guid: 4ab09a64fcee8614d951c3773d0b7d89, type: 2}
   GameCompleted: 1
   Music: event:/Music/LettuceLaments
 --- !u!4 &2102498285

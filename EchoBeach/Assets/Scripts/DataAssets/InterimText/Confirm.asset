@@ -9,24 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1915c4ea7c9719a4ba37cf36c08f9c44, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d242f2fb8ac80f48991996aaef9cd5f, type: 3}
   m_Name: Confirm
   m_EditorClassIdentifier: 
   StringToTypes:
-  - Text: 'WELL DONE EMPLOYEE.
-
-
-      YOU HAVE APPREHENDED THE FOLLOWING CRIMINALS;
-
-
-      BOYFRIEND
-      SWEATER.
-
-
-      DAVEY MOON.
-
-
-      SMOKING ELVIS.'
+  - Text: 
     Typer: 2
-  - Text: KEEP IT UP AND GOOD LUCK!
+  - Text: KEEP AT IT!
     Typer: 2

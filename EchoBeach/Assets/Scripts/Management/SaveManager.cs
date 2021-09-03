@@ -93,8 +93,10 @@ public class SaveData
     public bool GameCompleted;
     public string saveName;
     public TaskNumber MTaskNumber;
+    public DialogueScene CurrentDialogueScene;
     public List<LinkAndSong> SongTracklist;
     public List<CharName> CurrentTargets;
+    public List<DeepNetLinkName> MusiciansEncountered;
 }
 [System.Serializable]
 public class LinkAndSong

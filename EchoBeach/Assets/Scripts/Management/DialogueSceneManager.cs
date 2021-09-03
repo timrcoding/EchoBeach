@@ -3,33 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MiddleTextScene : InterimTextManager
+
+
+[System.Serializable]
+public struct InterimToSOText
 {
-    public InterimScreenText FirstInterim;
-    public InterimScreenText SecondInterim;
+    public DialogueScene DialogueScene;
+    public CutSceneText DialogueScriptable;
+}
+
+public class DialogueSceneManager : InterimTextManager
+{
+    [SerializeField] private List<InterimToSOText> DialogueSceneLookup;
+    [SerializeField] private Dictionary<DialogueScene,CutSceneText> DialogueSceneLookupDictionary;
     public bool GameCompleted;
     [FMODUnity.EventRef]
     public string Music;
     protected FMOD.Studio.EventInstance MusicInstance;
-
+ 
     void Start()
     {
+        DialogueSceneLookupDictionary = new Dictionary<DialogueScene, CutSceneText>();
+
+        foreach(var text in DialogueSceneLookup)
+        {
+            DialogueSceneLookupDictionary.Add(text.DialogueScene, text.DialogueScriptable);
+        }
+
         AmbientInst = FMODUnity.RuntimeManager.CreateInstance(Ambience);
         AmbientInst.start();
         MusicInstance = FMODUnity.RuntimeManager.CreateInstance(Music);
         StartCoroutine(InitDelay());
         if (SaveManager.instance != null)
         {
-            if (SaveManager.instance.ActiveSave.GameCompleted)
-            {
-                InterimText = SecondInterim;
-                GameCompleted = true;
-            }
-            else
-            {
-                InterimText = FirstInterim;
-                GameCompleted = false;
-            }
+            CutSceneTextScriptableObject = DialogueSceneLookupDictionary[SaveManager.instance.ActiveSave.CurrentDialogueScene];
+        }
+        else
+        {
+
         }
     }
 
@@ -46,7 +57,7 @@ public class MiddleTextScene : InterimTextManager
         {
             if (CanAdvance)
             {
-                if (IntroCount < InterimText.StringToTypes.Count-1)
+                if (IntroCount < CutSceneTextScriptableObject.StringToTypes.Count-1)
                 {
                     SetText();
                 }
@@ -60,7 +71,7 @@ public class MiddleTextScene : InterimTextManager
         else
         {
             float FadeOutLength = 5;
-            if (GameCompleted)
+            if (SaveManager.instance.ActiveSave.GameCompleted)
             {
                 MusicInstance.start();
                 FadeOutLength = 15;
@@ -95,12 +106,13 @@ public class MiddleTextScene : InterimTextManager
             if (!SaveManager.instance.ActiveSave.GameCompleted || !GameCompleted)
             {
                 SceneManager.LoadScene("MainGameScene");
+                SaveManager.instance.ActiveSave.CurrentDialogueScene = DialogueScene.Two;
             }
             else
             {
                 MusicInstance.release();
                 MusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-                SceneManager.LoadScene("MainGameScene");
+                SceneManager.LoadScene("MenuScene");
             }
         }
         else

@@ -11,20 +11,19 @@ public class ConfirmManager : InterimTextManager
     protected FMOD.Studio.EventInstance MusicInst;
     void Awake()
     {
-        Debug.Log("START");
         DeleteAddedData();
         if (SaveManager.instance != null)
         {
             foreach(CharName CName in SaveManager.instance.ActiveSave.CurrentTargets)
             {
-                InterimText.StringToTypes[0].Text += $"{'\n'}{'\n'}{StringEnum.GetStringValue(CName).ToUpper()} ";
+                CutSceneTextScriptableObject.StringToTypes[0].Text += $"{'\n'}{'\n'}{StringEnum.GetStringValue(CName).ToUpper()} ";
             }
         }
         else
         {
             foreach (CharName CName in TempTargets)
             {
-                InterimText.StringToTypes[0].Text += $"{'\n'}{'\n'}{StringEnum.GetStringValue(CName).ToUpper()}.";
+                CutSceneTextScriptableObject.StringToTypes[0].Text += $"{'\n'}{'\n'}{StringEnum.GetStringValue(CName).ToUpper()}.";
             }
         }
         StartCoroutine(InitDelay());
@@ -38,13 +37,12 @@ public class ConfirmManager : InterimTextManager
     
     void DeleteAddedData()
     {
-        InterimText.StringToTypes[0].Text = "WELL DONE EMPLOYEE.\n\nYOU HAVE APPREHENDED THE FOLLOWING CRIMINALS;";
+        CutSceneTextScriptableObject.StringToTypes[0].Text = "WELL DONE EMPLOYEE.\n\nYOU HAVE APPREHENDED THE FOLLOWING CRIMINALS;";
     }
 
     public override IEnumerator InitDelay()
     {
         StartCoroutine(base.InitDelay());
-        Debug.Log("CALLED");
         createInstance();
         yield return new WaitForSeconds(3);
         SetText();
@@ -56,7 +54,7 @@ public class ConfirmManager : InterimTextManager
         {
             if (CanAdvance)
             {
-                if (IntroCount < InterimText.StringToTypes.Count - 1)
+                if (IntroCount < CutSceneTextScriptableObject.StringToTypes.Count - 1)
                 {
                     SetText();
                 }
@@ -90,7 +88,13 @@ public class ConfirmManager : InterimTextManager
 
         if (SaveManager.instance != null)
         {
-            SaveManager.instance.ActiveSave.MTaskNumber = (TaskNumber)currentTask + 1;
+            var Task = SaveManager.instance.ActiveSave.MTaskNumber;
+            Task = (TaskNumber)currentTask + 1;
+            SaveManager.instance.ActiveSave.MTaskNumber = Task;
+            if (Task > (TaskNumber)8)
+            {
+                SaveManager.instance.ActiveSave.GameCompleted = true;
+            }
             if (SaveManager.instance.ActiveSave.MTaskNumber == TaskNumber.Three || SaveManager.instance.ActiveSave.GameCompleted)
             {
                 SceneManager.LoadScene("InterimScene");
@@ -103,7 +107,6 @@ public class ConfirmManager : InterimTextManager
         else
         {
             SceneManager.LoadScene("MainGameScene");
-
         }
         
         

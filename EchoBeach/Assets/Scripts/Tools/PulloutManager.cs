@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PulloutManager : MonoBehaviour
 {
-    [SerializeField] public Vector2 OutPosition;
-    [SerializeField] public Vector2 AwayPosition;
-    public Vector2 TargetPosition;
-    [SerializeField] public bool outAway;
+    [SerializeField] private Vector2 OutPosition;
+    public Vector2 GetOutPosition { get { return OutPosition; } }
+
+    [SerializeField] private Vector2 AwayPosition;
+    public Vector2 GetAwayPosition { get { return AwayPosition; } }
     [SerializeField] private bool DontChangeSibling;
 
     protected void HardCodeValues()
@@ -15,24 +16,6 @@ public class PulloutManager : MonoBehaviour
         OutPosition = new Vector2(-850, 300);
         AwayPosition = new Vector2(-1450,300);
     }
-
-    public virtual void OutOrAway()
-    {
-        outAway = !outAway;
-        if (outAway)
-        {
-            TargetPosition = OutPosition;
-            if (!DontChangeSibling)
-            {
-                transform.SetSiblingIndex(transform.parent.childCount);
-            }
-        }
-        else
-        {
-            TargetPosition = AwayPosition;
-        }
-    }
-
     public void PutAway()
     {
         LeanTween.moveLocal(gameObject, AwayPosition, .5f).setEaseInOutBack();

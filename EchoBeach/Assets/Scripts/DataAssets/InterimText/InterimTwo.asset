@@ -9,133 +9,95 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1915c4ea7c9719a4ba37cf36c08f9c44, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d242f2fb8ac80f48991996aaef9cd5f, type: 3}
   m_Name: InterimTwo
   m_EditorClassIdentifier: 
   StringToTypes:
-  - Text: 'CUCKOOSONG
-
-      -----------
-
-
-      Hey Future, I really need someone
-      to talk to.
-
-
-      Oh God, I''ve really messed up.
-
-
-      I''m a clerk at
-      MHC, I''ve been on MusicNet investigating you guys.'
+  - Text: "CUCKOOSONG\n-------------\nHey Future, I really need someone to talk to.\n\nSomething's
+      gone terribly wrong. It's eating me up and I don't know where to turn.\n\nI'm
+      not who I say I am. I work for the Ministry. \n\nI've been investigating you
+      guys."
     Typer: 1
   - Text: 'FUTURE PERFECT
 
-      -----------
-
+      -------------
 
       THAT WAS YOU?
 
 
-      THE ONE
-      WHO DISAPPEARED DAVEY, AND ELLA, AND JANE.
+      YOU''RE
+      THE ONE WHO DISAPPEARED DAVEY,  ELLA , JANE?
 
 
-      YOU''RE A MONSTER.'
+      YOU''RE A MONSTER'
+    Typer: 2
+  - Text: "CUCKOOSONG\n-------------\nI know it looks bad, really bad and for that
+      I am so sorry.\n\nBut it's all just a mistake. I can see it now.\n\nWhat you
+      have, had, is really special. \n\nI really want to help you guys."
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      -------------
+
+      HEY MAN, I HEAR YOU.
+
+
+      BUT
+      SORRY ISN''T GOOD ENOUGH.'
     Typer: 2
   - Text: 'CUCKOOSONG
 
-      -----------
+      -------------
+
+      I know.'
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      -------------
+
+      WHAT YOU''VE DONE IS BAD ENOUGH.
 
 
-      Look, I know it''s bad. It''s really
-      bad.
+      YOU''VE
+      DESTROYED OUR COMMUNITY FOR PERSONAL GAIN.
 
 
-      I just wanted to say, I see it now.
+      AND ON TOP OF IT, YOU STILL
+      EXPECT US TO BE HERE WHEN YOU NEED US?
 
 
-      What you have. Had.
-      Is so special.
+      FORGET YOU MAN.'
+    Typer: 2
+  - Text: 'CUCKOOSONG
 
+      -------------
 
       I''m so sorry.'
     Typer: 1
   - Text: 'FUTURE PERFECT
 
-      -----------
+      -------------
+
+      GOODBYE.'
+    Typer: 2
+  - Text: 'INCOMING MESSAGE
+
+      -------------
+
+      CONGRATULATIONS EMPLOYEE,
+      YOU HAVE WON THE COMPETITION.
 
 
-      I HEAR YOU MAN.
+      YOU ARE A CREDIT TO THE MINISTRY, TOTALLING
+      13 ARRESTS IN  8 DAYS.
 
 
-      BUT,
-      SORRY ISN''T ENOUGH'
+      PLEASE PROCEED TO THE LOBBY WHERE YOU CAN COLLECT
+      YOUR PRIZE'
     Typer: 2
   - Text: 'CUCKOOSONG
 
-      -----------
+      -------------
 
-
-      Yeah, I know'
-    Typer: 1
-  - Text: 'FUTURE PERFECT
-
-      -----------
-
-      WHAT YOU''VE DONE IS BAD ENOUGH.
-
-
-      BUT
-      ON TOP OF IT, YOU CAN''T HAVE IT BOTH WAYS.
-
-
-      YOU''VE DESTROYED OUR COMMUNITY
-      FOR PERSONAL GAIN.
-
-
-      AND YOU EXPECT US TO BE HERE FOR YOU WHEN YOU NEED
-      US?'
+      Echo Beach.'
     Typer: 2
-  - Text: 'CUCKOOSONG
-
-      -----------
-
-
-      I, I''m sorry.'
-    Typer: 1
-  - Text: 'FUTURE PERFECT
-
-      -----------
-
-
-      ENOUGH MAN, TAKE CARE.'
-    Typer: 2
-  - Text: 'CUCKOOSONG
-
-      -----------
-
-
-      ...'
-    Typer: 1
-  - Text: 'INCOMING MAIL
-
-      -----------
-
-      CONGRATULATIONS WORKER. YOU HAVE
-      BEEN OUR MOST PRODUCTIVE EMPLOYEE, MAKING 13 ARRESTS IN 8 DAYS.
-
-
-      YOU
-      ARE A CREDIT TO THE ORGANISATION.
-
-
-      PLEASE PROCEED TO THE LOBBY TO COLLECT
-      YOUR PRIZE.'
-    Typer: 2
-  - Text: 'CUCKOOSONG
-
-      -----------
-
-
-      Echo Beach...'
-    Typer: 1

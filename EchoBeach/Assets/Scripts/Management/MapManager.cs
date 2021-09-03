@@ -18,21 +18,20 @@ public class MapManager : PulloutManager
         CompileDictionary();
     }
 
-    public override void OutOrAway()
+    private void Start()
     {
-        base.OutOrAway();
-        if (outAway)
+        foreach (var musician in SaveManager.instance.ActiveSave.MusiciansEncountered)
         {
-            PutAwayMutuallyExclusiveObjects("MutualPullout");
+            ActivateMapElement(musician);
         }
-    }
-    private void Update()
-    {
-    
     }
 
     public void ActivateMapElement(DeepNetLinkName DeepNetLink)
     {
+        if (!SaveManager.instance.ActiveSave.MusiciansEncountered.Contains(DeepNetLink))
+        {
+            SaveManager.instance.ActiveSave.MusiciansEncountered.Add(DeepNetLink);
+        }
         foreach(Toggle toggle in ListOfToggles)
         {
             toggle.isOn = false;

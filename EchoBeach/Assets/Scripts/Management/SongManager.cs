@@ -47,8 +47,8 @@ public class SongManager : PulloutManager
     [SerializeField] private GameObject SongButtonPrefab;
     [SerializeField] private List<GameObject> SongButtons;
     public List<Song> SongTracklist;
-    public bool SequenceOrShuffle;
-    public int SongIndexSelection;
+    [SerializeField] private bool SequenceOrShuffle;
+    private int SongIndexSelection;
 
     [SerializeField] private LyricManager LyricManager;
     FMOD.Studio.EventInstance musicInstance;
@@ -88,11 +88,6 @@ public class SongManager : PulloutManager
     }
 
     #region Manager Setup
-
-    public override void OutOrAway()
-    {
-        base.OutOrAway();
-    }
 
     #endregion
 
@@ -303,18 +298,15 @@ public class SongManager : PulloutManager
             if(PositionToObjectInLists[i].Object == obj)
             {
                 ObjIndex = i;
-                Debug.Log("OBJ" + i);
             }
             if (PositionToObjectInLists[i].Object == objOther)
             {
                 ObjOtherIndex = i;
-                Debug.Log("OBJOTHER" + i);
             }
         }
         GameObject other = objOther;
         PositionToObjectInLists[ObjOtherIndex].Object = obj;
         PositionToObjectInLists[ObjIndex].Object = other;
-        
     }
 
     public void ResortSongList()
@@ -364,18 +356,17 @@ public class SongManager : PulloutManager
 }
 
 [System.Serializable]
-public class PositionToObjectInList
-{
-    public PositionToObjectInList(Vector2 pos, GameObject obj)
+    public class PositionToObjectInList
     {
-        Position = pos;
-        Object = obj;
+        public PositionToObjectInList(Vector2 pos, GameObject obj)
+        {
+            Position = pos;
+            Object = obj;
+        }
+    
+        public Vector2 Position;
+        public GameObject Object;
     }
-
-    public Vector2 Position;
-    public GameObject Object;
-}
-
 class TimelineInfo
 {
     public bool ended = false;

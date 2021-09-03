@@ -18,9 +18,9 @@ public class CharIDButton : MonoBehaviour
     public void CreateLargeId()
     {
         SearchableDatabaseManager.instance.DestroyLargeIDCollection();
-        GameObject newLargeID = Instantiate(SearchableDatabaseManager.instance.LargeIDPrefab);
-        newLargeID.transform.SetParent(SearchableDatabaseManager.instance.LargeIDParent.transform);
-        newLargeID.transform.localPosition = SearchableDatabaseManager.instance.LargeIDParent.transform.position;
+        GameObject newLargeID = Instantiate(SearchableDatabaseManager.instance.GetIDPrefab);
+        newLargeID.transform.SetParent(SearchableDatabaseManager.instance.GetIDParent.transform);
+        newLargeID.transform.localPosition = SearchableDatabaseManager.instance.GetIDParent.transform.position;
         newLargeID.transform.localScale = Vector3.one;
         newLargeID.GetComponent<LargeID>().SetCharacterID(CharacterID);
     }

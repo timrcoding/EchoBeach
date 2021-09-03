@@ -9,100 +9,91 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1915c4ea7c9719a4ba37cf36c08f9c44, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d242f2fb8ac80f48991996aaef9cd5f, type: 3}
   m_Name: InterimOne
   m_EditorClassIdentifier: 
   StringToTypes:
-  - Text: "CUCKOOSONG\n-----------\n\nHi Future, It's me Cuckoo, I wanted to reach
-      out and say Hi!\n\nI'm loving all your stuff about teaching, you seem really
-      passionate about it.\t"
-    Typer: 1
-  - Text: "FUTURE PERFECT\n-----------\n\nHEY MAN, HOW'S IT GOING. YOU NEW ROUND
-      HERE I SEE. \n\nFINDING IT ALL PLEASANT?"
-    Typer: 2
   - Text: 'CUCKOOSONG
 
-      -----------
+      ------------
+
+      Hi Future,
 
 
-      Yeah I''m loving it so far.
+      It''s me Cuckoo,
+      I wanted to reach out to say I''m really enjoying all your teaching stuff.
 
 
-      Amazing
-      music, Amazing people. Know any of the personally?'
+      You
+      seem really passionate!'
     Typer: 1
   - Text: 'FUTURE PERFECT
 
-      -----------
+      ------------
+
+      THANKS MAN. I SEE YOU''RE NEW
+      ROUND HERE.
 
 
-      WELL THERE''S A FEW OF US, BUT
-      HEY WHAT AM I SAYING.
+      EVERYTHING PLEASANT AND ABOVE BOARD?'
+    Typer: 2
+  - Text: 'CUCKOOSONG
 
+      ------------
+
+      Absolutely, amazing people, amazing
+      music.
+
+
+      Do you know any of them personally?'
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      ------------
+
+      WELL A FEW OF US, BUT HEY, WHAT
+      AM I SAYING.
 
 
       I BARELY KNOW YOU.
-
 
 
       YOU COULD BE ANYONE!'
     Typer: 2
   - Text: 'CUCKOOSONG
 
-      -----------
-
+      ------------
 
       Or at least someone!'
     Typer: 1
   - Text: 'FUTURE PERFECT
 
-      -----------
+      ------------
 
-
-      DEFFO. SO YOU A SONGWRITER?
-
-
-      GOT
-      ANY STUFF? WHAT''S YOUR STYLE?
-
-'
+      DEFFO. SO ARE YOU A SONGWRITER,
+      GOT ANY STUFF?'
     Typer: 2
-  - Text: 'CUCKOOSONG
-
-      -----------
-
-
-      Deffo. Yeah, I''m working on some
-      new stuff.
-
-
-      It''s like tripped out synthy stuff mixed with Low-era Bowie,
-      you like him?
-
-
-      Hard to get these days.'
+  - Text: "CUCKOOSONG\n------------\nYeah deffo, I'm working on some new stuff right
+      now.\n\nIt's like synthy psychedelia mixed with Low-era Bowie.\n\nThat stuff
+      is damn hard to get these days. \n\nYou like Bowie?"
     Typer: 1
   - Text: 'FUTURE PERFECT
 
-      -----------
+      ------------
+
+      ABSOLUTELY. LOOK IT WAS GOOD
+      TALKING MAN.
 
 
-      YEAH ABSOLUTELY.
+      THEY''RE RAIDING A HOUSE ON OUR STREET SO I''VE GOT TO
+      GO
 
 
-
-      HEY,
-      GOOD TO CHAT WITH YOU MAN. I THINK THEY''RE RAIDING A HOUSE ON THE STREET
-
-
-
-      NEED
-      TO GO CATCH YOU SOON.'
+      CATCH YOU AROUND SOMETIME.'
     Typer: 2
   - Text: 'CUCKOOSONG
 
-      -----------
+      ------------
 
-
-      See you.'
+      See you Future.'
     Typer: 1

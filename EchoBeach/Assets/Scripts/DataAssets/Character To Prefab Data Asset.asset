@@ -23,3 +23,47 @@ MonoBehaviour:
     ScriptableObject: {fileID: 11400000, guid: fab4577bae6818b43b51d5c413f7dcec, type: 2}
   - CharacterName: 5
     ScriptableObject: {fileID: 11400000, guid: df8ab2d578a907946aeceec44378d34b, type: 2}
+  - CharacterName: 6
+    ScriptableObject: {fileID: 11400000, guid: 36d002f86b0be384f9a705d0a0f03a90, type: 2}
+  - CharacterName: 7
+    ScriptableObject: {fileID: 11400000, guid: 12cb1cc80891bbf4392ac7a852c84852, type: 2}
+  - CharacterName: 8
+    ScriptableObject: {fileID: 11400000, guid: 77715d0ce382dc540b1a5bf469c0cd22, type: 2}
+  - CharacterName: 9
+    ScriptableObject: {fileID: 11400000, guid: 2feac204427414f44a8b880aa40ca09b, type: 2}
+  - CharacterName: 10
+    ScriptableObject: {fileID: 11400000, guid: 9202bb9ac4c4369439a4935db9f0ac23, type: 2}
+  - CharacterName: 11
+    ScriptableObject: {fileID: 11400000, guid: c9969a40928701041b4643a00b0af8a8, type: 2}
+  - CharacterName: 12
+    ScriptableObject: {fileID: 11400000, guid: 1b0b87b1536730d4b8b56fc4ead51886, type: 2}
+  - CharacterName: 13
+    ScriptableObject: {fileID: 11400000, guid: 7e834e193d6f7ed4b9143af3d53e7f68, type: 2}
+  - CharacterName: 14
+    ScriptableObject: {fileID: 11400000, guid: 4767c0f4b64890d4083bb54660ec8611, type: 2}
+  - CharacterName: 15
+    ScriptableObject: {fileID: 11400000, guid: 18962f4887945b04799a4e09d3a1fc51, type: 2}
+  - CharacterName: 16
+    ScriptableObject: {fileID: 11400000, guid: 8ef6bae354a17ae439e3aab91806a108, type: 2}
+  - CharacterName: 17
+    ScriptableObject: {fileID: 11400000, guid: 470323908215fed46a536f888e9fb7ac, type: 2}
+  - CharacterName: 18
+    ScriptableObject: {fileID: 11400000, guid: d2f468e3b79053d4399a008cec3399e4, type: 2}
+  - CharacterName: 19
+    ScriptableObject: {fileID: 11400000, guid: 1f9fe9b3a4f804041a46a106d285b0b6, type: 2}
+  - CharacterName: 20
+    ScriptableObject: {fileID: 11400000, guid: a5c567af2f403fc4ab5eb7d885765352, type: 2}
+  - CharacterName: 21
+    ScriptableObject: {fileID: 11400000, guid: 1324a28738c4b4341b66331622168ca8, type: 2}
+  - CharacterName: 22
+    ScriptableObject: {fileID: 11400000, guid: b6ab5f2528c7bc944bfd412d345a8324, type: 2}
+  - CharacterName: 23
+    ScriptableObject: {fileID: 11400000, guid: cec3f382f9ab0ec4096905eed88da02d, type: 2}
+  - CharacterName: 24
+    ScriptableObject: {fileID: 11400000, guid: a962a437dad16474b86fc1f67fa93f68, type: 2}
+  - CharacterName: 25
+    ScriptableObject: {fileID: 11400000, guid: ea1fa4e374c905e4cb20581582654432, type: 2}
+  - CharacterName: 26
+    ScriptableObject: {fileID: 11400000, guid: 0451e440b7f78d445a5518dd418fba07, type: 2}
+  - CharacterName: 27
+    ScriptableObject: {fileID: 11400000, guid: 33ed083188da9a9489ede40225d9bbfa, type: 2}

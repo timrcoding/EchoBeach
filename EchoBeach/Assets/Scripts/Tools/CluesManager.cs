@@ -10,9 +10,4 @@ public class CluesManager : PulloutManager
         HardCodeValues();
     }
 
-    public override void OutOrAway()
-    {
-        base.OutOrAway();
-        PutAwayMutuallyExclusiveObjects("MutualPullout");
-    }
 }

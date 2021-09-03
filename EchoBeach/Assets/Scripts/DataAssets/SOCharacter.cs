@@ -9,8 +9,38 @@ public class SOCharacter : ScriptableObject
     public CharName CharacterName;
     public RealName RealName;
     public Address Address;
-    public DOB DateOfBirth;
+    [Header("DOB")]
+    public DOBParts DOBParts;
     public Occupation Occupation;
+
+    public string ReturnDOBPartsAsString()
+    {
+        return $"{StringEnum.GetStringValue(DOBParts.Day)}/{StringEnum.GetStringValue(DOBParts.Month)}/{StringEnum.GetStringValue(DOBParts.Year)}";
+    }
+
+    private void OnEnable()
+    {
+        CharacterCategory = CharacterCategory.Musician;
+
+        if (DOBParts.Day == Day.INVALID || DOBParts.Month == Month.INVALID || DOBParts.Year == Year.INVALID)
+        {
+            DOBParts.Day = (Day)Random.Range(0, System.Enum.GetValues(typeof(Day)).Length);
+            DOBParts.Month = (Month)Random.Range(0, System.Enum.GetValues(typeof(Month)).Length);
+            DOBParts.Year = (Year)Random.Range(0, System.Enum.GetValues(typeof(Year)).Length);
+        }
+
+        if (Occupation == Occupation.INVALID)
+        {
+            Occupation = (Occupation)Random.Range(0, System.Enum.GetValues(typeof(Occupation)).Length);
+        }
+
+        if (RealName != RealName.INVALID)
+        {
+            int charint = (int)CharacterName;
+            RealName = (RealName)charint;
+        }
+        
+    }
 }
 
 public enum IdentType
@@ -86,56 +116,58 @@ public enum RealName
     INVALID,
     [StringValue("Rosie Jones")]
     RosieJones,
+    [StringValue("Camille Rose")]
+    CamilleRose,
+    [StringValue("Tom Richards")]
+    TomRichards,
     [StringValue("David Pritchard")]
     DavidPritchard,
-    [StringValue("Ron Cox")]
-    RonCox,
-    [StringValue("Elvin Pudding")]
-    ElvinPudding,
-    [StringValue("Wolf Damzer")]
-    WolfDamzer,
-    [StringValue("Becky Young")]
-    BeckyYoung,
-    [StringValue("Phoebe Buckets")]
-    PhoebeBuckets,
-    [StringValue("Gavin Dross")]
-    GavinDross,
-    [StringValue("Sam Mulgraw")]
-    SamMulgraw,
-    [StringValue("Daniel Elms")]
-    DanElms,
-    [StringValue("Alex Horowitz")]
-    AlexHorowitz,
-    [StringValue("Gwendolyn")]
-    Gwendolyn,
-    [StringValue("Matt Shatt")]
-    MattShatt,
-    [StringValue("Vinnie Wiley")]
-    VinnieWiley,
-    [StringValue("Jet Jetson")]
-    JetJetson,
-    [StringValue("Bonnie Smiler")]
-    BonnieSmiler,
-    [StringValue("Lucy Bristol")]
-    LucyBristol,
-    [StringValue("Zippy Simons")]
-    ZippySimons,
-    [StringValue("Carol Leafer")]
-    CarolLeafer,
-    [StringValue("Leif Blower")]
-    LeifBlower,
-    [StringValue("Gail Adams")]
-    GailAdams,
-    [StringValue("David Lovechild")]
-    DavidLoveChild,
-    [StringValue("Amadeus Smith")]
-    AmadeusSmith,
-    [StringValue("Simeon Timeon")]
-    SimeonTimeon,
-    [StringValue("Friedrich Snuller")]
-    FriedrichSnuller,
-    [StringValue("Jane Ponce")]
-    JanePonce
+    [StringValue("Elsie Bristol")]
+    ElsieBristol,
+    [StringValue("Richard Sandwich")]
+    RichardSandwich,
+    [StringValue("Sam Partridge")]
+    SamPartridge,
+    [StringValue("Carey Elden")]
+    CareyElden,
+    [StringValue("Jane Baldrey")]
+    JaneBaldrey,
+    [StringValue("Connor Sackville")]
+    ConnorSackville,
+    [StringValue("Anthony Flatte")]
+    AnthonyFlatte,
+    [StringValue("Caroline Black")]
+    CarolineBlack,
+    [StringValue("Angelina Smyth")]
+    AngelinaSmyth,
+    [StringValue("Charlie Samuels")]
+    CharlieSamuels,
+    [StringValue("Brad Tweddle")]
+    BradTweddle,
+    [StringValue("Gwilym Jones")]
+    GwilymJones,
+    [StringValue("Rob Toodle")]
+    RobToodle,
+    [StringValue("Gunther Rosen")]
+    GuntherRosen,
+    [StringValue("Elvis Runkin")]
+    ElvisRunkin,
+    [StringValue("George Walsh")]
+    GeorgeWalsh,
+    [StringValue("Leslie Tompkins")]
+    LeslieTompkins,
+    [StringValue("Joseph Tail")]
+    JosephTail,
+    [StringValue("Damian Ellams")]
+    DamianEllams,
+    [StringValue("Charles Babcock")]
+    CharlesBabcock,
+    [StringValue("Guthrie Simpkins")]
+    GuthrieSimpkins,
+    [StringValue("Fred Eagle")]
+    FredEagle,
+    [StringValue("Manny Robins")]
+    MannyRobins
 }
 
 public enum DOB
@@ -145,15 +177,155 @@ public enum DOB
     TenOctoberEightySix,
 }
 
+public enum Day
+{
+    INVALID,
+    [StringValue("1")]
+    one,
+    [StringValue("2")]
+    two,
+    [StringValue("3")]
+    three,
+    [StringValue("4")]
+    four,
+    [StringValue("5")]
+    five,
+    [StringValue("6")]
+    six,
+    [StringValue("7")]
+    seven,
+    [StringValue("8")]
+    eight,
+    [StringValue("9")]
+    nine,
+    [StringValue("10")]
+    ten,
+    [StringValue("11")]
+    eleven,
+    [StringValue("12")]
+    twelve,
+    [StringValue("13")]
+    thirteen,
+    [StringValue("14")]
+    fourteen,
+    [StringValue("15")]
+    fifteen,
+    [StringValue("16")]
+    sixteen,
+    [StringValue("17")]
+    seventeen,
+    [StringValue("18")]
+    eighteen,
+    [StringValue("19")]
+    nineteen,
+    [StringValue("20")]
+    twenty,
+    [StringValue("21")]
+    twentyone,
+    [StringValue("22")]
+    twentytwo,
+    [StringValue("23")]
+    twentythree,
+    [StringValue("24")]
+    twentyfour,
+    [StringValue("25")]
+    twentyfive,
+    [StringValue("26")]
+    twentysix,
+    [StringValue("27")]
+    twentyseven,
+    [StringValue("28")]
+    twentyeight,
+}
+
+public enum Month
+{
+    INVALID,
+    [StringValue("1")]
+    one,
+    [StringValue("2")]
+    two,
+    [StringValue("3")]
+    three,
+    [StringValue("4")]
+    four,
+    [StringValue("5")]
+    five,
+    [StringValue("6")]
+    six,
+    [StringValue("7")]
+    seven,
+    [StringValue("8")]
+    eight,
+    [StringValue("9")]
+    nine,
+    [StringValue("10")]
+    ten,
+    [StringValue("11")]
+    eleven,
+    [StringValue("12")]
+    twelve
+}
+
+public enum Year
+{
+    INVALID,
+    [StringValue("10")]
+    ten,
+    [StringValue("11")]
+    eleven,
+    [StringValue("12")]
+    twelve,
+    [StringValue("13")]
+    thirteen,
+    [StringValue("14")]
+    fourteen,
+    [StringValue("15")]
+    fifteen,
+    [StringValue("16")]
+    sixteen,
+    [StringValue("17")]
+    seventeen,
+    [StringValue("18")]
+    eighteen,
+    [StringValue("19")]
+    nineteen,
+    [StringValue("20")]
+    twenty,
+    [StringValue("21")]
+    twentyone,
+}
+
 public enum Address
 {
     INVALID,
-    [StringValue("7 Ruebaker Street")]
-    SevenRuebakerStreet,
-    [StringValue("12 Hourglass Road")]
-    TwelveHourglassRoad,
-    [StringValue("1 Studebaker Mansions")]
-    OneStudebakerMansions,
+    [StringValue("Ruebaker Street")]
+    RuebakerStreet,
+    [StringValue("Ohio Drive")]
+    OhioDrive,
+    [StringValue("Studebaker Mansions")]
+    StudebakerMansions,
+    [StringValue("Rosen Road")]
+    RosenRoad,
+    [StringValue("Warsaw Street")]
+    WarsawStreet,
+    [StringValue("Moscow Villas")]
+    MoscowVillas,
+    [StringValue("Chicago Corner")]
+    ChicagoCorner,
+    [StringValue("Minnesota Avenue")]
+    MinnesotaAvenue,
+    [StringValue("Berlin Road")]
+    BerlinRoad,
+    [StringValue("Mississippi Crescent")]
+    MississippiCrescent,
+    [StringValue("Chopin Drive")]
+    ChopinDrive,
+    [StringValue("Ravel Road")]
+    RavelRoad,
+    [StringValue("Petersburg Lane")]
+    PetersburgLane,
+
 }
 
 public enum Occupation
@@ -163,10 +335,10 @@ public enum Occupation
     Teacher,
     [StringValue("Vet")]
     Vet,
-    [StringValue("Lawyer")]
-    Lawyer,
-    [StringValue("Policeman")]
-    Policeman,
+    [StringValue("Dock Worker")]
+    DockWorker,
+    [StringValue("Painter")]
+    Painter,
     [StringValue("Butcher")]
     Butcher,
     [StringValue("Plumber")]
@@ -180,4 +352,12 @@ public enum CharacterCategory
     Musician,
     Journalist,
     Theorist,
+}
+
+[System.Serializable]
+public class DOBParts
+{
+    public Day Day;
+    public Month Month;
+    public Year Year;
 }

@@ -14,8 +14,10 @@ public class SearchableDatabaseManager : PulloutManager
     [SerializeField] private Transform ResultsParent;
     [SerializeField] private TMP_InputField TMPInput;
     [SerializeField] private GameObject CharacterIDButtonPrefab;
-    [SerializeField] public GameObject LargeIDParent;
-    [SerializeField] public GameObject LargeIDPrefab;
+    [SerializeField] private GameObject LargeIDParent;
+    [SerializeField] private GameObject LargeIDPrefab;
+    public GameObject GetIDParent { get { return LargeIDParent; } }
+    public GameObject GetIDPrefab { get { return LargeIDPrefab; } }
 
     private void Awake()
     {
@@ -25,12 +27,7 @@ public class SearchableDatabaseManager : PulloutManager
     void Start()
     {
         StartCoroutine(PopulateIDs());
-    }
 
-    public override void OutOrAway()
-    {
-        base.OutOrAway();
-        PutAwayMutuallyExclusiveObjects("MutualPullout");
     }
 
     IEnumerator PopulateIDs()
@@ -87,13 +84,16 @@ public class SearchableDatabaseManager : PulloutManager
 
     void SearchForMatch(string Input, string SearchTerm, List<CharIDAndIdent> CharIdList, CharacterID CharID, IdentType IDType)
     {
-        string ConvertedSearch = SearchTerm.ToUpper();
-
-        if (ConvertedSearch.Contains(Input.ToUpper()))
+        if (SearchTerm != null)
         {
-            if (Input != "")
+            string ConvertedSearch = SearchTerm.ToUpper();
+
+            if (ConvertedSearch.Contains(Input.ToUpper()))
             {
-                CharIdList.Add(new CharIDAndIdent(CharID,IDType));
+                if (Input != "")
+                {
+                    CharIdList.Add(new CharIDAndIdent(CharID, IDType));
+                }
             }
         }
     }
@@ -133,7 +133,7 @@ public class CharacterID
     public RealName MRName;
     [HideInInspector]
     public string RealNameString;
-    public DOB MDob;
+    public DOBParts MDob;
     [HideInInspector]
     public string DOBString;
     public Address MAddress;
@@ -147,7 +147,7 @@ public class CharacterID
     {
         SOCharacter SoChar = DataResources.ReturnChToSo(MCharacterName, DataResources.instance.GetCharacterPrefabData);
         RealNameString = StringEnum.GetStringValue(SoChar.RealName);
-        DOBString = StringEnum.GetStringValue(SoChar.DateOfBirth);
+        DOBString = SoChar.ReturnDOBPartsAsString();
         AddressString = StringEnum.GetStringValue(SoChar.Address);
         OccupString = StringEnum.GetStringValue(SoChar.Occupation);
     }

@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23734aa317128ad498a7a3a731728905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InterimText: {fileID: 11400000, guid: a8bbcc1903a4020498c7a6a493785809, type: 2}
+  CutSceneTextScriptableObject: {fileID: 11400000, guid: a8bbcc1903a4020498c7a6a493785809, type: 2}
   IntroCount: 0
   IntroTMP: {fileID: 687797837}
   CanAdvance: 0

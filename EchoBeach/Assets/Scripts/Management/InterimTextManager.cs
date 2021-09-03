@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+public enum DialogueScene
+{
+    INVALID,
+    Intro,
+    One,
+    Two,
+}
 
 public class InterimTextManager : MonoBehaviour
 {
 
-    public InterimScreenText InterimText;
+    public CutSceneText CutSceneTextScriptableObject;
     public int IntroCount = 1;
     [SerializeField] protected TextMeshProUGUI IntroTMP;
     public bool CanAdvance;
@@ -28,17 +35,17 @@ public class InterimTextManager : MonoBehaviour
     {
         CanAdvance = false;
         button.interactable = false;
-        string s = InterimText.StringToTypes[IntroCount].Text;
+        string s = CutSceneTextScriptableObject.StringToTypes[IntroCount].Text;
         IntroTMP.text = s;
         IntroTMP.maxVisibleCharacters = 0;
         for (int i = 0; i <= s.Length; i++)
         {
             IntroTMP.maxVisibleCharacters = i;
-            if (InterimText.StringToTypes[IntroCount].Typer == Typer.Person)
+            if (CutSceneTextScriptableObject.StringToTypes[IntroCount].Typer == Typer.Person)
             {
                 FMODUnity.RuntimeManager.PlayOneShot(KeyboardClick);
             }
-            else if(InterimText.StringToTypes[IntroCount].Typer == Typer.Musician)
+            else if(CutSceneTextScriptableObject.StringToTypes[IntroCount].Typer == Typer.Musician)
             {
                 FMODUnity.RuntimeManager.PlayOneShot(MusicianClick);
             }

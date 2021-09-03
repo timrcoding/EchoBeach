@@ -8,6 +8,6 @@ public class SOTutorial : ScriptableObject
     public string Header;
     [Multiline(10)]
     public string SlideDescription;
-    public TutSlide TutorialSlide;
+    public TutorialSlide TutorialSlide;
     public Sprite Image;
 }

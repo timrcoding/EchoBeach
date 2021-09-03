@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cdb99ca89ca95446865def2baf54ec2, type: 3}
-  m_Name: FuturePerfect
+  m_Name: BuriedPleasures
   m_EditorClassIdentifier: 
   CharacterCategory: 1
-  CharacterName: 3
-  RealName: 4
-  Address: 3
-  DateOfBirth: 1
+  CharacterName: 20
+  RealName: 20
+  Address: 10
+  DOBParts:
+    Day: 28
+    Month: 5
+    Year: 8
   Occupation: 2

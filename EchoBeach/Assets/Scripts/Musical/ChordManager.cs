@@ -36,7 +36,6 @@ public class ChordManager : PulloutManager
 
     private void Update()
     {
-       // transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
     }
 
     private void Start()
@@ -61,7 +60,6 @@ public class ChordManager : PulloutManager
         {
             BeatCount = 0;
             BarCount++;
-            Debug.Log("NEW BAR");
             if(BarCount >= 8)
             {
                 BarCount = 0;

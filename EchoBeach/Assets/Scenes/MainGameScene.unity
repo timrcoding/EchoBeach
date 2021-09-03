@@ -684,6 +684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 78959846}
+  - component: {fileID: 78959845}
   - component: {fileID: 78959847}
   - component: {fileID: 78959848}
   - component: {fileID: 78959849}
@@ -696,6 +697,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &78959845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78959844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddba8420040a63643a250b0edd5ea411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Volume: {fileID: 1528137322}
+  DOF: {fileID: 0}
 --- !u!4 &78959846
 Transform:
   m_ObjectHideFlags: 0
@@ -1567,8 +1582,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OutPosition: {x: -426, y: -105.47}
   AwayPosition: {x: -426, y: -974}
-  TargetPosition: {x: -426, y: -974}
-  outAway: 0
   DontChangeSibling: 1
   ListOfToggles: []
 --- !u!1 &253883432
@@ -3291,8 +3304,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OutPosition: {x: 114, y: 364}
   AwayPosition: {x: 114, y: 745}
-  TargetPosition: {x: 114, y: 745}
-  outAway: 0
   DontChangeSibling: 0
   ChordToColors:
   - ChordType: 1

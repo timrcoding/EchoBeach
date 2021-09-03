@@ -13,7 +13,7 @@ public class ChordPad : MonoBehaviour
     {
         FindIndexRef();
         ChordManager.instance.TriggerChordOnBar += PlayOnBar;
-        MChordType = (ChordType)Random.Range(1, 4);
+        //MChordType = (ChordType)Random.Range(1, 4);
         SetColors();
     }
 

@@ -11,7 +11,6 @@ public class SOTaskManager : ScriptableObject
     private void OnEnable()
     {
         TaskDictionary = new Dictionary<TaskNumber, Task>();
-        Debug.Log("DICTIONARY COMPILED");
         foreach(var T in Tasks)
         {
             TaskDictionary.Add(T.TaskNumber,T);

@@ -15,7 +15,6 @@ public class TaskManager : PulloutManager
     [SerializeField] private GameObject TaskIntroCard;
     [SerializeField] private TextMeshProUGUI TaskHeader;
     [SerializeField] private TextMeshProUGUI TaskDescription;
-
     [SerializeField] private CanvasGroup BlackCoverImage;
 
     private void Awake()
@@ -52,14 +51,9 @@ public class TaskManager : PulloutManager
         SetupTask();
     }
 
-    public override void OutOrAway()
-    {
-        base.OutOrAway();
-    }
-
     public void DisappearTaskWindow()
     {
-        TutorialManager.instance.SetTargetFloat(20f);
+        GameSceneManager.instance.UnBlurBackground();
         LeanTween.moveLocal(TaskIntroCard, new Vector3(0,-1050,0), .5f).setEaseInOutBack();
     }
 
@@ -96,8 +90,6 @@ public class TaskManager : PulloutManager
         SceneManager.LoadScene("ConfirmScene");
     }
 
-
-
     public bool CheckAllCorrect()
     {
         foreach(Transform ans in AnswerAreaParent)
@@ -114,7 +106,7 @@ public class TaskManager : PulloutManager
     public void SetupTask()
     {
         LeanTween.moveLocal(TaskIntroCard, Vector3.zero, .5f).setEaseInOutBack();
-        TutorialManager.instance.SetTargetFloat(0.1f);
+        GameSceneManager.instance.BlurBackground();
         var CurrentTask = SOTasks.TaskDictionary[TaskNumber];
         TaskHeader.text = $"Day: {TaskNumber}";
         TaskDescription.text = CurrentTask.Description;
