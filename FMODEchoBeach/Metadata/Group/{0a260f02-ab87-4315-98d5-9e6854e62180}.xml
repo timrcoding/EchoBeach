@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="MixerGroup" id="{0a260f02-ab87-4315-98d5-9e6854e62180}">
+		<property name="name">
+			<value>_Delta</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{6ce0ac57-da37-445a-a634-53dea2dc0e13}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{fdf42842-160f-481f-98cf-45749c8735a4}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{91ff6401-d0ba-481a-b059-c3214fb1668f}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{6ce0ac57-da37-445a-a634-53dea2dc0e13}">
+		<relationship name="effects">
+			<destination>{0be71e3f-3614-4d04-980f-7a16ce7da513}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{fdf42842-160f-481f-98cf-45749c8735a4}" />
+	<object class="MixerBusFader" id="{0be71e3f-3614-4d04-980f-7a16ce7da513}" />
+</objects>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="MixerGroup" id="{fc6442b5-c23a-4582-9d90-e1a2927ce1b7}">
+		<property name="volume">
+			<value>-6</value>
+		</property>
+		<property name="name">
+			<value>_SeeTheMoon</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{d6838691-e12e-4f0c-9238-81213a0512d9}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{a9b58189-ab36-4b4f-aeaa-bea6bfbade7d}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{91ff6401-d0ba-481a-b059-c3214fb1668f}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{d6838691-e12e-4f0c-9238-81213a0512d9}">
+		<relationship name="effects">
+			<destination>{7d380a5d-1f31-4b24-a33e-28bcf216c868}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{a9b58189-ab36-4b4f-aeaa-bea6bfbade7d}" />
+	<object class="MixerBusFader" id="{7d380a5d-1f31-4b24-a33e-28bcf216c868}" />
+</objects>

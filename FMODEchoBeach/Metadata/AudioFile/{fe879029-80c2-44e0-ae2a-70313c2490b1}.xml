@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{fe879029-80c2-44e0-ae2a-70313c2490b1}">
+		<property name="assetPath">
+			<value>See the Moon (v1).mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>230.40000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{71e9a827-6a20-4e8d-81b3-2365386d4f15}</destination>
+		</relationship>
+	</object>
+</objects>

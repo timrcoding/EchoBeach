@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="MixerGroup" id="{91d6f8dc-08c1-4897-a8ca-3eb8e4502bd6}">
+		<property name="volume">
+			<value>-4</value>
+		</property>
+		<property name="name">
+			<value>_LettuceLaments</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{4e8a1e83-9043-4699-8ec8-6979833f8e75}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{b5b4ee8e-c9fd-43ac-9751-bf82c2153e10}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{91ff6401-d0ba-481a-b059-c3214fb1668f}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{4e8a1e83-9043-4699-8ec8-6979833f8e75}">
+		<relationship name="effects">
+			<destination>{ddd97c81-94f4-4908-b09f-4286e2c62f1f}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{b5b4ee8e-c9fd-43ac-9751-bf82c2153e10}" />
+	<object class="MixerBusFader" id="{ddd97c81-94f4-4908-b09f-4286e2c62f1f}" />
+</objects>

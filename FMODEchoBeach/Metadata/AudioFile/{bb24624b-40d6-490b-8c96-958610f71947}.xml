@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{bb24624b-40d6-490b-8c96-958610f71947}">
+		<property name="assetPath">
+			<value>EverBeen.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>98.53387755102041</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{71e9a827-6a20-4e8d-81b3-2365386d4f15}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="MixerGroup" id="{cc6275c0-fd34-40d1-a1a9-0f19ebfe5920}">
+		<property name="name">
+			<value>_HarvestMoon</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{da31fcc6-5f0d-4e6a-8ba4-93eedf9a2e2d}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{a955648b-94e6-4220-a606-809bf0b5f29f}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{91ff6401-d0ba-481a-b059-c3214fb1668f}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{da31fcc6-5f0d-4e6a-8ba4-93eedf9a2e2d}">
+		<relationship name="effects">
+			<destination>{6f0d8b2b-bf0f-4bb9-bdd8-3b439ef2b0d2}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{a955648b-94e6-4220-a606-809bf0b5f29f}" />
+	<object class="MixerBusFader" id="{6f0d8b2b-bf0f-4bb9-bdd8-3b439ef2b0d2}" />
+</objects>
