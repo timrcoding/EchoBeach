@@ -201,8 +201,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Song Player
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c98fb0481ef5e5249a1ea81b6ddf7f0f, type: 2}
-  m_sharedMaterial: {fileID: -5919049730524999864, guid: c98fb0481ef5e5249a1ea81b6ddf7f0f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8b61683f9a81ec4fa5ef0db1ec6f9bc, type: 2}
+  m_sharedMaterial: {fileID: -5830944718635644654, guid: d8b61683f9a81ec4fa5ef0db1ec6f9bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.35
+  m_fontSize: 11.35
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

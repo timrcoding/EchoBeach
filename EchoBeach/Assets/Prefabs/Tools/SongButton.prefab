@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af9882e659abc24d8bdf70002ac5dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MSong: 0
   TMP: {fileID: 1568063464787263321}
 --- !u!114 &6338873225980477913
 MonoBehaviour:
@@ -305,7 +306,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -3}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1568063464787263302
 CanvasRenderer:
@@ -337,8 +338,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'EllaNella: Ever Been'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c98fb0481ef5e5249a1ea81b6ddf7f0f, type: 2}
-  m_sharedMaterial: {fileID: -5919049730524999864, guid: c98fb0481ef5e5249a1ea81b6ddf7f0f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8b61683f9a81ec4fa5ef0db1ec6f9bc, type: 2}
+  m_sharedMaterial: {fileID: -5830944718635644654, guid: d8b61683f9a81ec4fa5ef0db1ec6f9bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -362,10 +363,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 30.15
   m_fontSizeBase: 25
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

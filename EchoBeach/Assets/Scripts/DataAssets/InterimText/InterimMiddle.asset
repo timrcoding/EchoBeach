@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d242f2fb8ac80f48991996aaef9cd5f, type: 3}
+  m_Name: InterimMiddle
+  m_EditorClassIdentifier: 
+  StringToTypes:
+  - Text: 'CUCKOOSONG
+
+      --------------
+
+
+      Hi Future, I hope you''re well.
+      I was wondering if I could ask you something? It''s a bit personal.'
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      --------------
+
+
+      YEAH SURE MAN, SHOOT.'
+    Typer: 2
+  - Text: "CUCKOOSONG\n--------------\nLately, I've been finding it really hard to
+      reconcile my life here to my real life, if you know what I mean.\n\nIn here
+      I feel so excited and stimulated, but as soon as I step away, it's like a constant
+      disappointment.\n\nI'd like to be like this all the time, but I can't. \n\nYou
+      know?"
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      --------------
+
+      SURE. I GET IT.
+
+
+      EVERYONE''S
+      GOT LIVES AND WE''RE DOING SOMETHING SOCIETY DOESN''T VALUE.
+
+
+      IT CAN
+      BE HARD SOMETIMES TO FEEL LIKE YOU''RE DOING THE RIGHT THING. EVEN THOUGH YOU
+      KNOW YOU ARE.'
+    Typer: 2
+  - Text: 'CUCKOOSONG
+
+      --------------
+
+      That''s it.
+
+
+      Any advice?'
+    Typer: 1
+  - Text: "FUTURE PERFECT\n--------------\nI DON'T KNOW, IT'S DIFFERENT FOR EVERYONE.\n\nSOME
+      PEOPLE DO IT BECAUSE IT'S ALL THEY CAN DO. \n\nFOR ME IT'S MORE ABOUT HAVING
+      SOMETHING NOBODY ELSE CAN OWN.\n\nMAYBE JUST SPEND A LITTLE TIME THINKING ABOUT
+      WHAT REALLY MATTERS TO YOU."
+    Typer: 2
+  - Text: 'CUCKOOSONG
+
+      --------------
+
+      Thanks, I will.'
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      --------------
+
+      ANYTHING ELSE I CAN HELP WITH?'
+    Typer: 2
+  - Text: 'CUCKOOSONG
+
+      --------------
+
+      No, catch you soon.'
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      --------------
+
+      BACK TO YOUR NEST, LITTLE
+      CUCKOO.'
+    Typer: 2

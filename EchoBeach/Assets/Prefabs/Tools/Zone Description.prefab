@@ -143,8 +143,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Musicians
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4bb3f236d3f97bc428a46d97fd4e9f63, type: 2}
-  m_sharedMaterial: {fileID: 3147006495775557870, guid: 4bb3f236d3f97bc428a46d97fd4e9f63, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8b61683f9a81ec4fa5ef0db1ec6f9bc, type: 2}
+  m_sharedMaterial: {fileID: -5830944718635644654, guid: d8b61683f9a81ec4fa5ef0db1ec6f9bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 140.35
+  m_fontSize: 96.65
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1

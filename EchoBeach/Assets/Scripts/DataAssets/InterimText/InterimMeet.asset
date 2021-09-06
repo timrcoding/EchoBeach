@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d242f2fb8ac80f48991996aaef9cd5f, type: 3}
+  m_Name: InterimMeet
+  m_EditorClassIdentifier: 
+  StringToTypes:
+  - Text: 'CUCKOOSONG
+
+      ------------
+
+      Hi Future,
+
+
+      It''s me Cuckoo,
+      I wanted to reach out to say I''m really enjoying all your teaching stuff.
+
+
+      You
+      seem really passionate!'
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      ------------
+
+      THANKS MAN. I SEE YOU''RE NEW
+      ROUND HERE.
+
+
+      EVERYTHING PLEASANT AND ABOVE BOARD?'
+    Typer: 2
+  - Text: 'CUCKOOSONG
+
+      ------------
+
+      Absolutely, amazing people, amazing
+      music.
+
+
+      Do you know any of them personally?'
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      ------------
+
+      WELL A FEW OF US, BUT HEY, WHAT
+      AM I SAYING.
+
+
+      I BARELY KNOW YOU.
+
+
+      YOU COULD BE ANYONE!'
+    Typer: 2
+  - Text: 'CUCKOOSONG
+
+      ------------
+
+      Or at least someone!'
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      ------------
+
+      DEFFO. SO ARE YOU A SONGWRITER,
+      GOT ANY STUFF?'
+    Typer: 2
+  - Text: "CUCKOOSONG\n------------\nYeah deffo, I'm working on some new stuff right
+      now.\n\nIt's like synthy psychedelia mixed with Low-era Bowie.\n\nThat stuff
+      is damn hard to get these days. \n\nYou like Bowie?"
+    Typer: 1
+  - Text: 'FUTURE PERFECT
+
+      ------------
+
+      ABSOLUTELY. LOOK IT WAS GOOD
+      TALKING MAN.
+
+
+      THEY''RE RAIDING A HOUSE ON OUR STREET SO I''VE GOT TO
+      GO
+
+
+      CATCH YOU AROUND SOMETIME.'
+    Typer: 2
+  - Text: 'CUCKOOSONG
+
+      ------------
+
+      See you Future.'
+    Typer: 1

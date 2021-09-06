@@ -710,7 +710,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Volume: {fileID: 1528137322}
-  DOF: {fileID: 0}
 --- !u!4 &78959846
 Transform:
   m_ObjectHideFlags: 0
@@ -815,8 +814,6 @@ MonoBehaviour:
   HeaderText: {fileID: 617668948}
   DescriptText: {fileID: 617668946}
   Image: {fileID: 617668947}
-  Volume: {fileID: 1528137322}
-  DOF: {fileID: 0}
 --- !u!114 &78959851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5821,8 +5818,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8619011816425110754, guid: cdc2720481bf52140bf30e03408516b4, type: 3}
       propertyPath: m_fontSize
-      value: 100.5
+      value: 69.45
       objectReference: {fileID: 0}
+    - target: {fileID: 8619011816425110754, guid: cdc2720481bf52140bf30e03408516b4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d8b61683f9a81ec4fa5ef0db1ec6f9bc, type: 2}
+    - target: {fileID: 8619011816425110754, guid: cdc2720481bf52140bf30e03408516b4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5830944718635644654, guid: d8b61683f9a81ec4fa5ef0db1ec6f9bc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdc2720481bf52140bf30e03408516b4, type: 3}
 --- !u!224 &1352442448 stripped

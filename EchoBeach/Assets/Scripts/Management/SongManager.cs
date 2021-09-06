@@ -76,6 +76,7 @@ public class SongManager : PulloutManager
     void Start()
     {
         LyricManager = GetComponent<LyricManager>();
+       // LyricManager.timelineInfo.LyricsDelegate += SetLyrics;
         foreach (var song in SaveManager.instance.ActiveSave.SongTracklist)
         {
             SongTracklist.Add(song.Song);

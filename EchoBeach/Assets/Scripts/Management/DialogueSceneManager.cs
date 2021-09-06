@@ -38,10 +38,6 @@ public class DialogueSceneManager : InterimTextManager
         {
             CutSceneTextScriptableObject = DialogueSceneLookupDictionary[SaveManager.instance.ActiveSave.CurrentDialogueScene];
         }
-        else
-        {
-
-        }
     }
 
     public override IEnumerator InitDelay()
@@ -106,7 +102,8 @@ public class DialogueSceneManager : InterimTextManager
             if (!SaveManager.instance.ActiveSave.GameCompleted || !GameCompleted)
             {
                 SceneManager.LoadScene("MainGameScene");
-                SaveManager.instance.ActiveSave.CurrentDialogueScene = DialogueScene.Two;
+                int curr = (int) SaveManager.instance.ActiveSave.CurrentDialogueScene;
+                SaveManager.instance.ActiveSave.CurrentDialogueScene = (DialogueScene)curr + 1;
             }
             else
             {
@@ -117,7 +114,7 @@ public class DialogueSceneManager : InterimTextManager
         }
         else
         {
-            SceneManager.LoadScene("MainGameScene");
+           // SceneManager.LoadScene("MainGameScene");
         }
     }
 }

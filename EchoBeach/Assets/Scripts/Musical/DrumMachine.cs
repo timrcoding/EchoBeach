@@ -8,7 +8,7 @@ public class DrumMachine : PulloutManager
 {
     public static DrumMachine instance; 
 
-    public AudioClip SixteenthNoteReferenceClip;
+    [SerializeField] private AudioClip SixteenthNoteReferenceClip;
     public event Action TriggerDrums;
     public event Action SetDrumStrip;
     public event Action ClearAll;
@@ -27,11 +27,6 @@ public class DrumMachine : PulloutManager
     void Start()
     {
         TriggerDrums += PlayDrumMachine;
-    }
-
-    private void Update()
-    {
-       // transform.localPosition = Vector2.Lerp(transform.localPosition, TargetPosition, Time.deltaTime * 5);
     }
 
     public void CanStartStop()
