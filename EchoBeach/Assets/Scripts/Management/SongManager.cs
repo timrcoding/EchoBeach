@@ -76,7 +76,7 @@ public class SongManager : PulloutManager
     void Start()
     {
         LyricManager = GetComponent<LyricManager>();
-       // LyricManager.timelineInfo.LyricsDelegate += SetLyrics;
+        SetLyrics("");
         foreach (var song in SaveManager.instance.ActiveSave.SongTracklist)
         {
             SongTracklist.Add(song.Song);
@@ -196,8 +196,8 @@ public class SongManager : PulloutManager
     {
         StopButtonPressed = false;
         float vol;
-        musicInstance.getVolume(out vol);
-        LeanTween.value(gameObject,vol, 0,1).setOnUpdate((value) =>
+        AmbienceInstance.getVolume(out vol);
+        LeanTween.value(gameObject,vol, 0,5).setOnUpdate((value) =>
         {
             AmbienceInstance.setVolume(value);
         });
@@ -236,6 +236,18 @@ public class SongManager : PulloutManager
                 }
             }
         }
+
+        foreach(var button in SongButtons)
+        {
+            if(button.GetComponent<SongButton>().MSong == song)
+            {
+                button.GetComponent<Button>().image.color = Color.red;
+            }
+            else
+            {
+                button.GetComponent<Button>().image.color = Color.black;
+            }
+        }
     }
 
     public void StopSong()
@@ -244,7 +256,9 @@ public class SongManager : PulloutManager
         SetLyrics("");
         musicInstance.release();
         musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        LeanTween.value(gameObject, 0, 1, 5).setOnUpdate((value) =>
+        float vol;
+        AmbienceInstance.getVolume(out vol);
+        LeanTween.value(gameObject, vol, 1, 5).setOnUpdate((value) =>
         {
             AmbienceInstance.setVolume(value);
         });

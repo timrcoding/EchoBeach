@@ -38,13 +38,17 @@ public class TabManager : MonoBehaviour
     {
         Tab MTab = new Tab();
 
-        foreach(Tab tab in Tabs)
+        foreach (Tab tab in Tabs)
         {
-            if(tab.Button == mButton)
+            if (tab.Button == mButton)
             {
                 MTab = tab;
+
             }
+            tab.Button.image.color = Color.white;
         }
+
+
 
         foreach (Tab tab in Tabs)
         {
@@ -56,8 +60,9 @@ public class TabManager : MonoBehaviour
                     {
                         SetTween(tab.Pullout.gameObject, tab.Pullout.GetOutPosition, 1);
                         LastButton = mButton;
+
                     }
-                    else 
+                    else
                     {
                         if (!b)
                         {
@@ -67,11 +72,15 @@ public class TabManager : MonoBehaviour
                         }
                     }
                 }
-                else if(MTab.IncompatibleWithTabs.Contains(tab.TabType))
+                else if (MTab.IncompatibleWithTabs.Contains(tab.TabType))
                 {
                     SetTween(tab.Pullout.gameObject, tab.Pullout.GetAwayPosition, 1);
                 }
-            } 
+            }
+        }
+        if (LastButton != null)
+        {
+            LastButton.image.color = Color.red;
         }
     }
 

@@ -51,6 +51,13 @@ public class TaskManager : PulloutManager
         SetupTask();
     }
 
+    IEnumerator IntroduceTaskWindow()
+    {
+        yield return new WaitForSeconds(2);
+        LeanTween.moveLocal(TaskIntroCard, Vector3.zero, .5f).setEaseInOutBack();
+        GameSceneManager.instance.BlurBackground();
+    }
+
     public void DisappearTaskWindow()
     {
         GameSceneManager.instance.UnBlurBackground();
@@ -105,8 +112,7 @@ public class TaskManager : PulloutManager
 
     public void SetupTask()
     {
-        LeanTween.moveLocal(TaskIntroCard, Vector3.zero, .5f).setEaseInOutBack();
-        GameSceneManager.instance.BlurBackground();
+        StartCoroutine(IntroduceTaskWindow());
         var CurrentTask = SOTasks.TaskDictionary[TaskNumber];
         TaskHeader.text = $"Day: {TaskNumber}";
         TaskDescription.text = CurrentTask.Description;

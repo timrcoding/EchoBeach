@@ -8,7 +8,7 @@
 [LOG] SystemI::init                            : Output requires a sample rate of 44100Hz, resampling will occur.
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001CFA9B1DE68 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000002AF2328C738 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -21,28 +21,127 @@
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] SystemI::createSound                     : filename = D:/Personal/Game Projects/EchoBeach/EchoBeach/EchoBeach/Banks/Desktop/Master.bank : mode 02010082
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001D25E47C678 : node = 000001CFAE25F4A0
-[LOG] SystemI::createSound                     : add node to async list : head = 000001CFAE064C18.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001D25E47C678
+[LOG] SystemI::createSound                     : setdata soundi = 000002AEFBFEBC68 : node = 000002AEED74E3B0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002AE65951B48.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002AEFBFEBC68
 [LOG] SystemI::createSoundInternal             :     Create name='D:/Personal/Game Projects/EchoBeach/EchoBeach/EchoBeach/Banks/Desktop/Master.bank', mode=0x02010082
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 26250080
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 43104
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001CFAE25F5B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002AEED74E4C0
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
 [LOG] SystemI::createSoundInternal             :     Stream 0/1: name='EverBeen', format=5, channels=2, frequency=48000, lengthbytes=1335200, lengthpcm=4729626, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.603455.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001D25E47C678
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001CFADDBD598
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001CFADDBD598
-[LOG] SoundI::release                          : EverBeen (000001D25E47C678)
-[LOG] SoundI::release                          :     EverBeen (000001D1F5DE7018)
-[LOG] SoundI::release                          :     EverBeen (000001D25E47B598)
-[LOG] SoundI::release                          : OfficeSpace (000001CFADDC2188)
-[LOG] SoundI::release                          :     OfficeSpace (000001D1C98B8708)
-[LOG] SoundI::release                          :     OfficeSpace (000001CFADDBD598)
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002AEFBFEBC68
+[LOG] SystemI::createSound                     : filename = D:/Personal/Game Projects/EchoBeach/EchoBeach/EchoBeach/Banks/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002AEFBFF55F8 : node = 000002AEFB6B2DE0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002AE65951B48.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002AEFBFF55F8
+[LOG] SystemI::createSoundInternal             :     Create name='D:/Personal/Game Projects/EchoBeach/EchoBeach/EchoBeach/Banks/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 26250080
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 43104
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002AEFB6B2EF0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 13500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='OfficeSpace', format=5, channels=2, frequency=48000, lengthbytes=788224, lengthpcm=2730720, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.131165.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002AEFBFF55F8
+[LOG] SoundI::release                          : OfficeSpace (000002AF3DEA6508)
+[LOG] SoundI::release                          :     OfficeSpace (000002AE3CD16528)
+[LOG] SoundI::release                          :     OfficeSpace (000002AF3DEA7288)
+[LOG] SystemI::createSound                     : filename = D:/Personal/Game Projects/EchoBeach/EchoBeach/EchoBeach/Banks/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002AEFBFF3798 : node = 000002AF22D8D6A0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002AE65951B48.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002AEFBFF3798
+[LOG] SystemI::createSoundInternal             :     Create name='D:/Personal/Game Projects/EchoBeach/EchoBeach/EchoBeach/Banks/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 26250080
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 43104
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002AF22D8D7B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 13500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='OfficeSpace', format=5, channels=2, frequency=48000, lengthbytes=788224, lengthpcm=2730720, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.131165.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002AEFBFF3798
+[LOG] SoundI::release                          : OfficeSpace (000002AEFBFF55F8)
+[LOG] SoundI::release                          :     OfficeSpace (000002AE3CD0FB88)
+[LOG] SoundI::release                          :     OfficeSpace (000002AEFBFF3AF8)
+[LOG] SystemI::createSound                     : filename = D:/Personal/Game Projects/EchoBeach/EchoBeach/EchoBeach/Banks/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002AEFBFF0F18 : node = 000002AF22D8DBA0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002AE65951B48.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002AEFBFF0F18
+[LOG] SystemI::createSoundInternal             :     Create name='D:/Personal/Game Projects/EchoBeach/EchoBeach/EchoBeach/Banks/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 26250080
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 43104
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002AF22D8DCB0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Taylor_02', format=5, channels=2, frequency=48000, lengthbytes=1675712, lengthpcm=5683968, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002AEFBFF0F18
+[LOG] SoundI::release                          : EverBeen (000002AEFBFEBC68)
+[LOG] SoundI::release                          :     EverBeen (000002AE3CD159C8)
+[LOG] SoundI::release                          :     EverBeen (000002AEFBFEE9F8)
+[LOG] SystemI::createSound                     : filename = D:/Personal/Game Projects/EchoBeach/EchoBeach/EchoBeach/Banks/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002AEFBFEB098 : node = 000002AF22D8D7E0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002AE65951B48.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002AEFBFEB098
+[LOG] SystemI::createSoundInternal             :     Create name='D:/Personal/Game Projects/EchoBeach/EchoBeach/EchoBeach/Banks/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 26250080
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 43104
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002AF22D8D8F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 13500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='OfficeSpace', format=5, channels=2, frequency=48000, lengthbytes=788224, lengthpcm=2730720, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.131165.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002AEFBFEB098
+[LOG] SoundI::release                          : OfficeSpace (000002AEFBFF3798)
+[LOG] SoundI::release                          :     OfficeSpace (000002AE3CD103A8)
+[LOG] SoundI::release                          :     OfficeSpace (000002AEFBFF4368)
+[LOG] SystemI::createSound                     : filename = D:/Personal/Game Projects/EchoBeach/EchoBeach/EchoBeach/Banks/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002AEFBFF2D78 : node = 000002AF22D8D6A0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002AE65951B48.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002AEFBFF2D78
+[LOG] SystemI::createSoundInternal             :     Create name='D:/Personal/Game Projects/EchoBeach/EchoBeach/EchoBeach/Banks/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 26250080
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 43104
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002AF22D8D7B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 13500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='OfficeSpace', format=5, channels=2, frequency=48000, lengthbytes=788224, lengthpcm=2730720, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.131165.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002AEFBFF2D78
+[LOG] SoundI::release                          : OfficeSpace (000002AEFBFEB098)
+[LOG] SoundI::release                          :     OfficeSpace (000002AE3CD159C8)
+[LOG] SoundI::release                          :     OfficeSpace (000002AEFBFEBC68)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002AEFBFF55F8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002AEFBFF55F8
+[LOG] SoundI::release                          : Taylor_02 (000002AEFBFF0F18)
+[LOG] SoundI::release                          :     Taylor_02 (000002AE3CD0FB88)
+[LOG] SoundI::release                          :     Taylor_02 (000002AEFBFEAEE8)
+[LOG] SoundI::release                          : OfficeSpace (000002AEFBFF2D78)
+[LOG] SoundI::release                          :     OfficeSpace (000002AE3CD12F88)
+[LOG] SoundI::release                          :     OfficeSpace (000002AEFBFF55F8)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients

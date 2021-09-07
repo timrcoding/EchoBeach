@@ -11,10 +11,16 @@ public class SongButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TMP;
     private Button Button;
     private Vector3 OriginalPosition;
+    private float TimeBetweenClicks;
     void Start()
     {
         Button = GetComponent<Button>();
         name = MSong.ToString();
+    }
+
+    private void Update()
+    {
+        TimeBetweenClicks++;
     }
 
     public void SetCharacterAndSong(DeepNetLinkName CharName, Song Song)
@@ -33,16 +39,18 @@ public class SongButton : MonoBehaviour
         }
     }
 
-    public void StorePosition()
+    public void ResetClicks()
     {
-        Debug.Log("POSITION STORED");
-        OriginalPosition = transform.position;
+        TimeBetweenClicks = 0;
     }
 
      public void PlaySong()
     {
-        
-        SongManager.instance.PlaySong(MSong);
-        SongManager.instance.TurnUpSong();
+        Debug.Log(TimeBetweenClicks);
+        if (TimeBetweenClicks < 10)
+        {
+            SongManager.instance.PlaySong(MSong);
+            SongManager.instance.TurnUpSong();
+        }
     }
 }
