@@ -17,7 +17,7 @@ MonoBehaviour:
   RealName: 24
   Address: 3
   DOBParts:
-    Day: 1
-    Month: 9
-    Year: 1
-  Occupation: 1
+    Day: 31
+    Month: 2
+    Year: 2
+  Occupation: 3

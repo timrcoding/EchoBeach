@@ -10,27 +10,17 @@ public class GameSceneManager : MonoBehaviour
 {
     public static GameSceneManager instance;
 
-    [SerializeField] private Volume Volume;
-    private DepthOfField DOF;
+    [FMODUnity.EventRef]
+    public string ClickSound;
 
     private void Awake()
     {
         instance = this;
-        Volume.profile.TryGet<DepthOfField>(out DOF);
-    }
-    public void BlurBackground()
-    {
-        LeanTween.value(gameObject, 20, 0, 1).setOnUpdate((value) =>
-        {
-            DOF.focusDistance.value = value;
-        });
     }
 
-    public void UnBlurBackground()
+    public void PlayClick()
     {
-        LeanTween.value(gameObject, 0, 20, 1).setOnUpdate((value) =>
-        {
-            DOF.focusDistance.value = value;
-        });
+        FMODUnity.RuntimeManager.PlayOneShot(ClickSound);
     }
+
 }

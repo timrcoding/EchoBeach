@@ -50,7 +50,7 @@ public class SongButton : MonoBehaviour
         if (TimeBetweenClicks < 10)
         {
             SongManager.instance.PlaySong(MSong);
-            SongManager.instance.TurnUpSong();
+           // SongManager.instance.TurnUpSong();
         }
     }
 }

@@ -9,5 +9,5 @@ public class SOTutorial : ScriptableObject
     [Multiline(10)]
     public string SlideDescription;
     public TutorialSlide TutorialSlide;
-    public Sprite Image;
+    public ToggleWithTutorial ToggleWithTutorial;
 }

@@ -51,6 +51,9 @@
 		</relationship>
 	</object>
 	<object class="MixerInput" id="{eb809f95-58a1-4093-acb2-fdc9f0876ba9}">
+		<relationship name="masters">
+			<destination>{e4484fa9-f68a-4421-8706-46b866e25751}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{294decb7-1ff5-4f75-8fb4-acb4cc81540f}</destination>
 		</relationship>
@@ -231,7 +234,7 @@
 			<value>44.5</value>
 		</property>
 		<property name="name">
-			<value>And the sunshine i late July</value>
+			<value>And the sunshine in late July</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{868f3b27-faa7-45ae-8a5b-8f9ec892f863}</destination>

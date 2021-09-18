@@ -12,11 +12,12 @@ public class TutorialManager : MonoBehaviour
 
     [SerializeField] private List<SOTutorial> TutorialScriptableObjects;
     private Dictionary<TutorialSlide, SOTutorial> TutorialDictionary;
-    private int TutorialCount = 2;
+    public int TutorialCount;
     [SerializeField] private GameObject TutorialWindow;
     [SerializeField] private TextMeshProUGUI HeaderText;
     [SerializeField] private TextMeshProUGUI DescriptText;
-    [SerializeField] private Image Image;
+
+    [SerializeField] private ToggleNameAndItemForTutorial[] ToggleNameList;
     
     private float TargetFloat;
 
@@ -26,13 +27,25 @@ public class TutorialManager : MonoBehaviour
     }
     void Start()
     {
+        TutorialWindow.SetActive(false);
         CompileDictionary();
         if (SaveManager.instance.ActiveSave.MTaskNumber == TaskNumber.Tutorial)
         {
             SetSlide();
             IntroduceTutorialWindow();
+            SetToggles(false);
+        }
+        
+    }
+
+    void SetToggles(bool b)
+    {
+        for(int i = 0; i < ToggleNameList.Length; i++)
+        {
+            ToggleNameList[i].ToggleButton.GetComponent<Button>().interactable = b;
         }
     }
+
     public void SetTargetFloat(float f)
     {
         TargetFloat = f;
@@ -49,38 +62,50 @@ public class TutorialManager : MonoBehaviour
 
     void IntroduceTutorialWindow()
     {
-        GameSceneManager.instance.BlurBackground();
-        LeanTween.moveLocal(TutorialWindow,Vector3.zero,1f).setEaseInOutBack();
+        TutorialWindow.transform.localPosition = Vector3.zero;
+        TutorialWindow.SetActive(true);
+        DeepnetManager.instance.SetMatToOpaque();
     }
 
     public void RemoveTutorial()
     {
-        TargetFloat = 20;
-        Debug.Log("REMOVED");
-        LeanTween.moveLocal(TutorialWindow, new Vector3(1750, 0, 0), 1f).setEaseInOutBack();
+        TutorialWindow.SetActive(false);
         if (SaveManager.instance.ActiveSave.MTaskNumber == TaskNumber.Tutorial)
         {
             SaveManager.instance.ActiveSave.MTaskNumber = TaskNumber.One;
             TaskManager.instance.SetTaskFromSave();
             TaskManager.instance.SetupTask();
-            DeepnetManager.instance.LoadPageText(DeepNetLinkName.EllaNella);
         }
+        SetToggles(true);
+        DeepnetManager.instance.ChangeMat();
     }
 
     void SetSlide()
     {
-        var Tutorial = TutorialDictionary[(TutorialSlide)TutorialCount];
+        
+        DeepnetManager.instance.ChangeMat();
+        var Tutorial = TutorialScriptableObjects[TutorialCount];
         HeaderText.text = Tutorial.Header;
         DescriptText.text = Tutorial.SlideDescription;
-        if (Image.sprite != null)
+
+        for(int i = 0; i < ToggleNameList.Length; i++)
         {
-            Image.sprite = Tutorial.Image;
+            if(Tutorial.ToggleWithTutorial == ToggleNameList[i].ToggleWithTutorial)
+            {
+                ToggleNameList[i].ToggleButton.SetTab();
+                Debug.Log("OPEN");
+            }
+            else
+            {
+              
+            }
         }
+
     }
 
     public void NextSlide()
     {
-        if(TutorialCount < TutorialScriptableObjects.Count)
+        if(TutorialCount < TutorialScriptableObjects.Count-1)
         {
             TutorialCount++;
             SetSlide();
@@ -89,6 +114,7 @@ public class TutorialManager : MonoBehaviour
         {
             RemoveTutorial();
         }
+        GameSceneManager.instance.PlayClick();
     }
 
     
@@ -103,4 +129,19 @@ public enum TutorialSlide
     SearchableData,
     Clues,
     SongHolder,
+}
+
+public enum ToggleWithTutorial
+{
+    INVALID,
+    TargetToggle,
+    SongToggle,
+    SearchToggle,
+}
+
+[System.Serializable]
+public struct ToggleNameAndItemForTutorial
+{
+    public ToggleWithTutorial ToggleWithTutorial;
+    public ToggleButton ToggleButton;
 }

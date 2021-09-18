@@ -8,7 +8,6 @@ using System.Linq;
 public class DeepnetManager : MonoBehaviour
 {
     public static DeepnetManager instance;
-    public TaskNumber LevelOfAccess;
     //PAGE ELEMENTS
     [SerializeField] private TextMeshProUGUI TMPHeader;
     [SerializeField] private TextMeshProUGUI TMPBody;
@@ -20,6 +19,8 @@ public class DeepnetManager : MonoBehaviour
     [SerializeField] private ScrollRect ScrollRect;
 
     [SerializeField] private Material CoverScreenMaterial;
+    [SerializeField] private Image CircleLoader;
+    public Transform TutTaskPos;
 
     private void Awake()
     {
@@ -27,33 +28,32 @@ public class DeepnetManager : MonoBehaviour
     }
     void Start()
     {
-        StartCoroutine(LoadInitialPage());
+        LoadInitialPage();
+        SetMatToOpaque();
+        ChangeMat();
     }
 
-    IEnumerator LoadInitialPage()
+    void LoadInitialPage()
     {
-        yield return new WaitForSeconds(2);
-        
-        LoadPageText(DeepNetLinkName.CuckooSong);
+      //  LoadPageText(DeepNetLinkName.CuckooSong);
     }
 
     void CoverPage()
     {
-        CoverScreenMaterial.SetFloat("_Fade", 1);
-        StartCoroutine(ChangeMat());
+        ChangeMat();
     }
 
-    IEnumerator ChangeMat()
+    public void SetMatToOpaque()
     {
-        // Debug.Log("RUN");
-        yield return new WaitForSeconds(Time.deltaTime);
-        float fadeVal = CoverScreenMaterial.GetFloat("_Fade");
-        if (fadeVal > 0)
-        {
-            float alph = CoverScreenMaterial.GetFloat("_Fade") - (2 * Time.deltaTime);
-            CoverScreenMaterial.SetFloat("_Fade", alph);
-            StartCoroutine(ChangeMat());
-        }
+        CoverScreenMaterial.SetFloat("_Fade", 1);
+    }
+
+    public void ChangeMat()
+    {
+        LeanTween.value(gameObject, 1, 0, 1).setOnUpdate((value) =>
+           {
+               CoverScreenMaterial.SetFloat("_Fade", value);
+           });
     }
 
 
@@ -63,14 +63,7 @@ public class DeepnetManager : MonoBehaviour
         SODeepNetPage Page = DeepNetLookupFunctions.ReturnDeepNetLinkToPage(DeepNetLink, DeepNetLookupFunctions.instance.MSODeepNetLookup);
         if (Page != null)
         {
-            //Set Background
-            Background.color = Page.BackgroundColor;
-
-            BackgroundPattern.sprite = Page.BackgroundPattern;
-            //Add header text
             TMPHeader.text = StringEnum.GetStringValue(DeepNetLink);
-            //Read textasset and write body text
-            TMPHeader.font = DeepNetLookupFunctions.ReturnFontToTMPFont(Page.Font, DeepNetLookupFunctions.instance.MSODeepNetLookup);
             TMPBody.text = "";
             TMPBody.text += '\n';
             TMPBody.text += '\n';
@@ -78,7 +71,7 @@ public class DeepnetManager : MonoBehaviour
             List<string> TempList = TextManager.instance.ReturnTextListForCharacter(DeepNetLink);
             for(int i = 0; i < TempList.Count; i++)
             {
-                if(i <= (int)TaskManager.instance.TaskNumber)
+                if(i < (int)TaskManager.instance.TaskNumber)
                 {
                     string s = TempList[i];
                     if (!s.StartsWith('/'.ToString())) {
@@ -129,4 +122,6 @@ public class DeepnetManager : MonoBehaviour
             LinkButton.GetComponent<LinkButton>().SetDeepNetLink(Link);
         }
     }
+
+    
 }

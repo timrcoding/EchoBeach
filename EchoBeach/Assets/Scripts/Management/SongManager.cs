@@ -24,12 +24,14 @@ public enum Song
     Delta,
     [StringValue("Overcoat")]
     Overcoat,
-    [StringValue("Lettuce Laments")]
-    LettuceLaments,
+    [StringValue("Lettuce")]
+    Lettuce,
     [StringValue("Listening")]
     Listening,
     [StringValue("Like A River")]
     River,
+    [StringValue("To The End")]
+    ToTheEnd,
 }
 public class SongManager : PulloutManager
 {
@@ -39,8 +41,6 @@ public class SongManager : PulloutManager
 
     [SerializeField] private List<PositionToObjectInList> PositionToObjectInLists;
     [SerializeField] private Vector2 Buffer;
-    [SerializeField] private FMODUnity.StudioEventEmitter RadioAudioSource;
-    [SerializeField] private Toggle RadioToggle;
     
     public Vector2 GetBuffer { get { return Buffer; } }
     [SerializeField] private Transform SongPlayer;
@@ -53,10 +53,12 @@ public class SongManager : PulloutManager
     [SerializeField] private LyricManager LyricManager;
     FMOD.Studio.EventInstance musicInstance;
     FMOD.Studio.EventDescription TimeLineDesc;
-    [SerializeField] private Slider Slider;
+    [SerializeField] private Slider TimeLineSlider;
     bool CanMoveSlider;
     int TimeLineLength;
     bool StopButtonPressed;
+    [FMODUnity.EventRef]
+    [SerializeField] private String SongAddedSound;
 
     [SerializeField] private Song TrickSong;
     [SerializeField] private int TrickSongStartOffset = 5000;
@@ -64,6 +66,8 @@ public class SongManager : PulloutManager
     public FMOD.Studio.EventInstance AmbienceInstance;
     [FMODUnity.EventRef]
     [SerializeField] private string Ambience;
+
+    [SerializeField] private Slider VolumeSlider;
 
     //LYRICS
     [SerializeField] private TextMeshProUGUI LyricText;
@@ -85,6 +89,7 @@ public class SongManager : PulloutManager
 
         AmbienceInstance = FMODUnity.RuntimeManager.CreateInstance(Ambience);
         AmbienceInstance.start();
+      //  PutAway();
 
     }
 
@@ -94,17 +99,6 @@ public class SongManager : PulloutManager
 
     #region Song Playback
 
-    public void SetRadioOrMusic()
-    {
-        if (RadioToggle.isOn)
-        {
-            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Volume", 1);
-        }
-        else
-        {
-            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Volume", 0);
-        }
-    }
 
     IEnumerator CheckSongIsPlaying()
     {
@@ -130,8 +124,7 @@ public class SongManager : PulloutManager
     {
         musicInstance.getDescription(out TimeLineDesc);
         TimeLineDesc.getLength(out TimeLineLength);
-        Slider.maxValue = TimeLineLength;
-        Debug.Log("TIME LINE SET");
+        TimeLineSlider.maxValue = TimeLineLength;
     }
 
     public void GetTimeLineTime()
@@ -140,7 +133,7 @@ public class SongManager : PulloutManager
         musicInstance.getTimelinePosition(out time);
         if (!CanMoveSlider)
         {
-            Slider.value = time;
+            TimeLineSlider.value = time;
         }
     }
 
@@ -148,7 +141,7 @@ public class SongManager : PulloutManager
     {
         if (CanMoveSlider)
         {
-            musicInstance.setTimelinePosition((int)Slider.value);
+            musicInstance.setTimelinePosition((int)TimeLineSlider.value);
         }
         int time;
         musicInstance.getTimelinePosition(out time);
@@ -186,15 +179,20 @@ public class SongManager : PulloutManager
         return newNum;
     }
 
-    public void TurnUpSong()
+    public void ResetSongVolume()
     {
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Volume", 0);
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Mute", 0);
+        LeanTween.value(gameObject, VolumeSlider.value, 1, 1).setOnUpdate((value) =>
+        {
+            VolumeSlider.value = value;
+        }).setEaseInQuad();
+      
     }
 
     public void PlaySong(Song song)
     {
+        ResetSongVolume();
         StopButtonPressed = false;
+        GameSceneManager.instance.PlayClick();
         float vol;
         AmbienceInstance.getVolume(out vol);
         LeanTween.value(gameObject,vol, 0,5).setOnUpdate((value) =>
@@ -241,11 +239,11 @@ public class SongManager : PulloutManager
         {
             if(button.GetComponent<SongButton>().MSong == song)
             {
-                button.GetComponent<Button>().image.color = Color.red;
+                button.GetComponent<Button>().image.color = Color.black;
             }
             else
             {
-                button.GetComponent<Button>().image.color = Color.black;
+                button.GetComponent<Button>().image.color = Color.white;
             }
         }
     }
@@ -286,7 +284,7 @@ public class SongManager : PulloutManager
             }
             AddToList(NewSongButton);
             SongButtons.Add(NewSongButton);
-            if (TaskManager.instance.TaskNumber != TaskNumber.Tutorial)
+            if (SaveManager.instance.ActiveSave.MTaskNumber != TaskNumber.Tutorial)
             {
                 TabManager.instance.SetTab(TabManager.instance.ReturnButton(GetComponent<PulloutManager>()), true);
             }

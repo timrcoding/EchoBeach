@@ -19,6 +19,7 @@ TagManager:
   - ChordPad
   - MapElement
   - MapParent
+  - TargetsToggle
   layers:
   - Default
   - TransparentFX

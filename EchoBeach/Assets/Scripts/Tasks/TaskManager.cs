@@ -16,6 +16,15 @@ public class TaskManager : PulloutManager
     [SerializeField] private TextMeshProUGUI TaskHeader;
     [SerializeField] private TextMeshProUGUI TaskDescription;
     [SerializeField] private CanvasGroup BlackCoverImage;
+    [SerializeField] private Slider CheckSlider;
+    [SerializeField] private Image SliderFill;
+
+    [FMODUnity.EventRef]
+    [SerializeField] private string CheckSound;
+    [FMODUnity.EventRef]
+    [SerializeField] private string CorrectSound;
+    [FMODUnity.EventRef]
+    [SerializeField] private string IncorrectSound;
 
     private void Awake()
     {
@@ -42,6 +51,7 @@ public class TaskManager : PulloutManager
         {
             SetupTask();
         }
+        
     }
 
     public void IncrementTask()
@@ -51,21 +61,35 @@ public class TaskManager : PulloutManager
         SetupTask();
     }
 
-    IEnumerator IntroduceTaskWindow()
+    void IntroduceTaskWindow()
     {
-        yield return new WaitForSeconds(2);
-        LeanTween.moveLocal(TaskIntroCard, Vector3.zero, .5f).setEaseInOutBack();
-        GameSceneManager.instance.BlurBackground();
+        Debug.Log("INTRODUCED");
+        TaskIntroCard.transform.localPosition = Vector3.zero;
     }
 
     public void DisappearTaskWindow()
     {
-        GameSceneManager.instance.UnBlurBackground();
-        LeanTween.moveLocal(TaskIntroCard, new Vector3(0,-1050,0), .5f).setEaseInOutBack();
+        TaskIntroCard.SetActive(false);
+        DeepnetManager.instance.ChangeMat();
+        DeepnetManager.instance.LoadPageText(DeepNetLinkName.CuckooSong);
     }
 
-    public void SumbitButton()
+    public void StartCheck()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(CheckSound);
+        GameSceneManager.instance.PlayClick();
+        LeanTween.value(0, 1, 3).setOnUpdate((value) =>
+          {
+              CheckSlider.value = value;
+              SliderFill.color = Color.Lerp(Color.white, Color.red, value);
+          }).setEaseInOutQuad().setOnComplete(SubmitButton);
+
+    }
+
+    public void SubmitButton()
+    {
+        
+        CheckSlider.value = 0;
         if (CheckAllCorrect())
         {
             float vol;
@@ -86,7 +110,7 @@ public class TaskManager : PulloutManager
         }
         else
         {
-            Debug.Log("NOT ALL CORRECT");
+            FMODUnity.RuntimeManager.PlayOneShot(IncorrectSound);
         }
     }
 
@@ -101,9 +125,12 @@ public class TaskManager : PulloutManager
     {
         foreach(Transform ans in AnswerAreaParent)
         {
-            if (!ans.GetComponent<AnswerArea>().IsCorrect)
+            if (ans.gameObject.activeInHierarchy)
             {
-                return false;
+                if (!ans.GetComponent<AnswerArea>().IsCorrect)
+                {
+                    return false;
+                }
             }
         }
         return true;
@@ -112,7 +139,7 @@ public class TaskManager : PulloutManager
 
     public void SetupTask()
     {
-        StartCoroutine(IntroduceTaskWindow());
+        IntroduceTaskWindow();
         var CurrentTask = SOTasks.TaskDictionary[TaskNumber];
         TaskHeader.text = $"Day: {TaskNumber}";
         TaskDescription.text = CurrentTask.Description;
@@ -128,4 +155,5 @@ public class TaskManager : PulloutManager
             }
         }
     }
+
 }

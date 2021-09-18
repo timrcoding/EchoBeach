@@ -76,24 +76,27 @@ public class SaveManager : MonoBehaviour
 
     public void deleteData()
     {
-
         if (SaveManager.instance != null)
         {
             ActiveSave.MTaskNumber = TaskNumber.Tutorial;
+            ActiveSave.SongTracklist.Clear();
+            ActiveSave.CurrentTargets.Clear();
+            ActiveSave.MusiciansEncountered.Clear();
+            ActiveSave.GameCompleted = false;
+            ActiveSave.PlayDialogueSceneNext = false;
         }
-
-
-
     }
 }
 
 [System.Serializable]
 public class SaveData
 {
+    public bool GameStarted;
     public bool GameCompleted;
     public string saveName;
     public TaskNumber MTaskNumber;
     public DialogueScene CurrentDialogueScene;
+    public bool PlayDialogueSceneNext;
     public List<LinkAndSong> SongTracklist;
     public List<CharName> CurrentTargets;
     public List<DeepNetLinkName> MusiciansEncountered;

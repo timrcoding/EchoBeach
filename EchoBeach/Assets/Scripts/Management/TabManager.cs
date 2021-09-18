@@ -9,6 +9,7 @@ public class TabManager : MonoBehaviour
     public static TabManager instance;
     public Button LastButton;
     public Button SpareButton;
+    [SerializeField] private Color SelectedButtonColor;
 
     public List<Tab> Tabs;
     private void Awake()
@@ -33,7 +34,10 @@ public class TabManager : MonoBehaviour
         return null;
     }
 
+    public void CloseAllTabs()
+    {
 
+    }
     public void SetTab(Button mButton, bool b = false)
     {
         Tab MTab = new Tab();
@@ -47,8 +51,6 @@ public class TabManager : MonoBehaviour
             }
             tab.Button.image.color = Color.white;
         }
-
-
 
         foreach (Tab tab in Tabs)
         {
@@ -80,7 +82,7 @@ public class TabManager : MonoBehaviour
         }
         if (LastButton != null)
         {
-            LastButton.image.color = Color.red;
+            LastButton.image.color = SelectedButtonColor;
         }
     }
 

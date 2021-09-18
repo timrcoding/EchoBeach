@@ -20,4 +20,4 @@ MonoBehaviour:
     These songs may be required for solving
     certain cases.'
   TutorialSlide: 7
-  Image: {fileID: 0}
+  ToggleWithTutorial: 2

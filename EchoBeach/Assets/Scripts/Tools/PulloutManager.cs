@@ -13,8 +13,8 @@ public class PulloutManager : MonoBehaviour
 
     protected void HardCodeValues()
     {
-        OutPosition = new Vector2(-850, 300);
-        AwayPosition = new Vector2(-1450,300);
+        OutPosition = new Vector2(-355, 100);
+        AwayPosition = new Vector2(-355,-660);
     }
     public void PutAway()
     {
@@ -23,6 +23,7 @@ public class PulloutManager : MonoBehaviour
 
     public void PutOut()
     {
+       // transform.localPosition = OutPosition;
         LeanTween.moveLocal(gameObject, OutPosition, .5f).setEaseInOutBack();
         transform.SetSiblingIndex(transform.parent.childCount);
     }

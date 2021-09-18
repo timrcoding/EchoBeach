@@ -19,4 +19,4 @@ MonoBehaviour:
     You fill
     in the answer areas by dropping in an ID from the searchable database.'
   TutorialSlide: 4
-  Image: {fileID: 0}
+  ToggleWithTutorial: 1

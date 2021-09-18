@@ -33,3 +33,5 @@ MonoBehaviour:
     FMODRef: event:/Music/Listening
   - Song: 10
     FMODRef: event:/Music/River
+  - Song: 11
+    FMODRef: event:/Music/ToTheEnd

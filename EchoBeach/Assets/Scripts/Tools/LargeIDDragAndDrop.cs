@@ -12,12 +12,15 @@ public class LargeIDDragAndDrop : DragAndDrop
     private GameObject AnswerArea;
     public Vector3 OriginalPosition;
     private bool CanShrinkOnce;
+    public ToggleButton TargetToggle;
 
     private void Start()
     {
         TargetScale = FullSizeScale;
         transform.localScale =new Vector3(FullSizeScale, FullSizeScale,0);
         OriginalPosition = transform.position;
+        GameObject target = GameObject.FindGameObjectWithTag("TargetsToggle");
+        TargetToggle = target.GetComponent<ToggleButton>();
     }
 
     void Update()
@@ -51,8 +54,7 @@ public class LargeIDDragAndDrop : DragAndDrop
         base.StartDrag();
         transform.SetParent(TableContentsManager.instance.TableCardsParent);
         transform.SetSiblingIndex(transform.parent.childCount);
-        SearchableDatabaseManager.instance.PutAway();
-        TaskManager.instance.PutOut();
+        TargetToggle.SetTab();
 
     }
 
@@ -62,6 +64,10 @@ public class LargeIDDragAndDrop : DragAndDrop
         if (TransferToAnswers)
         {
             AnswerArea.GetComponent<AnswerArea>().SetCharacterID(GetComponent<LargeID>().CharacterID);
+            LeanTween.scale(gameObject, Vector3.zero, .3f).setEaseInOutBack().setOnComplete(DestroyObject);
+        }
+        else
+        {
             LeanTween.scale(gameObject, Vector3.zero, .3f).setEaseInOutBack().setOnComplete(DestroyObject);
         }
     }

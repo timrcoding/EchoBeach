@@ -2,21 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private Button StartNewGameButton;
+    [SerializeField] private Button ContinueButton;
+    [SerializeField] private CanvasGroup CanvasGroup;
+
     void Start()
     {
-        SaveManager.instance.ActiveSave.CurrentTargets.Clear();
+        if (SaveManager.instance.ActiveSave.GameCompleted || !SaveManager.instance.ActiveSave.GameStarted)
+        {
+            ContinueButton.interactable = false;
+        }
+    }
+
+    public void FadeAndLoad(bool newGame)
+    {
+        if (newGame)
+        {
+            LeanTween.value(gameObject, 0, 1, 2).setOnUpdate((value) =>
+            {
+                CanvasGroup.alpha = value;
+            }).setOnComplete(StartNewGame);
+        }
+        else
+        {
+            LeanTween.value(gameObject, 0, 1, 2).setOnUpdate((value) =>
+            {
+                CanvasGroup.alpha = value;
+            }).setOnComplete(LoadMainGameScene);
+        }
     }
 
     public void StartNewGame()
     {
-        var Save = SaveManager.instance.ActiveSave;
-        Save.SongTracklist.Clear();
-        Save.MTaskNumber = TaskNumber.Tutorial;
-        Save.GameCompleted = false;
+        SaveManager.instance.deleteData();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

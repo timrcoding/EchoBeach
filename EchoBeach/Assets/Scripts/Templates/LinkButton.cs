@@ -10,6 +10,8 @@ public class LinkButton : MonoBehaviour
     private bool LinkActive;
     [SerializeField] private TextMeshProUGUI TText;
     [SerializeField] private Button Button;
+    [FMODUnity.EventRef]
+    [SerializeField] private string ButtonClick;
     void Start()
     {
         Button.onClick.AddListener(CreateNewPage);
@@ -18,6 +20,7 @@ public class LinkButton : MonoBehaviour
     public void CreateNewPage()
     {
         DeepnetManager.instance.LoadPageText(DeepNetLink);
+        FMODUnity.RuntimeManager.PlayOneShot(ButtonClick);
     }
 
     public void SetDeepNetLink(DeepNetLinkToLevel Link)

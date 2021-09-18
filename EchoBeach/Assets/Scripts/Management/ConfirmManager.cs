@@ -34,10 +34,17 @@ public class ConfirmManager : InterimTextManager
         MusicInst = FMODUnity.RuntimeManager.CreateInstance(Music);
         MusicInst.start();
     }
-    
+
     void DeleteAddedData()
     {
         CutSceneTextScriptableObject.StringToTypes[0].Text = "WELL DONE EMPLOYEE.\n\nYOU HAVE APPREHENDED THE FOLLOWING CRIMINALS;";
+        if (SaveManager.instance != null) {
+            CutSceneTextScriptableObject.StringToTypes[1].Text = $"{8 - (int)SaveManager.instance.ActiveSave.MTaskNumber} DAYS REMAIN.";
+        }
+        else
+        {
+            CutSceneTextScriptableObject.StringToTypes[1].Text = "8 DAYS REMAIN.";
+        }
     }
 
     public override IEnumerator InitDelay()
@@ -95,7 +102,7 @@ public class ConfirmManager : InterimTextManager
             {
                 SaveManager.instance.ActiveSave.GameCompleted = true;
             }
-            if (SaveManager.instance.ActiveSave.MTaskNumber == TaskNumber.Three || SaveManager.instance.ActiveSave.GameCompleted)
+            if (SaveManager.instance.ActiveSave.PlayDialogueSceneNext)
             {
                 SceneManager.LoadScene("InterimScene");
             }

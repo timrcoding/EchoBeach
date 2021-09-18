@@ -10,6 +10,10 @@ public class MapManager : PulloutManager
     [SerializeField] public Dictionary<DeepNetLinkName, GameObject> MapElementDictionary;
     [HideInInspector]
     public List<Toggle> ListOfToggles;
+    public Sprite[] MapSprites;
+
+    [SerializeField] private Color SelectedPostItColor;
+    [SerializeField] private Color DeSelectedPostItColor;
 
     private void Awake()
     {

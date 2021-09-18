@@ -34,7 +34,7 @@ public class TextManager : MonoBehaviour
             {
                 NewTextList.Texts.Add(TempList[j]);
             }
-            //NewTextList.Texts.RemoveAt(0);
+            NewTextList.Texts.RemoveAt(0);
             NameToTextLists.Add(NewTextList);
         }
         

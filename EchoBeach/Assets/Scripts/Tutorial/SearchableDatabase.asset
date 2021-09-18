@@ -19,4 +19,4 @@ MonoBehaviour:
     only shows the first three alphabetical results, so be specific. \n\nClick on
     a result to bring up an ID card, which can then be dragged into the task manager."
   TutorialSlide: 5
-  Image: {fileID: 0}
+  ToggleWithTutorial: 3

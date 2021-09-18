@@ -190,7 +190,10 @@ MonoBehaviour:
     MCharacterName: 0
     MRName: 0
     RealNameString: 
-    MDob: 0
+    MDob:
+      Day: 0
+      Month: 0
+      Year: 0
     DOBString: 
     MAddress: 0
     AddressString: 
@@ -376,14 +379,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.64705884, g: 1, b: 0.9799023, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a733559bbe3d2f64cb732b6b4a9fdb31, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4e88bf440de2cb499304905b45adc94, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -406,15 +409,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 40
+    m_Left: 235
     m_Right: 0
-    m_Top: 30
+    m_Top: 86
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 40}
-  m_Spacing: {x: 0, y: 20}
+  m_Spacing: {x: 0, y: 9.64}
   m_Constraint: 1
   m_ConstraintCount: 1
 --- !u!1 &8647977426563396245
@@ -808,7 +811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
       propertyPath: m_fontSize
-      value: 36
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
       propertyPath: m_margin.w
@@ -821,6 +824,10 @@ PrefabInstance:
     - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
       propertyPath: m_margin.z
       value: -344.03503
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7796264509108934118, guid: 988ca2ec2c370a24681fd132047325a6, type: 3}
       propertyPath: m_enableAutoSizing

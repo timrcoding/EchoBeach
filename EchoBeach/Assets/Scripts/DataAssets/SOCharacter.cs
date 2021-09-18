@@ -24,7 +24,7 @@ public class SOCharacter : ScriptableObject
 
         if (DOBParts.Day == Day.INVALID || DOBParts.Month == Month.INVALID || DOBParts.Year == Year.INVALID)
         {
-            DOBParts.Day = (Day)Random.Range(0, System.Enum.GetValues(typeof(Day)).Length);
+            DOBParts.Day = (Day)Random.Range(0, 28);
             DOBParts.Month = (Month)Random.Range(0, System.Enum.GetValues(typeof(Month)).Length);
             DOBParts.Year = (Year)Random.Range(0, System.Enum.GetValues(typeof(Year)).Length);
         }
@@ -167,7 +167,9 @@ public enum RealName
     [StringValue("Fred Eagle")]
     FredEagle,
     [StringValue("Manny Robins")]
-    MannyRobins
+    MannyRobins,
+    //NPCS
+
 }
 
 public enum DOB
@@ -236,6 +238,12 @@ public enum Day
     twentyseven,
     [StringValue("28")]
     twentyeight,
+    [StringValue("29")]
+    twentynine,
+    [StringValue("30")]
+    thirty,
+    [StringValue("31")]
+    thirtyone,
 }
 
 public enum Month
@@ -343,6 +351,12 @@ public enum Occupation
     Butcher,
     [StringValue("Plumber")]
     Plumber,
+    [StringValue("Carpenter")]
+    Carpenter,
+    [StringValue("Driver")]
+    Driver,
+    [StringValue("Doctor")]
+    Doctor,
 }
 
 
