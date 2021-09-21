@@ -26,7 +26,7 @@ public class LinkButton : MonoBehaviour
     public void SetDeepNetLink(DeepNetLinkToLevel Link)
     {
         DeepNetLink = Link.DeepNetLink;
-        if((int)Link.TaskNumber <= (int) TaskManager.instance.TaskNumber)
+        if((int)Link.TaskNumber <= (int) SaveManager.instance.ActiveSave.MTaskNumber)
         {
             LinkActive = true;
         }
@@ -41,7 +41,7 @@ public class LinkButton : MonoBehaviour
     {
         SODeepNetPage Page = DeepNetLookupFunctions.ReturnDeepNetLinkToPage(DeepNetLink, DeepNetLookupFunctions.instance.MSODeepNetLookup);
         
-        TText.text = StringEnum.GetStringValue(DeepNetLink);//Page.LinkTitleForButton;
+        TText.text = StringEnum.GetStringValue(DeepNetLink);
         if (!LinkActive)
         {
             Button.interactable = false;

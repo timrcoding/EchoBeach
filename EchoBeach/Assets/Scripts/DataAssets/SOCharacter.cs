@@ -118,8 +118,8 @@ public enum RealName
     RosieJones,
     [StringValue("Camille Rose")]
     CamilleRose,
-    [StringValue("Tom Richards")]
-    TomRichards,
+    [StringValue("Daisy Richards")]
+    DaisyRichards,
     [StringValue("David Pritchard")]
     DavidPritchard,
     [StringValue("Elsie Bristol")]
@@ -152,14 +152,14 @@ public enum RealName
     GuntherRosen,
     [StringValue("Elvis Runkin")]
     ElvisRunkin,
-    [StringValue("George Walsh")]
-    GeorgeWalsh,
+    [StringValue("Georgina Walsh")]
+    GeorginaWalsh,
     [StringValue("Leslie Tompkins")]
     LeslieTompkins,
     [StringValue("Joseph Tail")]
     JosephTail,
-    [StringValue("Damian Ellams")]
-    DamianEllams,
+    [StringValue("Josef Ellams")]
+    JosefEllams,
     [StringValue("Charles Babcock")]
     CharlesBabcock,
     [StringValue("Guthrie Simpkins")]
@@ -170,13 +170,6 @@ public enum RealName
     MannyRobins,
     //NPCS
 
-}
-
-public enum DOB
-{
-    INVALID,
-    [StringValue("10/10/1986")]
-    TenOctoberEightySix,
 }
 
 public enum Day
@@ -357,6 +350,8 @@ public enum Occupation
     Driver,
     [StringValue("Doctor")]
     Doctor,
+    [StringValue("Porter")]
+    Porter,
 }
 
 

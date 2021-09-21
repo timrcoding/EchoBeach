@@ -9,6 +9,7 @@ public class DragAndDropChordChoice : DragAndDrop
     public ChordType MChordChoice;
     public ChordPad ChordOver;
     [SerializeField] private Image image;
+    private int ChordCount;
     void Start()
     {
         OriginalPosition = transform.localPosition;
@@ -19,6 +20,24 @@ public class DragAndDropChordChoice : DragAndDrop
     void Update()
     {
         SetMove();
+        ChordCount++;
+    }
+
+    public override void StartDrag()
+    {
+        base.StartDrag();
+        ChordCount = 0;
+        Shrink();
+    }
+     
+    void Shrink()
+    {
+        LeanTween.scale(gameObject, new Vector3(.7f, .7f, 0), .5f).setEaseInBack();
+    }
+
+    void Expand()
+    {
+        LeanTween.scale(gameObject, Vector3.one, .5f).setEaseInBack();
     }
 
     public override void StopDrag()
@@ -29,6 +48,11 @@ public class DragAndDropChordChoice : DragAndDrop
         {
             ChordOver.SetChord(MChordChoice);
         }
+        if(ChordCount < 20)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(ChordManager.instance.ChordToFMODRefDictionary[MChordChoice]);
+        }
+        Expand();
     }
 
     public override void SetMove()

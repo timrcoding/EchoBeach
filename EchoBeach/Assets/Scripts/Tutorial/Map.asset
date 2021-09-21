@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Header: Map
   SlideDescription: "Your progress through the MusicNet is marked on your map. \n\nInterconnecting
-    lines display the links between different artists.\n\nSome links are temporarily
-    broken and may need to be returned to later."
+    lines display the links between different artists.\n\nLinks may point to an artist
+    you have not discovered yet or is temporarily unreachable."
   TutorialSlide: 3
-  Image: {fileID: 0}
+  ToggleWithTutorial: 0

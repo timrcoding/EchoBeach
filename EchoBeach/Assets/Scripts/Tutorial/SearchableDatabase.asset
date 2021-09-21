@@ -13,10 +13,19 @@ MonoBehaviour:
   m_Name: SearchableDatabase
   m_EditorClassIdentifier: 
   Header: Database
-  SlideDescription: "You can use this to pull up the ID cards of various citizens,
-    in order to identify a musician.\n\nTo do so, start typing something of interest.
-    If this matches an area of the ID (e.g. name), it will come up.\n\nThe search
-    only shows the first three alphabetical results, so be specific. \n\nClick on
-    a result to bring up an ID card, which can then be dragged into the task manager."
+  SlideDescription: 'You can use this to pull up the ID cards of various citizens,
+    in order to identify a musician.
+
+
+    To do so, start typing something of interest.
+    If this matches an area of the ID (e.g. name), it will come up.
+
+
+    The search
+    only shows a limited number of searches, so try to be specific.
+
+
+    Click on
+    a result to bring up an ID card, which can then be dragged into the task manager.'
   TutorialSlide: 5
   ToggleWithTutorial: 3

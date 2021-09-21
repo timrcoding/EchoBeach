@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tasks:
   - TaskNumber: 1
-    Header: Day One
     Description: 'Let''s get things off to a gentle start.
 
 
@@ -27,30 +26,60 @@ MonoBehaviour:
       drag the ID card into the task manager slot for Davey Moon.'
     CharacterNames: 04000000
   - TaskNumber: 2
-    Header: Day Two
-    Description: 
+    Description: "Today we're after a real scoundrel called Ella Nella. \n\nMake
+      sure to cross reference information carefully."
     CharacterNames: 01000000
   - TaskNumber: 3
-    Header: Day Three
-    Description: 
+    Description: 'Grey has been on our radar for a while. They seem well connected
+      and respected in the community.
+
+
+      Go get them for us.'
     CharacterNames: 0a000000
   - TaskNumber: 4
-    Header: Day Two
-    Description: 
+    Description: 'We''re promoting you. Time to take on two targets.
+
+
+      You
+      may find yourself needing to listen to the artists'' songs carefully for clues.'
     CharacterNames: 0d00000007000000
   - TaskNumber: 5
-    Header: Day Two
-    Description: 
+    Description: 'We''ve supplied you with some seized contraband from the musicians.
+
+
+      You
+      can use the ''drum machine'' by pressing down on individual pads. Pressing
+      play will play them in rhythm.
+
+
+      Learn how to use it, you may need it
+      later.
+
+
+      Don''t get too attached though, or you may become a person of
+      suspicion yourself.'
     CharacterNames: 1000000005000000
   - TaskNumber: 6
-    Header: Day Two
-    Description: 
-    CharacterNames: 1600000014000000
+    Description: 'Here''s another piece of mendacious equipment.
+
+
+      The ''Chord
+      Machine'' is a really nasty thing.
+
+
+      You can make a sequence of music
+      by dragging the pads at the bottom onto the ones at the top.
+
+
+      Press
+      play to start it. It is linked to the drum machine.
+
+
+'
+    CharacterNames: 16000000140000000f000000
   - TaskNumber: 7
-    Header: Day Two
-    Description: 
-    CharacterNames: 130000001b000000
+    Description: Another trio of criminals.
+    CharacterNames: 130000001b00000018000000
   - TaskNumber: 8
-    Header: Day Two
-    Description: 
-    CharacterNames: 0e0000000c000000
+    Description: Last day. Well done employee, one last effort.
+    CharacterNames: 0e0000000c00000017000000

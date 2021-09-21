@@ -13,7 +13,6 @@ public class ChordPad : MonoBehaviour
     {
         FindIndexRef();
         ChordManager.instance.TriggerChordOnBar += PlayOnBar;
-        //MChordType = (ChordType)Random.Range(1, 4);
         SetColors();
     }
 
@@ -37,7 +36,36 @@ public class ChordPad : MonoBehaviour
             {
                 FMODUnity.RuntimeManager.PlayOneShot(ChordManager.instance.ChordToFMODRefDictionary[MChordType]);
             }
+            ChangeToPlayedColor(MChordType);
         }
+    }
+
+    void ChangeToPlayedColor(ChordType chordType)
+    {
+        Color col = ChordManager.instance.ChordToColorDictionary[MChordType];
+        Color ChangeCol = new Color();
+        if (chordType != ChordType.INVALID)
+        {
+            ChangeCol = Color.white;
+        }
+        else
+        {
+            ChangeCol = Color.black;
+        }
+
+        LeanTween.value(gameObject, 0, 1, 1).setOnUpdate((value) =>
+        {
+            MImage.color = Color.Lerp(col, ChangeCol, value);
+        }).setOnComplete(ChangeColorBack);
+    }
+
+    void ChangeColorBack()
+    {
+        Color col = ChordManager.instance.ChordToColorDictionary[MChordType];
+        LeanTween.value(gameObject, 1, 0, 2).setOnUpdate((value) =>
+        {
+            MImage.color = Color.Lerp(col, Color.white, value);
+        });
     }
 
     public void SetChord(ChordType Chord)
@@ -59,6 +87,13 @@ public class ChordPad : MonoBehaviour
     public void RevertColor()
     {
         MChordType = MStoredChordType;
+        SetColors();
+    }
+
+    public void ClearChord()
+    {
+        MStoredChordType = ChordType.INVALID;
+        MChordType = ChordType.INVALID;
         SetColors();
     }
 

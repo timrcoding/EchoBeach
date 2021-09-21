@@ -93,13 +93,16 @@
 	<object class="MixerBusPanner" id="{b4b5ab2f-9b75-4299-acd1-81c3c9caca83}" />
 	<object class="SingleSound" id="{8c7d6be8-90bc-446d-bee1-51664515d72b}">
 		<property name="length">
-			<value>227.80000000000015</value>
+			<value>163</value>
 		</property>
 		<property name="timelockedOffset">
 			<value>2.6000000000000001</value>
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{d98d63ed-964a-47d9-ba04-83c4f1d81409}</destination>
+		</relationship>
+		<relationship name="fadeOutCurve">
+			<destination>{abf3ac38-1a25-437c-94f5-964d1133ef05}</destination>
 		</relationship>
 		<relationship name="audioFile">
 			<destination>{fe879029-80c2-44e0-ae2a-70313c2490b1}</destination>
@@ -134,6 +137,14 @@
 			<destination>{63bc2bfe-3d35-428f-a11b-7aee584636cd}</destination>
 		</relationship>
 	</object>
+	<object class="FadeCurve" id="{abf3ac38-1a25-437c-94f5-964d1133ef05}">
+		<relationship name="startPoint">
+			<destination>{e2c6074d-864a-4645-9ec9-bc9abd708c04}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{0dfe8b5c-bf7d-4a75-ac68-5a018e6d5a6d}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{c81bf8d9-4620-4214-99da-a8737a5fa989}">
 		<relationship name="effects">
 			<destination>{268def5f-5c15-4a04-a8f2-b8f5b0dd6e0f}</destination>
@@ -158,6 +169,25 @@
 		</property>
 		<property name="value">
 			<value>1</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{e2c6074d-864a-4645-9ec9-bc9abd708c04}">
+		<property name="position">
+			<value>144</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.253610581</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{0dfe8b5c-bf7d-4a75-ac68-5a018e6d5a6d}">
+		<property name="position">
+			<value>163</value>
+		</property>
+		<property name="value">
+			<value>0</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{268def5f-5c15-4a04-a8f2-b8f5b0dd6e0f}" />

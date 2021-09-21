@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Introduction
   m_EditorClassIdentifier: 
   Header: Introduction
-  SlideDescription: "It is your job to hunt down and identify those musician we deem
-    dangerous and deplorable. \n\nYou have been assigned to the indie-pop division.\n"
+  SlideDescription: "Welcome to MusicNet. \n\nIt is your job to hunt down and identify
+    those musician we deem dangerous and deplorable. \n\nYou have been assigned to
+    a new zone. This appears to be an untouched cell of musicians who seem curiously
+    obsessed with the past.\n\nShould be prime for pickings.\n"
   TutorialSlide: 1
-  Image: {fileID: 0}
+  ToggleWithTutorial: 0

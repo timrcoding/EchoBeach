@@ -17,6 +17,14 @@ MonoBehaviour:
 
 
     You fill
-    in the answer areas by dropping in an ID from the searchable database.'
+    in the answer areas by dropping in an ID from the searchable database.
+
+
+    When
+    you think you have the right suspects, press submit to check.
+
+
+    You can only
+    progress when you have all suspects correctly identified.'
   TutorialSlide: 4
   ToggleWithTutorial: 1

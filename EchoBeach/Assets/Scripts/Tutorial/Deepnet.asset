@@ -12,9 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49c4a73c9de602448f4343b691f8e34, type: 3}
   m_Name: Deepnet
   m_EditorClassIdentifier: 
-  Header: MusicNet
-  SlideDescription: "All remaining musicians cluster on the MusicNet, an illegal
-    forum. \n\nYou can only navigate the musicnet by following the links at the bottom
-    of each artists' page."
+  Header: Musicnet
+  SlideDescription: 'All artists on MusicNet post regularly. You can examine their
+    posts for clues to their, or others identities.
+
+
+    You can only navigate MusicNet
+    by following the links at the bottom of each artists'' page.
+
+
+    Some are initially
+    locked off and may become active in coming days.
+
+
+    Make sure to check back
+    on these.'
   TutorialSlide: 2
-  Image: {fileID: 0}
+  ToggleWithTutorial: 0

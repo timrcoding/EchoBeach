@@ -123,54 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &16652446
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 16652448}
-  - component: {fileID: 16652447}
-  m_Layer: 0
-  m_Name: Global Volume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &16652447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 16652446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGlobal: 1
-  priority: 1
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 0bba3cd30a7ac2a4a9834b56c1bc6a01, type: 2}
---- !u!4 &16652448
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 16652446}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!225 &302881847 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 321069731173921779, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
@@ -285,6 +237,7 @@ MonoBehaviour:
   TitleTMP: {fileID: 1262224441}
   SubTMP: {fileID: 1457544862}
   Music: event:/Music/LettuceLaments
+  ScreenStarted: 0
 --- !u!4 &1252344805
 Transform:
   m_ObjectHideFlags: 0
@@ -323,6 +276,7 @@ GameObject:
   - component: {fileID: 1290228781}
   - component: {fileID: 1290228780}
   - component: {fileID: 1290228784}
+  - component: {fileID: 1290228785}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -352,7 +306,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -369,7 +323,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290228779}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1290228782
 Camera:
   m_ObjectHideFlags: 0
@@ -380,7 +334,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -440,6 +394,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a122d7f1ad86294c95c0a4dd360ba54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1290228785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290228779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!114 &1366576818 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 301072164288783345, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
@@ -489,10 +457,22 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 301072163619711835, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612383, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 301072164288783345, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1252344804}
+    - target: {fileID: 301072164461259124, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 301072165151349948, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
       propertyPath: m_Name
       value: TextCanvas
@@ -501,6 +481,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1290228782}
+    - target: {fileID: 301072165151350592, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 301072165151350595, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
       propertyPath: m_Pivot.x
       value: 0

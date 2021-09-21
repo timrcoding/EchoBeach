@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{fb64e3f2-5ef8-41b3-a796-b8f829c01273}">
 		<property name="name">
-			<value>Clap</value>
+			<value>SideStick</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -63,7 +63,7 @@
 	<object class="MarkerTrack" id="{e79c424f-44c3-4919-b89a-5235a0eefe72}" />
 	<object class="GroupTrack" id="{f8f392cf-c2ff-4ce8-b89b-7f69df60a07d}">
 		<relationship name="modules">
-			<destination>{f4e0455f-c80a-474d-8797-a0d2d96d3cbc}</destination>
+			<destination>{1f4e8d56-8593-4ced-b2d7-fea935aa5e47}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{3dc1dce4-2ef6-4ddc-8884-029c5d61cadd}</destination>
@@ -71,7 +71,7 @@
 	</object>
 	<object class="Timeline" id="{a0651882-6d07-4482-90e0-65735daf1709}">
 		<relationship name="modules">
-			<destination>{f4e0455f-c80a-474d-8797-a0d2d96d3cbc}</destination>
+			<destination>{1f4e8d56-8593-4ced-b2d7-fea935aa5e47}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{29d5bc56-8da8-4ff2-aac1-bcdd2b4e2957}">
@@ -91,12 +91,15 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b46ed1fc-b74c-46ac-94cc-d305b8117e77}" />
-	<object class="SingleSound" id="{f4e0455f-c80a-474d-8797-a0d2d96d3cbc}">
+	<object class="SingleSound" id="{1f4e8d56-8593-4ced-b2d7-fea935aa5e47}">
 		<property name="length">
-			<value>0.504</value>
+			<value>1.3753858622356272</value>
+		</property>
+		<property name="timelockedOffset">
+			<value>20.624614137764354</value>
 		</property>
 		<relationship name="audioFile">
-			<destination>{7d7e98ee-3440-4623-8581-32653330af48}</destination>
+			<destination>{640347ab-f831-433a-adba-a62f0d3af9d1}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{3dc1dce4-2ef6-4ddc-8884-029c5d61cadd}">

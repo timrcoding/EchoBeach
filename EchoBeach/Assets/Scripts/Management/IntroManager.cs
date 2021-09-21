@@ -12,24 +12,41 @@ public class IntroManager : InterimTextManager
     [FMODUnity.EventRef]
     public string Music;
     protected FMOD.Studio.EventInstance MusicInstance;
+    public bool ScreenStarted;
 
     void Start()
     {
-        StartCoroutine(InitDelay());
+        BlackCoverImage.alpha = 1;
         AmbientInst = FMODUnity.RuntimeManager.CreateInstance(Ambience);
         AmbientInst.start();
+        StartCoroutine(StartScreenCheck());
+    }
+
+    IEnumerator StartScreenCheck()
+    {
+        if (!ScreenStarted)
+        {
+            StartCoroutine(InitDelay());
+        }
+        yield return new WaitForSeconds(Time.deltaTime);
+        if (!ScreenStarted)
+        {
+            SceneManager.LoadScene("Intro");
+            AmbientInst.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
     }
 
     public override IEnumerator InitDelay()
     {
+        ScreenStarted = true;
         SubTMP.text = "";
         TitleTMP.text = "";
         MusicInstance = FMODUnity.RuntimeManager.CreateInstance(Music);
         StartCoroutine(base.InitDelay());
         yield return new WaitForSeconds(5);
-        SetText();
+        SetScreenText();
     }
-    public void SetText()
+    public void SetScreenText()
     {
         TitleTMP.text = "";
         StartCoroutine(PrintText());   
@@ -48,7 +65,7 @@ public class IntroManager : InterimTextManager
             if (IntroCount < CutSceneTextScriptableObject.StringToTypes.Count && CanAdvance)
             {
 
-                SetText();
+                SetScreenText();
             }
             else if (CanAdvance)
             {
@@ -79,10 +96,12 @@ public class IntroManager : InterimTextManager
     void LoadGameScene()
     {
         SceneManager.LoadScene("MainGameScene");
+        MusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     IEnumerator SetTitle()
     {
+
         MusicInstance.start();
         button.interactable = false;
         string s = $"ECHO BEACH";

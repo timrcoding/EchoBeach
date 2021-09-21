@@ -10,6 +10,7 @@ public struct InterimToSOText
 {
     public DialogueScene DialogueScene;
     public CutSceneText DialogueScriptable;
+
 }
 
 public class DialogueSceneManager : InterimTextManager
@@ -20,9 +21,14 @@ public class DialogueSceneManager : InterimTextManager
     [FMODUnity.EventRef]
     public string Music;
     protected FMOD.Studio.EventInstance MusicInstance;
- 
+    public GameObject Dust;
+    public GameObject Flakes;
+
     void Start()
     {
+        Dust.SetActive(false);
+        Flakes.SetActive(false);
+        BlackCoverImage.alpha = 1;
         DialogueSceneLookupDictionary = new Dictionary<DialogueScene, CutSceneText>();
 
         foreach(var text in DialogueSceneLookup)
@@ -71,6 +77,8 @@ public class DialogueSceneManager : InterimTextManager
             {
                 MusicInstance.start();
                 FadeOutLength = 15;
+                Dust.SetActive(true);
+                Flakes.SetActive(true);
             }
             LeanTween.value(gameObject, 0,1, 4).setOnUpdate((value) =>
             {

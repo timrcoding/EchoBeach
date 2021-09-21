@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class TaskManager : PulloutManager
 {
     public static TaskManager instance;
-    public TaskNumber TaskNumber;
     [SerializeField] private SOTaskManager SOTasks;
     [SerializeField] private Transform AnswerAreaParent;
     [SerializeField] private GameObject TaskAnswerAreaPrefab;
@@ -18,6 +17,7 @@ public class TaskManager : PulloutManager
     [SerializeField] private CanvasGroup BlackCoverImage;
     [SerializeField] private Slider CheckSlider;
     [SerializeField] private Image SliderFill;
+    private bool TaskSetupSuccessfully;
 
     [FMODUnity.EventRef]
     [SerializeField] private string CheckSound;
@@ -40,25 +40,19 @@ public class TaskManager : PulloutManager
            });
         if (SaveManager.instance.ActiveSave.MTaskNumber != TaskNumber.Tutorial)
         {
-            SetTaskFromSave();
+            StartCoroutine(RunSetupSequence());
         }
     }
 
-    public void SetTaskFromSave()
+    IEnumerator RunSetupSequence()
     {
-        TaskNumber = SaveManager.instance.ActiveSave.MTaskNumber;
-        if (TaskNumber != TaskNumber.Tutorial)
+        yield return new WaitForEndOfFrame();
+        if (!TaskSetupSuccessfully)
         {
             SetupTask();
+            yield return new WaitForSeconds(Time.deltaTime);
+            StartCoroutine(RunSetupSequence());
         }
-        
-    }
-
-    public void IncrementTask()
-    {
-        int TaskAsInt = (int)TaskNumber;
-        TaskNumber = (TaskNumber)TaskAsInt + 1;
-        SetupTask();
     }
 
     void IntroduceTaskWindow()
@@ -72,6 +66,7 @@ public class TaskManager : PulloutManager
         TaskIntroCard.SetActive(false);
         DeepnetManager.instance.ChangeMat();
         DeepnetManager.instance.LoadPageText(DeepNetLinkName.CuckooSong);
+        SetupTask();
     }
 
     public void StartCheck()
@@ -114,8 +109,9 @@ public class TaskManager : PulloutManager
         }
     }
 
-    void LoadConfirmScene()
+    public void LoadConfirmScene()
     {
+        Debug.Log("COMPLETED");
         SongManager.instance.AmbienceInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SongManager.instance.AmbienceInstance.release();
         SceneManager.LoadScene("ConfirmScene");
@@ -136,24 +132,28 @@ public class TaskManager : PulloutManager
         return true;
     }
 
-
     public void SetupTask()
     {
         IntroduceTaskWindow();
+        var TaskNumber = SaveManager.instance.ActiveSave.MTaskNumber;
         var CurrentTask = SOTasks.TaskDictionary[TaskNumber];
         TaskHeader.text = $"Day: {TaskNumber}";
         TaskDescription.text = CurrentTask.Description;
         if (CurrentTask.CharacterNames.Count > 0)
-        {
+        
             foreach (CharName Character in CurrentTask.CharacterNames)
             {
-                GameObject NewAnswerArea = Instantiate(TaskAnswerAreaPrefab);
-                NewAnswerArea.transform.SetParent(AnswerAreaParent);
-                NewAnswerArea.transform.localScale = Vector3.one;
-                NewAnswerArea.GetComponent<AnswerArea>().SetCharacter(Character);
-                SaveManager.instance.ActiveSave.CurrentTargets.Add(Character);
+                int i = AnswerAreaParent.childCount;
+                if (i < CurrentTask.CharacterNames.Count)
+                {
+                    GameObject NewAnswerArea = Instantiate(TaskAnswerAreaPrefab);
+                    NewAnswerArea.transform.SetParent(AnswerAreaParent);
+                    NewAnswerArea.transform.localScale = Vector3.one;
+                    NewAnswerArea.GetComponent<AnswerArea>().SetCharacter(Character);
+                    SaveManager.instance.ActiveSave.CurrentTargets.Add(Character);
+                    Debug.Log("ANSWER CREATED");
+                }
             }
+        TaskSetupSuccessfully = true;
         }
-    }
-
 }

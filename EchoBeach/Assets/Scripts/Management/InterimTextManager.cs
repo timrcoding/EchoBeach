@@ -68,7 +68,7 @@ public class InterimTextManager : MonoBehaviour
                 }
             }
         }
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(.5f);
         CanAdvance = true;
         button.interactable = true;
         IntroCount++;
@@ -76,13 +76,11 @@ public class InterimTextManager : MonoBehaviour
 
     public virtual IEnumerator InitDelay()
     {
-        yield return new WaitForSeconds(Time.deltaTime);
+        yield return null;
         LeanTween.value(gameObject, 1, 0, 4).setOnUpdate((value) =>
         {
             BlackCoverImage.alpha = value;
         });
-        
-        button.interactable = false;
         IntroTMP.text = "";
         button.interactable = false;
     }

@@ -31,7 +31,6 @@ public class TutorialManager : MonoBehaviour
         CompileDictionary();
         if (SaveManager.instance.ActiveSave.MTaskNumber == TaskNumber.Tutorial)
         {
-            SetSlide();
             IntroduceTutorialWindow();
             SetToggles(false);
         }
@@ -60,11 +59,12 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    void IntroduceTutorialWindow()
+    public void IntroduceTutorialWindow()
     {
         TutorialWindow.transform.localPosition = Vector3.zero;
         TutorialWindow.SetActive(true);
         DeepnetManager.instance.SetMatToOpaque();
+        SetSlide();
     }
 
     public void RemoveTutorial()
@@ -73,7 +73,6 @@ public class TutorialManager : MonoBehaviour
         if (SaveManager.instance.ActiveSave.MTaskNumber == TaskNumber.Tutorial)
         {
             SaveManager.instance.ActiveSave.MTaskNumber = TaskNumber.One;
-            TaskManager.instance.SetTaskFromSave();
             TaskManager.instance.SetupTask();
         }
         SetToggles(true);
@@ -82,7 +81,6 @@ public class TutorialManager : MonoBehaviour
 
     void SetSlide()
     {
-        
         DeepnetManager.instance.ChangeMat();
         var Tutorial = TutorialScriptableObjects[TutorialCount];
         HeaderText.text = Tutorial.Header;

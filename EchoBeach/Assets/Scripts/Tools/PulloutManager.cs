@@ -23,7 +23,6 @@ public class PulloutManager : MonoBehaviour
 
     public void PutOut()
     {
-       // transform.localPosition = OutPosition;
         LeanTween.moveLocal(gameObject, OutPosition, .5f).setEaseInOutBack();
         transform.SetSiblingIndex(transform.parent.childCount);
     }

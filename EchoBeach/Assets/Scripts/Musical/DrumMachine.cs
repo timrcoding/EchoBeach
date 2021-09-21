@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DrumMachine : PulloutManager
 {
@@ -14,6 +15,10 @@ public class DrumMachine : PulloutManager
     public event Action ClearAll;
     [SerializeField] private int SixteenthBeatCount;
     [SerializeField] private Toggle StartStopToggle;
+    [SerializeField] private Slider TempoSlider;
+    [SerializeField] private TextMeshProUGUI BPMReading;
+    public bool DrumInSync;
+
     public bool StartedOrStopped;
 
     [FMODUnity.EventRef]
@@ -35,21 +40,26 @@ public class DrumMachine : PulloutManager
         {
             StartedOrStopped = true;
             StartCoroutine(PlayDrumLoop());
-            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Mute", 1);
         }
         else
         {
             StartedOrStopped = false;
-            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Mute", 0);
         }
+    }
+
+    public void SetBPMReading()
+    {
+        BPMReading.text = TempoSlider.value.ToString();
     }
 
     public IEnumerator PlayDrumLoop()
     {
+        float BPM = 60 / TempoSlider.value;
+
         if (StartedOrStopped)
         {
-            yield return new WaitForSeconds(SixteenthNoteReferenceClip.length);
             TriggerDrums();
+            yield return new WaitForSeconds(BPM/4);
             StartCoroutine(PlayDrumLoop());
         }
         else

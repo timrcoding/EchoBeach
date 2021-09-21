@@ -34,10 +34,6 @@ public class TabManager : MonoBehaviour
         return null;
     }
 
-    public void CloseAllTabs()
-    {
-
-    }
     public void SetTab(Button mButton, bool b = false)
     {
         Tab MTab = new Tab();

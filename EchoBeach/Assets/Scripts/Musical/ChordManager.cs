@@ -10,6 +10,7 @@ public class ChordManager : PulloutManager
     public Dictionary<ChordType, Color> ChordToColorDictionary;
     [SerializeField] private List<ChordToFMODREF> ChordToFMODREFs;
     public Dictionary<ChordType, string> ChordToFMODRefDictionary;
+    public List<ChordPad> ChordPads;
     public event Action TriggerChordOnBar;
 
     public int BeatCount;
@@ -32,10 +33,6 @@ public class ChordManager : PulloutManager
             ChordToFMODRefDictionary.Add(ChRef.ChordType, ChRef.FMODRef);
         }
         
-    }
-
-    private void Update()
-    {
     }
 
     private void Start()
@@ -71,6 +68,14 @@ public class ChordManager : PulloutManager
     {
         BeatCount = 0;
         BarCount = 0;
+    }
+
+    public void ClearAllChords()
+    {
+        foreach(var pad in ChordPads)
+        {
+            pad.ClearChord();
+        }
     }
 
     [System.Serializable]

@@ -23,4 +23,9 @@ public class GameSceneManager : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(ClickSound);
     }
 
+    public void CompleteTask()
+    {
+        TaskManager.instance.LoadConfirmScene();
+    }
+
 }

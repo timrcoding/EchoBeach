@@ -12,6 +12,7 @@ public class ConfirmManager : InterimTextManager
     void Awake()
     {
         DeleteAddedData();
+        BlackCoverImage.alpha = 1;
         if (SaveManager.instance != null)
         {
             foreach(CharName CName in SaveManager.instance.ActiveSave.CurrentTargets)

@@ -41,6 +41,7 @@ public class DeepnetManager : MonoBehaviour
     void CoverPage()
     {
         ChangeMat();
+        
     }
 
     public void SetMatToOpaque()
@@ -53,7 +54,15 @@ public class DeepnetManager : MonoBehaviour
         LeanTween.value(gameObject, 1, 0, 1).setOnUpdate((value) =>
            {
                CoverScreenMaterial.SetFloat("_Fade", value);
-           });
+           }).setEaseInQuad();
+    }
+
+    void ScrollDownScrollbar()
+    {
+        LeanTween.value(gameObject, Scrollbar.value, 0, 1f).setOnUpdate((value) =>
+        {
+            Scrollbar.value = value;
+        });
     }
 
 
@@ -65,16 +74,19 @@ public class DeepnetManager : MonoBehaviour
         {
             TMPHeader.text = StringEnum.GetStringValue(DeepNetLink);
             TMPBody.text = "";
+            
             TMPBody.text += '\n';
             TMPBody.text += '\n';
 
             List<string> TempList = TextManager.instance.ReturnTextListForCharacter(DeepNetLink);
             for(int i = 0; i < TempList.Count; i++)
             {
-                if(i < (int)TaskManager.instance.TaskNumber)
+                if(i < (int)SaveManager.instance.ActiveSave.MTaskNumber)
                 {
                     string s = TempList[i];
                     if (!s.StartsWith('/'.ToString())) {
+                        TMPBody.text += $"Oct {i+1}:";
+                        TMPBody.text += '\n';
                         TMPBody.text += s.TrimEnd('(', ')', '1', '2', '3', '4', '5', '6', '7', '8', ' ');
                         TMPBody.text += '\n';
                         TMPBody.text += "-----------";
@@ -88,19 +100,19 @@ public class DeepnetManager : MonoBehaviour
             if (Page.Song != Song.INVALID && !SongManager.instance.SongTracklist.Contains(Page.Song))
             {
                 SongManager.instance.AddSong(DeepNetLink, Page.Song);
-                
             }
         }
         else
         {
             Debug.Log("DeepNet Page Not Set");
         }
-            MapManager.instance.ActivateMapElement(DeepNetLink);
+        MapManager.instance.ActivateMapElement(DeepNetLink);
+        ScrollDownScrollbar();
     }
 
     public void ScrollToTop(ScrollRect scrollRect)
     {
-        scrollRect.normalizedPosition = new Vector2(0, 1);
+       // scrollRect.normalizedPosition = new Vector2(0, 1);
     }
 
     public void CreateLinks(SODeepNetPage DeepNetPage)

@@ -60,8 +60,8 @@ public class SongManager : PulloutManager
     [FMODUnity.EventRef]
     [SerializeField] private String SongAddedSound;
 
-    [SerializeField] private Song TrickSong;
-    [SerializeField] private int TrickSongStartOffset = 5000;
+    [SerializeField] private Song[] TrickSongs;
+    [SerializeField] private int TrickSongStartOffset = 50000 ;
 
     public FMOD.Studio.EventInstance AmbienceInstance;
     [FMODUnity.EventRef]
@@ -89,8 +89,6 @@ public class SongManager : PulloutManager
 
         AmbienceInstance = FMODUnity.RuntimeManager.CreateInstance(Ambience);
         AmbienceInstance.start();
-      //  PutAway();
-
     }
 
     #region Manager Setup
@@ -219,9 +217,9 @@ public class SongManager : PulloutManager
             StartCoroutine(CheckSongIsPlaying());
             musicInstance = FMODUnity.RuntimeManager.CreateInstance(evt);
             musicInstance.start();
-            if(song == TrickSong)
+            if(TrickSongs.Contains(song))
             {
-                musicInstance.setTimelinePosition(TrickSongStartOffset);
+                musicInstance.setTimelinePosition(7000);
             }
             LyricManager.AssignBeatEvent(musicInstance);
             SetTimeLineSpecs();
@@ -343,7 +341,14 @@ public class SongManager : PulloutManager
 
     public void SetLyrics(string LyricLine)
     {
-        LyricText.text = LyricLine;
+        if (LyricLine != "//END")
+        {
+            LyricText.text = LyricLine;
+        }
+        else
+        {
+            LyricText.text = "";
+        }
         StartCoroutine(StartSet(LyricLine.Length));
         IEnumerator StartSet(int num)
         {
