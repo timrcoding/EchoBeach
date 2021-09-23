@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class TaskManager : PulloutManager
 {
     public static TaskManager instance;
-    [SerializeField] private SOTaskManager SOTasks;
+    [SerializeField] public SOTaskManager SOTasks;
     [SerializeField] private Transform AnswerAreaParent;
     [SerializeField] private GameObject TaskAnswerAreaPrefab;
     [SerializeField] private GameObject TaskIntroCard;
@@ -87,6 +87,7 @@ public class TaskManager : PulloutManager
         CheckSlider.value = 0;
         if (CheckAllCorrect())
         {
+            FMODUnity.RuntimeManager.PlayOneShot(CorrectSound);
             float vol;
             SongManager.instance.StopSong();
             SongManager.instance.AmbienceInstance.getVolume(out vol);
@@ -111,9 +112,9 @@ public class TaskManager : PulloutManager
 
     public void LoadConfirmScene()
     {
-        Debug.Log("COMPLETED");
         SongManager.instance.AmbienceInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SongManager.instance.AmbienceInstance.release();
+        SaveManager.instance.ActiveSave.TransferTargets();
         SceneManager.LoadScene("ConfirmScene");
     }
 

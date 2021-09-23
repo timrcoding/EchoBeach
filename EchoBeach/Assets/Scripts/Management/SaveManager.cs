@@ -61,6 +61,7 @@ public class SaveManager : MonoBehaviour
             stream.Close();
 
             hasLoaded = true;
+            Debug.Log("LOADED");
         }
     }
 
@@ -81,11 +82,16 @@ public class SaveManager : MonoBehaviour
             ActiveSave.MTaskNumber = TaskNumber.Tutorial;
             ActiveSave.SongTracklist.Clear();
             ActiveSave.CurrentTargets.Clear();
+            ActiveSave.CompletedTargets.Clear();
             ActiveSave.MusiciansEncountered.Clear();
             ActiveSave.GameCompleted = false;
             ActiveSave.PlayDialogueSceneNext = false;
+            ActiveSave.SongPlays = 0;
+            ActiveSave.InstrumentPlays = 0;
         }
     }
+
+    
 }
 
 [System.Serializable]
@@ -99,7 +105,18 @@ public class SaveData
     public bool PlayDialogueSceneNext;
     public List<LinkAndSong> SongTracklist;
     public List<CharName> CurrentTargets;
+    public List<CharName> CompletedTargets;
     public List<DeepNetLinkName> MusiciansEncountered;
+    public int SongPlays;
+    public int InstrumentPlays;
+
+    public void TransferTargets()
+    {
+        foreach(var ch in CurrentTargets)
+        {
+            CompletedTargets.Add(ch);
+        }
+    }
 }
 [System.Serializable]
 public class LinkAndSong

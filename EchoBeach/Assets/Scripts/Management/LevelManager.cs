@@ -17,16 +17,42 @@ public class LevelManager : MonoBehaviour
         {
             TaskToDialogueDictionary.Add(tdc.TaskNumber, tdc.DialogueScene);
         }
-
+        
         var dialogue = TaskToDialogueDictionary[SaveManager.instance.ActiveSave.MTaskNumber];
         if (dialogue != DialogueScene.INVALID)
         {
             SaveManager.instance.ActiveSave.CurrentDialogueScene = dialogue;
+
+            if(SaveManager.instance.ActiveSave.MTaskNumber == TaskNumber.Eight)
+            {
+                if (CalculateEnding())
+                {
+                    //TOO MUCH MUSIC
+                    SaveManager.instance.ActiveSave.CurrentDialogueScene = DialogueScene.EndingTwo;
+                }
+                else
+                {
+                    SaveManager.instance.ActiveSave.CurrentDialogueScene = DialogueScene.EndingOne;
+                }
+            }
             SaveManager.instance.ActiveSave.PlayDialogueSceneNext = true;
         }
         else
         {
             SaveManager.instance.ActiveSave.PlayDialogueSceneNext = false;
+        }
+    }
+    
+    bool CalculateEnding()
+    {
+        if (SaveManager.instance.ActiveSave.SongPlays > 30 || SaveManager.instance.ActiveSave.InstrumentPlays > 20)
+        {
+            //TOO MUCH MUSIC
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

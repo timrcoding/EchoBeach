@@ -461,6 +461,55 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612381, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_text
+      value: '
+
+        Code/Audio: Tim Sheinman.
+
+
+        Art: Dan Duke.
+
+
+        Vox:
+        Gem, Hattie, Jet, Liv, Riley & Tina.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612381, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_fontSize
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612381, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_margin.w
+      value: -87.200325
+      objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612381, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_margin.z
+      value: -361.08478
+      objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612381, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612381, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612381, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612381, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612382, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612382, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 85
+      objectReference: {fileID: 0}
     - target: {fileID: 301072164279612383, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -568,6 +617,22 @@ PrefabInstance:
     - target: {fileID: 301072165151350595, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 321069731173921774, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639378994340264676, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -510
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639378994340264678, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1252344804}
+    - target: {fileID: 5639378994340264678, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadGameScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}

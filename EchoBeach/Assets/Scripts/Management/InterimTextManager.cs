@@ -9,7 +9,8 @@ public enum DialogueScene
     Intro,
     One,
     Two,
-    Three
+    EndingOne,
+    EndingTwo,
 }
 
 public class InterimTextManager : MonoBehaviour

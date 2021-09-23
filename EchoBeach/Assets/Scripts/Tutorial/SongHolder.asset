@@ -18,9 +18,10 @@ MonoBehaviour:
 
 
     These songs may be required for solving
-    certain cases.
+    certain cases. You can use the slider to rewind and skip forward.
 
 
-    Good luck!'
+    Good
+    luck!'
   TutorialSlide: 7
   ToggleWithTutorial: 2

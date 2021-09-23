@@ -13,6 +13,7 @@ public class IntroManager : InterimTextManager
     public string Music;
     protected FMOD.Studio.EventInstance MusicInstance;
     public bool ScreenStarted;
+    private string SubString;
 
     void Start()
     {
@@ -39,6 +40,7 @@ public class IntroManager : InterimTextManager
     public override IEnumerator InitDelay()
     {
         ScreenStarted = true;
+        SubString = SubTMP.text;
         SubTMP.text = "";
         TitleTMP.text = "";
         MusicInstance = FMODUnity.RuntimeManager.CreateInstance(Music);
@@ -93,10 +95,11 @@ public class IntroManager : InterimTextManager
         
     }
 
-    void LoadGameScene()
+    public void LoadGameScene()
     {
         SceneManager.LoadScene("MainGameScene");
         MusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        AmbientInst.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     IEnumerator SetTitle()
@@ -115,13 +118,13 @@ public class IntroManager : InterimTextManager
 
         }
 
-        s = "A game by Tim Sheinman";
+        s = SubString;
 
         for (int j = 0; j < s.Length; j++)
         {
             SubTMP.text += s[j];
             FMODUnity.RuntimeManager.PlayOneShot(KeyboardClick);
-            yield return new WaitForSeconds(Random.Range(.1f, .4f));
+            yield return new WaitForSeconds(Random.Range(.1f, .2f));
 
         }
         yield return new WaitForSeconds(2);

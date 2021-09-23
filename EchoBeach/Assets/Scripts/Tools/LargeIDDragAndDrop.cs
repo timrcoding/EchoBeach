@@ -75,6 +75,7 @@ public class LargeIDDragAndDrop : DragAndDrop
     void ShrinkCard()
     {
         LeanTween.scale(gameObject,new Vector3(ShrunkScale,ShrunkScale,0),.3f);
+        dragOffset *= ShrunkScale;
     }
 
     void ExpandCard()

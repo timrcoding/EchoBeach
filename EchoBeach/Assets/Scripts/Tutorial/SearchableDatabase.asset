@@ -22,10 +22,11 @@ MonoBehaviour:
 
 
     The search
-    only shows a limited number of searches, so try to be specific.
+    only shows a limited number of searches, so try to be specific. It uses the D/M/Y
+    UK date system.
 
 
-    Click on
-    a result to bring up an ID card, which can then be dragged into the task manager.'
+    Click on a result to bring up an ID card, which can then
+    be dragged into the task manager.'
   TutorialSlide: 5
   ToggleWithTutorial: 3

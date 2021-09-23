@@ -22,6 +22,10 @@ public class DeepnetManager : MonoBehaviour
     [SerializeField] private Image CircleLoader;
     public Transform TutTaskPos;
 
+
+    [SerializeField] List<DeepNetLinkName> PreviouslyVisitedPages;
+    private bool BackButtonPressed;
+
     private void Awake()
     {
         instance = this;
@@ -65,6 +69,15 @@ public class DeepnetManager : MonoBehaviour
         });
     }
 
+    public void VisitPreviousPage()
+    {
+        if(PreviouslyVisitedPages.Count > 1)
+        {
+            BackButtonPressed = true;
+            PreviouslyVisitedPages.RemoveAt(PreviouslyVisitedPages.Count - 1);
+            LoadPageText(PreviouslyVisitedPages[PreviouslyVisitedPages.Count - 1]);
+        }
+    }
 
     public void LoadPageText(DeepNetLinkName DeepNetLink)
     {
@@ -72,6 +85,15 @@ public class DeepnetManager : MonoBehaviour
         SODeepNetPage Page = DeepNetLookupFunctions.ReturnDeepNetLinkToPage(DeepNetLink, DeepNetLookupFunctions.instance.MSODeepNetLookup);
         if (Page != null)
         {
+            if (!BackButtonPressed)
+            {
+                PreviouslyVisitedPages.Add(DeepNetLink);
+            }
+            else
+            {
+                BackButtonPressed = false;
+            }
+
             TMPHeader.text = StringEnum.GetStringValue(DeepNetLink);
             TMPBody.text = "";
             
@@ -84,8 +106,8 @@ public class DeepnetManager : MonoBehaviour
                 if(i < (int)SaveManager.instance.ActiveSave.MTaskNumber)
                 {
                     string s = TempList[i];
-                    if (!s.StartsWith('/'.ToString())) {
-                        TMPBody.text += $"Oct {i+1}:";
+                    if (!s.StartsWith('/'.ToString())) 
+                    {
                         TMPBody.text += '\n';
                         TMPBody.text += s.TrimEnd('(', ')', '1', '2', '3', '4', '5', '6', '7', '8', ' ');
                         TMPBody.text += '\n';

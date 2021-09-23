@@ -20,4 +20,6 @@ MonoBehaviour:
     TaskNumber: 1
   - DeepNetLink: 6
     TaskNumber: 1
+  - DeepNetLink: 9
+    TaskNumber: 3
   Song: 10

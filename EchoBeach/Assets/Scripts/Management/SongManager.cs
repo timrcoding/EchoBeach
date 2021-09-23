@@ -10,8 +10,8 @@ using TMPro;
 public enum Song
 {
     INVALID,
-    [StringValue("Angelina")]
-    Angelina,
+    [StringValue("For Her")]
+    ForHer,
     [StringValue("Los Angeles")]
     LosAngeles,
     [StringValue("Ever Been")]
@@ -188,7 +188,9 @@ public class SongManager : PulloutManager
 
     public void PlaySong(Song song)
     {
+        SaveManager.instance.ActiveSave.SongPlays++;
         ResetSongVolume();
+        StopSong();
         StopButtonPressed = false;
         GameSceneManager.instance.PlayClick();
         float vol;
@@ -250,8 +252,8 @@ public class SongManager : PulloutManager
     {
         StopButtonPressed = true;
         SetLyrics("");
-        musicInstance.release();
         musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        musicInstance.release();
         float vol;
         AmbienceInstance.getVolume(out vol);
         LeanTween.value(gameObject, vol, 1, 5).setOnUpdate((value) =>

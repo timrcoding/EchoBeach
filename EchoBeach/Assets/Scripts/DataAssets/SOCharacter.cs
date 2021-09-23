@@ -320,8 +320,8 @@ public enum Address
     BerlinRoad,
     [StringValue("Mississippi Crescent")]
     MississippiCrescent,
-    [StringValue("Chopin Drive")]
-    ChopinDrive,
+    [StringValue("Satie Drive")]
+    SatieDrive,
     [StringValue("Ravel Road")]
     RavelRoad,
     [StringValue("Petersburg Lane")]

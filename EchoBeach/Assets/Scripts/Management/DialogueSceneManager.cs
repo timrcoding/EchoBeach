@@ -109,6 +109,8 @@ public class DialogueSceneManager : InterimTextManager
         {
             if (!SaveManager.instance.ActiveSave.GameCompleted || !GameCompleted)
             {
+                MusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                MusicInstance.release();
                 SceneManager.LoadScene("MainGameScene");
                 int curr = (int) SaveManager.instance.ActiveSave.CurrentDialogueScene;
                 SaveManager.instance.ActiveSave.CurrentDialogueScene = (DialogueScene)curr + 1;
@@ -117,6 +119,7 @@ public class DialogueSceneManager : InterimTextManager
             {
                 MusicInstance.release();
                 MusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                MusicInstance.release();
                 SceneManager.LoadScene("MenuScene");
             }
         }

@@ -17,5 +17,7 @@ MonoBehaviour:
   Font: 1
   DeepNetLinksAndLevelsOfAccess:
   - DeepNetLink: 20
-    TaskNumber: 5
+    TaskNumber: 4
+  - DeepNetLink: 17
+    TaskNumber: 1
   Song: 0
