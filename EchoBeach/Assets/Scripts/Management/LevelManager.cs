@@ -18,12 +18,17 @@ public class LevelManager : MonoBehaviour
             TaskToDialogueDictionary.Add(tdc.TaskNumber, tdc.DialogueScene);
         }
         
+        
+    }
+
+    public void SetDialogue()
+    {
         var dialogue = TaskToDialogueDictionary[SaveManager.instance.ActiveSave.MTaskNumber];
         if (dialogue != DialogueScene.INVALID)
         {
             SaveManager.instance.ActiveSave.CurrentDialogueScene = dialogue;
 
-            if(SaveManager.instance.ActiveSave.MTaskNumber == TaskNumber.Eight)
+            if (SaveManager.instance.ActiveSave.MTaskNumber == TaskNumber.Nine)
             {
                 if (CalculateEnding())
                 {

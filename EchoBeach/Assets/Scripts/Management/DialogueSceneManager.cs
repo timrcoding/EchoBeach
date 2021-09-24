@@ -17,7 +17,6 @@ public class DialogueSceneManager : InterimTextManager
 {
     [SerializeField] private List<InterimToSOText> DialogueSceneLookup;
     [SerializeField] private Dictionary<DialogueScene,CutSceneText> DialogueSceneLookupDictionary;
-    public bool GameCompleted;
     [FMODUnity.EventRef]
     public string Music;
     protected FMOD.Studio.EventInstance MusicInstance;
@@ -105,29 +104,32 @@ public class DialogueSceneManager : InterimTextManager
     }
 
 
-    void LoadGameScene()
+    public void LoadGameScene()
     {
         if (SaveManager.instance != null)
         {
-            if (!SaveManager.instance.ActiveSave.GameCompleted || !GameCompleted)
+            if (!SaveManager.instance.ActiveSave.GameCompleted)
             {
                 MusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 MusicInstance.release();
-                SceneManager.LoadScene("MainGameScene");
-                int curr = (int) SaveManager.instance.ActiveSave.CurrentDialogueScene;
+                AmbientInst.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                AmbientInst.release();
+                int curr = (int)SaveManager.instance.ActiveSave.CurrentDialogueScene;
                 SaveManager.instance.ActiveSave.CurrentDialogueScene = (DialogueScene)curr + 1;
+                SceneManager.LoadScene("MainGameScene");
             }
             else
             {
                 MusicInstance.release();
                 MusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 MusicInstance.release();
+                AmbientInst.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 SceneManager.LoadScene("MenuScene");
             }
         }
         else
         {
-           // SceneManager.LoadScene("MainGameScene");
+           SceneManager.LoadScene("MainGameScene");
         }
     }
 }

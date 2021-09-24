@@ -90,6 +90,7 @@ public class TaskManager : PulloutManager
         CheckSlider.value = 0;
         if (CheckAllCorrect())
         {
+            SwitchTaskInSave(false,0);
             FMODUnity.RuntimeManager.PlayOneShot(CorrectSound);
             float vol;
             SongManager.instance.StopSong();
@@ -114,8 +115,43 @@ public class TaskManager : PulloutManager
         }
     }
 
+    public void SwitchTaskInSave(bool oride, int task)
+    {
+        int currentTask = (int)SaveManager.instance.ActiveSave.MTaskNumber;
+        var Task = SaveManager.instance.ActiveSave.MTaskNumber;
+        if(!oride) 
+        { 
+            Task = (TaskNumber)currentTask + 1;
+            SaveManager.instance.ActiveSave.MTaskNumber = Task;
+            SetComplete(Task);
+            LevelManager.instance.SetDialogue();
+        }
+        else
+        {
+            Task = (TaskNumber)task;
+            SaveManager.instance.ActiveSave.MTaskNumber = Task;
+            SetComplete(Task);
+            LevelManager.instance.SetDialogue();
+            LoadConfirmScene();
+        }
+        
+    }
+
+    void SetComplete(TaskNumber task)
+    {
+        if ((int)task > (int)TaskNumber.Eight)
+        {
+            SaveManager.instance.ActiveSave.GameCompleted = true;
+        }
+        else
+        {
+            SaveManager.instance.ActiveSave.GameCompleted = false;
+        }
+    }
+
     public void LoadConfirmScene()
     {
+        
         SongManager.instance.AmbienceInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SongManager.instance.AmbienceInstance.release();
         SaveManager.instance.ActiveSave.TransferTargets();

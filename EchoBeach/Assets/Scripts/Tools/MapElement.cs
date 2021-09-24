@@ -31,7 +31,7 @@ public class MapElement : MonoBehaviour
         Parent = P.transform;
         SetupImage();
         //SetupLines();
-        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + Random.Range(-5 , 5));
+        transform.rotation = Quaternion.Euler(0, 0, Random.Range(-5 , 5));
     }
 
     void SearchTargetList()

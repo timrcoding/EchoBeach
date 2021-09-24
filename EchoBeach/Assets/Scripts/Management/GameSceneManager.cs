@@ -13,6 +13,8 @@ public class GameSceneManager : MonoBehaviour
     public Dictionary<DeepNetLinkName, CharName> DeepnetLinkToCharnameDict;
     [FMODUnity.EventRef]
     public string ClickSound;
+    public int overrideTask;
+    public TMP_Dropdown TMPDropdown;
 
     private void Awake()
     {
@@ -28,20 +30,25 @@ public class GameSceneManager : MonoBehaviour
             DeepnetLinkToCharnameDict.Add(c.DeepNetLinkName, c.CharName);
         }
     }
-
-    private void Start()
-    {
-        
-    }
-
     public void PlayClick()
     {
         FMODUnity.RuntimeManager.PlayOneShot(ClickSound);
     }
 
-    public void CompleteTask()
+    public void CompleteTaskAndGoToDropdown()
     {
+        TaskManager.instance.SwitchTaskInSave(true, TMPDropdown.value);
+    }
+
+    public void SkipTask()
+    {
+        TaskManager.instance.SwitchTaskInSave(false,0);
         TaskManager.instance.LoadConfirmScene();
+    }
+
+    public void SetOverrideTaskNumber()
+    {
+        overrideTask = TMPDropdown.value;
     }
 }
 

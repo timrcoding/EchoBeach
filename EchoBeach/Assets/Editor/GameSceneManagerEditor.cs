@@ -15,7 +15,7 @@ public class GameSceneManagerEditor : Editor
 
         if (GUILayout.Button("Complete Task"))
         {
-            GameManager.CompleteTask();
+          //  GameManager.CompleteTask();
         }
     }
 }

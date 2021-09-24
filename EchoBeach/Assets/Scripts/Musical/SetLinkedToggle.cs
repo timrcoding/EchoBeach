@@ -15,7 +15,7 @@ public class SetLinkedToggle : MonoBehaviour
 
     void SetToggle()
     {
-        LinkedToggle.isOn = Toggle.isOn;
+      //  LinkedToggle.isOn = Toggle.isOn;
         if (Toggle.isOn)
         {
             SaveManager.instance.ActiveSave.InstrumentPlays++;

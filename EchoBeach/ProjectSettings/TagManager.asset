@@ -20,6 +20,7 @@ TagManager:
   - MapElement
   - MapParent
   - TargetsToggle
+  - ID Collider
   layers:
   - Default
   - TransparentFX

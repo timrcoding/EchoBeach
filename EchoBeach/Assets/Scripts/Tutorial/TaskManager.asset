@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49c4a73c9de602448f4343b691f8e34, type: 3}
   m_Name: TaskManager
   m_EditorClassIdentifier: 
-  Header: Task Manager
-  SlideDescription: 'The Task Manager displays your current targets.
+  Header: Targets
+  SlideDescription: 'The Targets Machine displays your current persons of interest.
 
 
-    You fill
-    in the answer areas by dropping in an ID from the searchable database.
+    You
+    fill in the answer areas by dropping in an ID from the searchable database.
 
 
     When

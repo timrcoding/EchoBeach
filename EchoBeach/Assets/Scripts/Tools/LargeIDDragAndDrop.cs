@@ -98,5 +98,4 @@ public class LargeIDDragAndDrop : DragAndDrop
         Destroy(gameObject);
     }
 
-    
 }

@@ -72,7 +72,7 @@ public class DrumMachine : PulloutManager
     public void PlayDrumMachine()
     {
         SetDrumStrip();
-        SixteenthBeatCount += 1;
+        SixteenthBeatCount++;
         if (SixteenthBeatCount >= 16)
         {
             SixteenthBeatCount = 0;

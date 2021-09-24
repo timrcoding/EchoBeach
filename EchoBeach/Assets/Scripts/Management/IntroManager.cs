@@ -32,8 +32,8 @@ public class IntroManager : InterimTextManager
         yield return new WaitForSeconds(Time.deltaTime);
         if (!ScreenStarted)
         {
-            SceneManager.LoadScene("Intro");
             AmbientInst.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            SceneManager.LoadScene("Intro");
         }
     }
 
@@ -97,9 +97,9 @@ public class IntroManager : InterimTextManager
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("MainGameScene");
         MusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         AmbientInst.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        SceneManager.LoadScene("MainGameScene");  
     }
 
     IEnumerator SetTitle()

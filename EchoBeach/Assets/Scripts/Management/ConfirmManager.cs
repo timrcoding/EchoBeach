@@ -40,12 +40,16 @@ public class ConfirmManager : InterimTextManager
     {
         CutSceneTextScriptableObject.StringToTypes[0].Text = "WELL DONE EMPLOYEE.\n\nYOU HAVE APPREHENDED THE FOLLOWING CRIMINALS;";
         if (SaveManager.instance != null) {
-            int num = 8 - (int)SaveManager.instance.ActiveSave.MTaskNumber;
-            if (num > 0)
+            int num = 9 - (int)SaveManager.instance.ActiveSave.MTaskNumber;
+            if (num > 0 && num != 1)
             {
                 CutSceneTextScriptableObject.StringToTypes[1].Text = $"{num} DAYS REMAIN.";
             }
-            else
+            if(num == 1)
+            {
+                CutSceneTextScriptableObject.StringToTypes[1].Text = "1 DAY REMAINS";
+            }
+            else if(num <= 0)
             {
                 CutSceneTextScriptableObject.StringToTypes[1].Text = "NO MORE DAYS REMAIN.\n\nTHE COMPETITION IS OVER.";
             }
@@ -100,17 +104,9 @@ public class ConfirmManager : InterimTextManager
 
         MusicInst.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         MusicInst.release();
-        int currentTask = (int)SaveManager.instance.ActiveSave.MTaskNumber;
 
         if (SaveManager.instance != null)
         {
-            var Task = SaveManager.instance.ActiveSave.MTaskNumber;
-            Task = (TaskNumber)currentTask + 1;
-            SaveManager.instance.ActiveSave.MTaskNumber = Task;
-            if (Task > (TaskNumber)8)
-            {
-                SaveManager.instance.ActiveSave.GameCompleted = true;
-            }
             if (SaveManager.instance.ActiveSave.PlayDialogueSceneNext)
             {
                 SceneManager.LoadScene("InterimScene");

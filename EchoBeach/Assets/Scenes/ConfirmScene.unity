@@ -345,10 +345,18 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612383, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 301072164288783345, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1318548006}
+    - target: {fileID: 301072164461259124, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 301072165151349948, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
       propertyPath: m_Name
       value: TextCanvas
@@ -444,6 +452,10 @@ PrefabInstance:
     - target: {fileID: 321069731173921779, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
       propertyPath: m_Alpha
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 480543353236615467, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5639378994340264677, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
       propertyPath: m_IsActive
