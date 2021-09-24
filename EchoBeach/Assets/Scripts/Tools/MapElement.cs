@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MapElement : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class MapElement : MonoBehaviour
     [SerializeField] private Image BackgroundImage;
     [SerializeField] private Image CheckImage;
     [SerializeField] private GameObject CaughtImage;
+    [SerializeField] private Button Button;
     private Transform Parent;
     public DeepNetLinkName GetDeepNetLink { get { return DeepNetLink; } }
 
@@ -28,7 +30,7 @@ public class MapElement : MonoBehaviour
         GameObject P = GameObject.FindGameObjectWithTag("MapParent");
         Parent = P.transform;
         SetupImage();
-        SetupLines();
+        //SetupLines();
         transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + Random.Range(-5 , 5));
     }
 
@@ -68,5 +70,10 @@ public class MapElement : MonoBehaviour
                 NewLine.GetComponent<LineRenderObject>().StartPosition = DeepNetLink;
                 NewLine.GetComponent<LineRenderObject>().EndPosition = Link.DeepNetLink;
         }
+    }
+
+    public void ButtonPress()
+    {
+            DeepnetManager.instance.LoadPageText(DeepNetLink);
     }
 }

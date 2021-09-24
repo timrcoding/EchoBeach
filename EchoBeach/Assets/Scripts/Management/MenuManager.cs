@@ -24,7 +24,7 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         FMODUnity.RuntimeManager.LoadBank("Master");
-        if (SaveManager.instance.ActiveSave.GameCompleted || !SaveManager.instance.ActiveSave.GameStarted)
+        if (SaveManager.instance.ActiveSave.GameCompleted || !SaveManager.instance.ActiveSave.GameStarted || (int)SaveManager.instance.ActiveSave.MTaskNumber < 1)
         {
             ContinueButton.interactable = false;
         }

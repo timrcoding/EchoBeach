@@ -78,8 +78,16 @@ MonoBehaviour:
 '
     CharacterNames: 16000000140000000f000000
   - TaskNumber: 7
-    Description: Another trio of criminals.
+    Description: Another trio of reprobates. Deadline is approaching, think you can
+      manage it?
     CharacterNames: 130000001b00000018000000
   - TaskNumber: 8
-    Description: Last day. Well done employee, one last effort.
+    Description: 'Last day. Well done employee.
+
+
+      One big effort for the Ministry.
+
+
+      Watch
+      out for secrets.'
     CharacterNames: 0e0000000c00000017000000

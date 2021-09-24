@@ -21,6 +21,10 @@ public class SongButton : MonoBehaviour
     private void Update()
     {
         TimeBetweenClicks++;
+        if(TimeBetweenClicks > 100000)
+        {
+            ResetClicks();
+        }
     }
 
     public void SetCharacterAndSong(DeepNetLinkName CharName, Song Song)
@@ -46,11 +50,9 @@ public class SongButton : MonoBehaviour
 
      public void PlaySong()
     {
-        Debug.Log(TimeBetweenClicks);
         if (TimeBetweenClicks < 10)
         {
             SongManager.instance.PlaySong(MSong);
-           // SongManager.instance.TurnUpSong();
         }
     }
 }

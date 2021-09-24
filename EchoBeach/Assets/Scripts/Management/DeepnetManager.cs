@@ -26,26 +26,45 @@ public class DeepnetManager : MonoBehaviour
     [SerializeField] List<DeepNetLinkName> PreviouslyVisitedPages;
     private bool BackButtonPressed;
 
+    [SerializeField]
+    private List<LinksAvailableAtLevel> LinksAndLevelsForSetup;
+
     private void Awake()
     {
         instance = this;
     }
     void Start()
     {
-        LoadInitialPage();
+        StartCoroutine(LoadInitialPages());
         SetMatToOpaque();
         ChangeMat();
     }
 
-    void LoadInitialPage()
+    public IEnumerator LoadInitialPages()
     {
-      //  LoadPageText(DeepNetLinkName.CuckooSong);
+        yield return new WaitForSeconds(Time.deltaTime);
+        Debug.Log("LOADED PAGES");
+        LoadPageText(DeepNetLinkName.CuckooSong);
+        for (int i = 0; i < LinksAndLevelsForSetup.Count; i++)
+        {
+            for(int j = 0; j < LinksAndLevelsForSetup[i].LinksAvailable.Count; j++)
+            {
+                if (i <= (int)SaveManager.instance.ActiveSave.MTaskNumber)
+                {
+                    DeepNetLinkName Name = LinksAndLevelsForSetup[i].LinksAvailable[j];
+                    LoadPageText(Name);
+                }
+            }
+        }
+        LoadPageText(DeepNetLinkName.CuckooSong);
     }
 
     void CoverPage()
     {
-        ChangeMat();
-        
+        if (TaskManager.instance.TaskIntroductionAway)
+        {
+            ChangeMat();
+        }
     }
 
     public void SetMatToOpaque()
@@ -85,14 +104,6 @@ public class DeepnetManager : MonoBehaviour
         SODeepNetPage Page = DeepNetLookupFunctions.ReturnDeepNetLinkToPage(DeepNetLink, DeepNetLookupFunctions.instance.MSODeepNetLookup);
         if (Page != null)
         {
-            if (!BackButtonPressed)
-            {
-                PreviouslyVisitedPages.Add(DeepNetLink);
-            }
-            else
-            {
-                BackButtonPressed = false;
-            }
 
             TMPHeader.text = StringEnum.GetStringValue(DeepNetLink);
             TMPBody.text = "";
@@ -157,5 +168,10 @@ public class DeepnetManager : MonoBehaviour
         }
     }
 
-    
+    [System.Serializable]
+    public struct LinksAvailableAtLevel
+    {
+        public TaskNumber TaskNumber;
+        public List<DeepNetLinkName> LinksAvailable;
+    }
 }

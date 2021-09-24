@@ -17,7 +17,9 @@ public class TaskManager : PulloutManager
     [SerializeField] private CanvasGroup BlackCoverImage;
     [SerializeField] private Slider CheckSlider;
     [SerializeField] private Image SliderFill;
+    [SerializeField] private Button SubButton;
     private bool TaskSetupSuccessfully;
+    public bool TaskIntroductionAway;
 
     [FMODUnity.EventRef]
     [SerializeField] private string CheckSound;
@@ -64,6 +66,7 @@ public class TaskManager : PulloutManager
     public void DisappearTaskWindow()
     {
         TaskIntroCard.SetActive(false);
+        TaskIntroductionAway = true;
         DeepnetManager.instance.ChangeMat();
         DeepnetManager.instance.LoadPageText(DeepNetLinkName.CuckooSong);
         SetupTask();
@@ -71,6 +74,7 @@ public class TaskManager : PulloutManager
 
     public void StartCheck()
     {
+        SubButton.interactable = false;
         FMODUnity.RuntimeManager.PlayOneShot(CheckSound);
         GameSceneManager.instance.PlayClick();
         LeanTween.value(0, 1, 3).setOnUpdate((value) =>
@@ -83,7 +87,6 @@ public class TaskManager : PulloutManager
 
     public void SubmitButton()
     {
-        
         CheckSlider.value = 0;
         if (CheckAllCorrect())
         {
@@ -107,6 +110,7 @@ public class TaskManager : PulloutManager
         else
         {
             FMODUnity.RuntimeManager.PlayOneShot(IncorrectSound);
+            SubButton.interactable = true;
         }
     }
 
@@ -156,5 +160,6 @@ public class TaskManager : PulloutManager
                 }
             }
         TaskSetupSuccessfully = true;
-        }
+        StartCoroutine(DeepnetManager.instance.LoadInitialPages());
+    }
 }

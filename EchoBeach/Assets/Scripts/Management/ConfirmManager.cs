@@ -40,7 +40,15 @@ public class ConfirmManager : InterimTextManager
     {
         CutSceneTextScriptableObject.StringToTypes[0].Text = "WELL DONE EMPLOYEE.\n\nYOU HAVE APPREHENDED THE FOLLOWING CRIMINALS;";
         if (SaveManager.instance != null) {
-            CutSceneTextScriptableObject.StringToTypes[1].Text = $"{8 - (int)SaveManager.instance.ActiveSave.MTaskNumber} DAYS REMAIN.";
+            int num = 8 - (int)SaveManager.instance.ActiveSave.MTaskNumber;
+            if (num > 0)
+            {
+                CutSceneTextScriptableObject.StringToTypes[1].Text = $"{num} DAYS REMAIN.";
+            }
+            else
+            {
+                CutSceneTextScriptableObject.StringToTypes[1].Text = "NO MORE DAYS REMAIN.\n\nTHE COMPETITION IS OVER.";
+            }
         }
         else
         {

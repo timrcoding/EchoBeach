@@ -72,6 +72,7 @@ public class DialogueSceneManager : InterimTextManager
         }
         else
         {
+            
             float FadeOutLength = 5;
             if (SaveManager.instance.ActiveSave.GameCompleted)
             {
@@ -89,6 +90,7 @@ public class DialogueSceneManager : InterimTextManager
             {
                 AmbientInst.setVolume(value);
             }).setOnComplete(FadeMusic);
+
         }
     }
 
@@ -96,7 +98,7 @@ public class DialogueSceneManager : InterimTextManager
     {
         float vol;
         MusicInstance.getVolume(out vol);
-        LeanTween.value(gameObject, vol , 0, 6).setOnUpdate((value) =>
+        LeanTween.value(gameObject, vol , 0, 3).setOnUpdate((value) =>
         {
             MusicInstance.setVolume(value);
         }).setOnComplete(LoadGameScene);

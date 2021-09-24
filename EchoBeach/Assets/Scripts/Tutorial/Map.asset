@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Map
   m_EditorClassIdentifier: 
   Header: Map
-  SlideDescription: "Your progress through the MusicNet is marked on your map. \n\nInterconnecting
-    lines display the links between different artists.\n\nLinks may point to an artist
-    you have not discovered yet or is temporarily unreachable."
+  SlideDescription: "Your progress through the MusicNet is marked on your map. \n\nWhen
+    they become available, you can click on any artist on the map to travel to their
+    page.\n\nCaught artists will be marked with an X."
   TutorialSlide: 3
   ToggleWithTutorial: 0
