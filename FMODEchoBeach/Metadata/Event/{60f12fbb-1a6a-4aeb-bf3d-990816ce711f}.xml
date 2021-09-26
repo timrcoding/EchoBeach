@@ -173,7 +173,7 @@
 	</object>
 	<object class="LoopRegion" id="{84f6465f-fc07-44f7-ab54-eb5c6436c60c}">
 		<property name="position">
-			<value>11.815789473684212</value>
+			<value>11.052631578947368</value>
 		</property>
 		<property name="length">
 			<value>4</value>
@@ -193,7 +193,7 @@
 	</object>
 	<object class="NamedMarker" id="{1681258c-154d-4652-bb12-b21a9140a9c8}">
 		<property name="position">
-			<value>17.315789473684212</value>
+			<value>16.55263157894737</value>
 		</property>
 		<property name="name">
 			<value>Your dipshit cousins been running round cussing all day</value>
@@ -207,7 +207,7 @@
 	</object>
 	<object class="NamedMarker" id="{291d3f7c-2b94-4e22-b82f-243b87115738}">
 		<property name="position">
-			<value>25.315789473684212</value>
+			<value>24.55263157894737</value>
 		</property>
 		<property name="name">
 			<value>I'm still awake</value>
@@ -221,7 +221,7 @@
 	</object>
 	<object class="NamedMarker" id="{c3d065f6-6ed7-45a6-9cd8-b93256931942}">
 		<property name="position">
-			<value>29.815789473684212</value>
+			<value>29.05263157894737</value>
 		</property>
 		<property name="name">
 			<value>Tourists on Sunset all freeze round the bust Figure 8</value>
@@ -235,7 +235,7 @@
 	</object>
 	<object class="NamedMarker" id="{ee0b4e23-14e0-45a7-a07d-68ad6f2ec3bb}">
 		<property name="position">
-			<value>37.815789473684212</value>
+			<value>37.05263157894737</value>
 		</property>
 		<property name="name">
 			<value>Heaven knows you're not to blame</value>
@@ -249,7 +249,7 @@
 	</object>
 	<object class="NamedMarker" id="{0447c209-cc2e-4116-9c7a-dee526ce4c2d}">
 		<property name="position">
-			<value>42.315789473684212</value>
+			<value>41.55263157894737</value>
 		</property>
 		<property name="name">
 			<value>Everyone knows, this is insane</value>
@@ -263,7 +263,7 @@
 	</object>
 	<object class="NamedMarker" id="{f667183e-79ad-4b34-bf17-ee1b97d62a08}">
 		<property name="position">
-			<value>48.815789473684212</value>
+			<value>48.05263157894737</value>
 		</property>
 		<property name="name">
 			<value>I'm like the waitress with hate in her eyes</value>
@@ -277,7 +277,7 @@
 	</object>
 	<object class="NamedMarker" id="{2e995218-f5ad-4a19-bfa8-5fd4102b1754}">
 		<property name="position">
-			<value>55.315789473684212</value>
+			<value>54.55263157894737</value>
 		</property>
 		<property name="name">
 			<value>I'm just the latest one trying to get by in Los Angeles</value>
@@ -291,7 +291,7 @@
 	</object>
 	<object class="NamedMarker" id="{34538ec8-1855-4c45-81f7-2e9971338488}">
 		<property name="position">
-			<value>64.534562300565142</value>
+			<value>63.771404405828299</value>
 		</property>
 		<property name="name">
 			<value>Los Angeles</value>
@@ -322,7 +322,7 @@
 	</object>
 	<object class="NamedMarker" id="{15bca7e1-a95d-469e-bf52-1944835dba18}">
 		<property name="position">
-			<value>72.035419874950861</value>
+			<value>71.272261980214012</value>
 		</property>
 		<property name="name">
 			<value>//END</value>

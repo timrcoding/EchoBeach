@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
 	<object class="MixerGroup" id="{6a1e978e-8930-4a60-acc7-21959813359b}">
+		<property name="volume">
+			<value>-3</value>
+		</property>
 		<property name="name">
-			<value>Drums</value>
+			<value>Acoustic Drums</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{729802bc-0538-4b6b-a5e7-0f8ba9ac7188}</destination>
@@ -16,15 +19,27 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{729802bc-0538-4b6b-a5e7-0f8ba9ac7188}">
 		<relationship name="effects">
+			<destination>{cddd2f48-ec6f-4e40-bdc9-4f0070d0dadf}</destination>
 			<destination>{c023cd3f-c22e-4ed4-aa8a-aa8f0fcf1387}</destination>
 			<destination>{3386b370-c78b-4e28-bc10-1289948cf34b}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{7e3dc885-6d04-4f08-aad9-ad14ff9e72b6}" />
+	<object class="MultibandEqEffect" id="{cddd2f48-ec6f-4e40-bdc9-4f0070d0dadf}">
+		<property name="filterTypeA">
+			<value>4</value>
+		</property>
+		<property name="frequencyA">
+			<value>69.3301544</value>
+		</property>
+		<property name="qualityA">
+			<value>0.840758622</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{c023cd3f-c22e-4ed4-aa8a-aa8f0fcf1387}" />
 	<object class="MixerSend" id="{3386b370-c78b-4e28-bc10-1289948cf34b}">
 		<property name="level">
-			<value>-13</value>
+			<value>-16.5</value>
 		</property>
 		<property name="inputFormat">
 			<value>1</value>

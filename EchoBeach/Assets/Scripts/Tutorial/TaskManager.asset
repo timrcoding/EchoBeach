@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TaskManager
   m_EditorClassIdentifier: 
   Header: Targets
-  SlideDescription: 'The Targets Machine displays your current persons of interest.
+  SlideDescription: 'The Targets manager displays your current persons of interest.
 
 
     You

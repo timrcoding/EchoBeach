@@ -56,7 +56,8 @@ public class TabManager : MonoBehaviour
                 {
                     if (mButton != LastButton)
                     {
-                        SetTween(tab.Pullout.gameObject, tab.Pullout.GetOutPosition, 1);
+                        tab.Pullout.gameObject.SetActive(true);
+                        SetTween(tab.Pullout.gameObject, tab.Pullout.GetOutPosition, true,tab.TurnOffWhenOffScreen);
                         LastButton = mButton;
 
                     }
@@ -64,7 +65,7 @@ public class TabManager : MonoBehaviour
                     {
                         if (!b)
                         {
-                            SetTween(tab.Pullout.gameObject, tab.Pullout.GetAwayPosition, 1);
+                            SetTween(tab.Pullout.gameObject, tab.Pullout.GetAwayPosition, false, tab.TurnOffWhenOffScreen);
                             LastButton = null;
                             return;
                         }
@@ -72,7 +73,7 @@ public class TabManager : MonoBehaviour
                 }
                 else if (MTab.IncompatibleWithTabs.Contains(tab.TabType))
                 {
-                    SetTween(tab.Pullout.gameObject, tab.Pullout.GetAwayPosition, 1);
+                    SetTween(tab.Pullout.gameObject, tab.Pullout.GetAwayPosition, false, tab.TurnOffWhenOffScreen);
                 }
             }
         }
@@ -82,9 +83,29 @@ public class TabManager : MonoBehaviour
         }
     }
 
-    void SetTween(GameObject obj, Vector3 TargetPos, float time = 0)
+    void SetTween(GameObject obj, Vector3 TargetPos, bool active, bool turnOff)
     {
-        LeanTween.moveLocal(obj, TargetPos, .5f).setEaseInOutBack();
+        if (!active)
+        {
+            if (turnOff)
+            {
+                LeanTween.moveLocal(obj, TargetPos, .5f).setEaseInOutBack().setOnComplete(TurnOffObject).setOnCompleteParam(obj as object);
+            }
+            else
+            {
+                LeanTween.moveLocal(obj, TargetPos, .5f).setEaseInOutBack();
+            }
+        }
+        else
+        {
+            LeanTween.moveLocal(obj, TargetPos, .5f).setEaseInOutBack();
+        }
+    }
+
+    void TurnOffObject(object Gobj)
+    {
+      //  GameObject obj = Gobj as GameObject;
+      //  obj.SetActive(false);
     }
 
     [System.Serializable]
@@ -94,6 +115,7 @@ public class TabManager : MonoBehaviour
         public PulloutManager Pullout;
         public TabType TabType;
         public List<TabType> IncompatibleWithTabs;
+        public bool TurnOffWhenOffScreen;
     }
 }
 

@@ -23,7 +23,7 @@ MonoBehaviour:
 
 
       Type their name into the searchable database, then drag
-      the ID card into the task manager slot for Davey Moon.'
+      the ID card into the targets manager slot for Davey Moon.'
     CharacterNames: 04000000
   - TaskNumber: 2
     Description: "Today we're after a real scoundrel called Ella Nella. \n\nMake
@@ -41,7 +41,11 @@ MonoBehaviour:
 
 
       You
-      may find yourself needing to listen to the artists'' songs carefully for clues.'
+      may find yourself needing to listen to the artists'' songs carefully for clues.
+
+
+      Keep
+      it professional.'
     CharacterNames: 0d00000007000000
   - TaskNumber: 5
     Description: 'We''ve supplied you with some seized contraband from the musicians.

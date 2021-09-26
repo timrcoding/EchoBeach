@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
     
     bool CalculateEnding()
     {
-        if (SaveManager.instance.ActiveSave.SongPlays > 30 || SaveManager.instance.ActiveSave.InstrumentPlays > 20)
+        if (SaveManager.instance.ActiveSave.SongPlays > 30)
         {
             //TOO MUCH MUSIC
             return true;

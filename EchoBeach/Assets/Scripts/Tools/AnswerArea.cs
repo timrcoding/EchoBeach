@@ -37,6 +37,7 @@ public class AnswerArea : MonoBehaviour
         TMPRealName.text = $"AKA: {MCharacterID.RealNameString}";
         CheckForCorrect();
         BackgroundImage.color = OriginalColor;
+        FMODUnity.RuntimeManager.PlayOneShot(TaskManager.instance.CorrectSound);
     }
 
     public void ClearField()

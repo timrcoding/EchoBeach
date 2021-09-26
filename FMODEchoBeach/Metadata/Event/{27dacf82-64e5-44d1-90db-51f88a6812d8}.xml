@@ -243,7 +243,7 @@
 			<value>44</value>
 		</property>
 		<property name="name">
-			<value>And I'm feeling mine</value>
+			<value>And I'm feeling fine</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{44d12408-9bc7-480a-a367-982e0d62d1a3}</destination>

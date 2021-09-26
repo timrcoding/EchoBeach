@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="MixerGroup" id="{665ad3f0-f711-45f9-ba6f-2cbab80ba7e3}">
+		<property name="name">
+			<value>Electric Drums</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{73e712b4-bb3d-4521-87db-84b903133edd}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{79501083-ac93-43fe-8647-f5edf114006c}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{91ff6401-d0ba-481a-b059-c3214fb1668f}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{73e712b4-bb3d-4521-87db-84b903133edd}">
+		<relationship name="effects">
+			<destination>{1a27e992-9fdd-4eaa-b01c-ca39f332bc3f}</destination>
+			<destination>{7ea9850f-0ddb-47e6-b1fd-b1bd4367a926}</destination>
+			<destination>{84734aed-2389-4b82-9de9-e7bfe5e1a532}</destination>
+			<destination>{522bf0a3-64a0-4e7f-9236-9da9b52f5303}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{79501083-ac93-43fe-8647-f5edf114006c}" />
+	<object class="MultibandEqEffect" id="{1a27e992-9fdd-4eaa-b01c-ca39f332bc3f}">
+		<property name="frequencyA">
+			<value>3780.72656</value>
+		</property>
+	</object>
+	<object class="DistortionEffect" id="{7ea9850f-0ddb-47e6-b1fd-b1bd4367a926}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="level">
+			<value>0.774999976</value>
+		</property>
+	</object>
+	<object class="MixerBusFader" id="{84734aed-2389-4b82-9de9-e7bfe5e1a532}" />
+	<object class="MixerSend" id="{522bf0a3-64a0-4e7f-9236-9da9b52f5303}">
+		<property name="level">
+			<value>-10.5</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{b6cda713-7ab9-42f1-8030-1943deaf9e02}</destination>
+		</relationship>
+	</object>
+</objects>

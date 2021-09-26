@@ -175,23 +175,23 @@ public enum RealName
 public enum Day
 {
     INVALID,
-    [StringValue("1")]
+    [StringValue("01")]
     one,
-    [StringValue("2")]
+    [StringValue("02")]
     two,
-    [StringValue("3")]
+    [StringValue("03")]
     three,
-    [StringValue("4")]
+    [StringValue("04")]
     four,
-    [StringValue("5")]
+    [StringValue("05")]
     five,
-    [StringValue("6")]
+    [StringValue("06")]
     six,
-    [StringValue("7")]
+    [StringValue("07")]
     seven,
-    [StringValue("8")]
+    [StringValue("08")]
     eight,
-    [StringValue("9")]
+    [StringValue("09")]
     nine,
     [StringValue("10")]
     ten,
@@ -242,23 +242,23 @@ public enum Day
 public enum Month
 {
     INVALID,
-    [StringValue("1")]
+    [StringValue("01")]
     one,
-    [StringValue("2")]
+    [StringValue("02")]
     two,
-    [StringValue("3")]
+    [StringValue("03")]
     three,
-    [StringValue("4")]
+    [StringValue("04")]
     four,
-    [StringValue("5")]
+    [StringValue("05")]
     five,
-    [StringValue("6")]
+    [StringValue("06")]
     six,
-    [StringValue("7")]
+    [StringValue("07")]
     seven,
-    [StringValue("8")]
+    [StringValue("08")]
     eight,
-    [StringValue("9")]
+    [StringValue("09")]
     nine,
     [StringValue("10")]
     ten,

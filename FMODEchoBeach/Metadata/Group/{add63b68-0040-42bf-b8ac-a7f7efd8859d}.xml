@@ -19,9 +19,39 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{58582756-2e41-49ed-a9a6-5c1dd0ddeb6d}">
 		<relationship name="effects">
+			<destination>{b64d656b-6c65-4b85-9a7b-47ba95ed5235}</destination>
 			<destination>{f9d4113d-5ec1-4deb-a33a-d82d7702aac0}</destination>
+			<destination>{19296761-21f1-456d-bf46-dedb3c6553f3}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{fa80bd6c-0877-4885-8f42-38affe926d5a}" />
+	<object class="MultibandEqEffect" id="{b64d656b-6c65-4b85-9a7b-47ba95ed5235}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="filterTypeA">
+			<value>5</value>
+		</property>
+		<property name="filterTypeB">
+			<value>3</value>
+		</property>
+		<property name="frequencyA">
+			<value>314.623352</value>
+		</property>
+		<property name="frequencyB">
+			<value>11336.5264</value>
+		</property>
+		<property name="qualityB">
+			<value>2.31034517</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{f9d4113d-5ec1-4deb-a33a-d82d7702aac0}" />
+	<object class="DistortionEffect" id="{19296761-21f1-456d-bf46-dedb3c6553f3}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="level">
+			<value>0.264999986</value>
+		</property>
+	</object>
 </objects>

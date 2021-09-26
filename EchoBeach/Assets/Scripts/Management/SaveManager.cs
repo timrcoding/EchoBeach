@@ -16,6 +16,7 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
+        Application.runInBackground = true;
         if (instance == null)
         {
             instance = this;

@@ -15,8 +15,14 @@ public class SearchableDatabaseManager : PulloutManager
     [SerializeField] private TMP_InputField TMPInput;
     [SerializeField] private GameObject CharacterIDButtonPrefab;
     [SerializeField] private GameObject LargeIDParent;
+    [SerializeField] private GameObject LargeIDStartingPoint;
     [SerializeField] private GameObject LargeIDPrefab;
+    [FMODUnity.EventRef]
+    public string PrintSound;
+    [FMODUnity.EventRef]
+    public string TypewriterSound;
     public GameObject GetIDParent { get { return LargeIDParent; } }
+    public GameObject GetIDStartingPoint { get { return LargeIDStartingPoint; } }
     public GameObject GetIDPrefab { get { return LargeIDPrefab; } }
 
     private void Awake()
@@ -45,6 +51,7 @@ public class SearchableDatabaseManager : PulloutManager
 
     public void DisplayIDsOnSearch()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(TypewriterSound);
         string Input = TMPInput.text;
         var children = ResultsParent.GetComponentsInChildren<Transform>();
         foreach (var child in children)

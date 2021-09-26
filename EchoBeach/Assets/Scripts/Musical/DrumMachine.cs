@@ -20,10 +20,20 @@ public class DrumMachine : PulloutManager
     public bool DrumInSync;
 
     public bool StartedOrStopped;
-
+    public DrumType DrumTypePlayed;
     [FMODUnity.EventRef]
-    public List<string> FMODDrums;
+    public List<string> FMODAcousticDrums;
+    [FMODUnity.EventRef]
+    public List<string> FMODElectricDrums;
+    public Toggle DrumTypeToggle;
     public int GetSixteenth { get { return SixteenthBeatCount; } }
+
+    public enum DrumType
+    {
+        INVALID,
+        Acoustic,
+        Electric
+    }
 
     private void Awake()
     {
@@ -32,6 +42,20 @@ public class DrumMachine : PulloutManager
     void Start()
     {
         TriggerDrums += PlayDrumMachine;
+        DrumTypeToggle.isOn = false;
+        DrumTypePlayed = DrumType.Electric;
+    }
+
+    public void ChangeDrumType()
+    {
+        if (DrumTypeToggle.isOn)
+        {
+            DrumTypePlayed = DrumType.Acoustic;
+        }
+        else
+        {
+            DrumTypePlayed = DrumType.Electric;
+        }
     }
 
     public void CanStartStop()

@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 1383700092}
   - component: {fileID: 1383700095}
   - component: {fileID: 1383700096}
+  - component: {fileID: 1383700097}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -474,6 +475,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
   ListenerNumber: -1
+--- !u!114 &1383700097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383700091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a122d7f1ad86294c95c0a4dd360ba54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1790343033 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6783436917763061805, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
@@ -535,7 +548,6 @@ MonoBehaviour:
     DialogueScriptable: {fileID: 11400000, guid: 12f05625631e09a4f9f9d24d8c03dbf9, type: 2}
   - DialogueScene: 5
     DialogueScriptable: {fileID: 11400000, guid: 4ab09a64fcee8614d951c3773d0b7d89, type: 2}
-  GameCompleted: 1
   Music: event:/Music/LettuceLaments
   Dust: {fileID: 2088690853}
   Flakes: {fileID: 1790343033}

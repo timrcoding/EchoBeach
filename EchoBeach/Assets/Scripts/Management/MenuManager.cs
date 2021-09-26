@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Vector3 PostcardAwayPosition;
     [SerializeField] private GameObject Postcard;
     [SerializeField] private CanvasGroup PostCardCanvGroup;
+    [SerializeField] private TextMeshProUGUI VersionText;
     [FMODUnity.EventRef]
     public string Ambience;
     private FMOD.Studio.EventInstance AmbientInst;
@@ -28,6 +30,16 @@ public class MenuManager : MonoBehaviour
         {
             ContinueButton.interactable = false;
         }
+        StartCoroutine(SetText());
+    }
+
+    IEnumerator SetText()
+    {
+        if (VersionText != null)
+        {
+            VersionText.text = SaveManager.instance.ActiveSave.saveName;
+        }
+        yield return null;
     }
 
     public void MovePostCard()

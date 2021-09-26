@@ -12,6 +12,11 @@ public class LargeID : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TMPAddress;
     [SerializeField] private TextMeshProUGUI TMPJob;
 
+    private void Start()
+    {
+       
+    }
+
     public void SetCharacterID(CharacterID CharID)
     {
         CharacterID = CharID;

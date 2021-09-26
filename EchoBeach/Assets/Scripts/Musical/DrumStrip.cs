@@ -49,13 +49,7 @@ public class DrumStrip : MonoBehaviour
             IsActiveToggle.isOn = true;
             for(int i = 0; i < DrumStripToggles.Count; i++)
             {
-                if (DrumStripToggles[i].isOn)
-                {
-                    if (DrumMachine.instance.FMODDrums[i] != null)
-                    {
-                        FMODUnity.RuntimeManager.PlayOneShot(DrumMachine.instance.FMODDrums[i]);
-                    }
-                }
+                    PlaySound(i);
             }
         }
         else
@@ -71,9 +65,25 @@ public class DrumStrip : MonoBehaviour
 
     public void PlayAuditionSound(int i)
     {
-        if (DrumStripToggles[i].isOn && !DrumMachine.instance.StartedOrStopped)
+        if (!DrumMachine.instance.StartedOrStopped)
         {
-            FMODUnity.RuntimeManager.PlayOneShot(DrumMachine.instance.FMODDrums[i]);
+            PlaySound(i);
         }
     }
+
+    void PlaySound(int i)
+    {
+        if (DrumStripToggles[i].isOn)
+        {
+            if (DrumMachine.instance.DrumTypePlayed == DrumMachine.DrumType.Acoustic)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot(DrumMachine.instance.FMODAcousticDrums[i]);
+            }
+            else if (DrumMachine.instance.DrumTypePlayed == DrumMachine.DrumType.Electric)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot(DrumMachine.instance.FMODElectricDrums[i]);
+            }
+        }
+    }
+    
 }

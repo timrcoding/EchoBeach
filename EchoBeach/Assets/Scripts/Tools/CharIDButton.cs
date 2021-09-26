@@ -23,5 +23,6 @@ public class CharIDButton : MonoBehaviour
         newLargeID.transform.localPosition = SearchableDatabaseManager.instance.GetIDParent.transform.position;
         newLargeID.transform.localScale = Vector3.one;
         newLargeID.GetComponent<LargeID>().SetCharacterID(CharacterID);
+        FMODUnity.RuntimeManager.PlayOneShot(SearchableDatabaseManager.instance.PrintSound);
     }
 }

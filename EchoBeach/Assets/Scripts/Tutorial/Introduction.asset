@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Introduction
   m_EditorClassIdentifier: 
   Header: Introduction
-  SlideDescription: "Welcome to MusicNet. \n\nIt is your job to hunt down and identify
-    those musicians we deem dangerous and deplorable. \n\nYou have been assigned
-    to a new zone. This appears to be an untouched cell of musicians who seem curiously
-    obsessed with the past.\n\nShould be prime for easy pickings.\n"
+  SlideDescription: "Welcome to MusicNet. Nice name choice, Cuckoo.\n\nIt is your
+    job to hunt down and identify those musicians we deem most dangerous and deplorable.
+    \n\nYou have been assigned to a new zone. This appears to be an untouched cell
+    of musicians who seem curiously obsessed with the past.\n\nShould be prime for
+    easy pickings.\n"
   TutorialSlide: 1
   ToggleWithTutorial: 0

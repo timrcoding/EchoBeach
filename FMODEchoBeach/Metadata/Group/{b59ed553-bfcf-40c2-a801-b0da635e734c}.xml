@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
 	<object class="MixerGroup" id="{b59ed553-bfcf-40c2-a801-b0da635e734c}">
+		<property name="volume">
+			<value>-6.5</value>
+		</property>
 		<property name="name">
 			<value>Keys</value>
 		</property>
@@ -36,7 +39,7 @@
 	</object>
 	<object class="MixerSend" id="{d1a635c5-a6bd-4d60-b85a-70f833b52582}">
 		<property name="level">
-			<value>-5</value>
+			<value>-0.5</value>
 		</property>
 		<property name="inputFormat">
 			<value>1</value>

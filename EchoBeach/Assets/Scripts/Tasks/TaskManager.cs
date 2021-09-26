@@ -9,6 +9,7 @@ public class TaskManager : PulloutManager
 {
     public static TaskManager instance;
     [SerializeField] public SOTaskManager SOTasks;
+    [SerializeField] private Transform Pivot;
     [SerializeField] private Transform AnswerAreaParent;
     [SerializeField] private GameObject TaskAnswerAreaPrefab;
     [SerializeField] private GameObject TaskIntroCard;
@@ -24,7 +25,7 @@ public class TaskManager : PulloutManager
     [FMODUnity.EventRef]
     [SerializeField] private string CheckSound;
     [FMODUnity.EventRef]
-    [SerializeField] private string CorrectSound;
+    public string CorrectSound;
     [FMODUnity.EventRef]
     [SerializeField] private string IncorrectSound;
 
@@ -79,6 +80,8 @@ public class TaskManager : PulloutManager
         GameSceneManager.instance.PlayClick();
         LeanTween.value(0, 1, 3).setOnUpdate((value) =>
           {
+              float ran = Random.Range(-1, 1);
+              Pivot.rotation = Quaternion.Euler(0, 0, ran);
               CheckSlider.value = value;
               SliderFill.color = Color.Lerp(Color.white, Color.red, value);
           }).setEaseInOutQuad().setOnComplete(SubmitButton);
@@ -87,6 +90,7 @@ public class TaskManager : PulloutManager
 
     public void SubmitButton()
     {
+        Pivot.rotation = Quaternion.Euler(0, 0, 0);
         CheckSlider.value = 0;
         if (CheckAllCorrect())
         {
@@ -151,7 +155,8 @@ public class TaskManager : PulloutManager
 
     public void LoadConfirmScene()
     {
-        
+        SongManager.instance.musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        SongManager.instance.musicInstance.release();
         SongManager.instance.AmbienceInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SongManager.instance.AmbienceInstance.release();
         SaveManager.instance.ActiveSave.TransferTargets();

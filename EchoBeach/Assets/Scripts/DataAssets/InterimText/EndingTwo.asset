@@ -30,8 +30,8 @@ MonoBehaviour:
       You do?'
     Typer: 1
   - Text: "FUTURE PERFECT\r\n-------------\r\nYES. \r\n\r\nYOU CAN STAND DOWN EMPLOYEE.
-      YOUR ARREST RECORD IS IMPRESSIVE.\r\n\r\nHOWEVER, IT'S NOT GOING TO WORK I'M
-      AFRAID."
+      THIS IS YOUR SUPERVISOR SPEAKING. \n\nYOUR ARREST RECORD IS IMPRESSIVE.\r \n\nHOWEVER,
+      IT'S NOT GOING TO WORK I'M AFRAID."
     Typer: 2
   - Text: 'CUCKOOSONG
 

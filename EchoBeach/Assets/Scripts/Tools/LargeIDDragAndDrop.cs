@@ -11,26 +11,38 @@ public class LargeIDDragAndDrop : DragAndDrop
     public bool TransferToAnswers;
     private GameObject AnswerArea;
     public Vector3 OriginalPosition;
+    private bool CanShrinkAtAll;
     private bool CanShrinkOnce;
     public ToggleButton TargetToggle;
 
     private void Start()
     {
+        CanShrinkAtAll = false;
         TargetScale = FullSizeScale;
         transform.localScale =new Vector3(FullSizeScale, FullSizeScale,0);
-        OriginalPosition = transform.position;
         GameObject target = GameObject.FindGameObjectWithTag("TargetsToggle");
         TargetToggle = target.GetComponent<ToggleButton>();
+        transform.position = SearchableDatabaseManager.instance.GetIDStartingPoint.transform.position;
+        LeanTween.moveLocal(gameObject, SearchableDatabaseManager.instance.GetIDParent.transform.position, .5f).setEaseOutBack().setOnComplete(SetShrinkable);
     }
 
     void Update()
     {
         SetMove();
-        if(!CanShrinkOnce && Vector2.Distance(transform.position,OriginalPosition) > .5f)
+        if (CanShrinkAtAll)
         {
-            ShrinkCard();
-            CanShrinkOnce = true;
+            if (!CanShrinkOnce && Vector2.Distance(transform.position, OriginalPosition) > .5f)
+            {
+                ShrinkCard();
+                CanShrinkOnce = true;
+            }
         }
+    }
+
+    void SetShrinkable()
+    {
+        OriginalPosition = transform.position;
+        CanShrinkAtAll = true;
     }
 
     public void SetTransferToAnswers(bool b, GameObject AnsArea )

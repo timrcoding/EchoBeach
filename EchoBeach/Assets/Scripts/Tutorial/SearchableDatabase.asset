@@ -27,6 +27,6 @@ MonoBehaviour:
 
 
     Click on a result to bring up an ID card, which can then
-    be dragged into the task manager.'
+    be dragged into the Targets manager.'
   TutorialSlide: 5
   ToggleWithTutorial: 3

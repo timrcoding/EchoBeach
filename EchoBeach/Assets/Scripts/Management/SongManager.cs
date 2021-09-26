@@ -24,7 +24,7 @@ public enum Song
     Delta,
     [StringValue("Overcoat")]
     Overcoat,
-    [StringValue("Lettuce")]
+    [StringValue("Jack & Jane")]
     Lettuce,
     [StringValue("Listening")]
     Listening,
@@ -51,7 +51,7 @@ public class SongManager : PulloutManager
     private int SongIndexSelection;
 
     [SerializeField] private LyricManager LyricManager;
-    FMOD.Studio.EventInstance musicInstance;
+    public FMOD.Studio.EventInstance musicInstance;
     FMOD.Studio.EventDescription TimeLineDesc;
     [SerializeField] private Slider TimeLineSlider;
     bool CanMoveSlider;
@@ -59,6 +59,8 @@ public class SongManager : PulloutManager
     bool StopButtonPressed;
     [FMODUnity.EventRef]
     [SerializeField] private String SongAddedSound;
+    [SerializeField] private TextMeshProUGUI SongCounter;
+    [SerializeField] private CounterButton CounterButton;
 
     [SerializeField] private Song[] TrickSongs;
     [SerializeField] private int TrickSongStartOffset = 50000 ;
@@ -71,6 +73,12 @@ public class SongManager : PulloutManager
 
     //LYRICS
     [SerializeField] private TextMeshProUGUI LyricText;
+    [SerializeField] private CanvasGroup LyricCanvasGroup;
+    [Range(0, 3)]
+    [SerializeField] private float LyricFadeInTime;
+    [SerializeField] private RectTransform LyricMask;
+    [SerializeField] private float LyricMaskSpeed;
+
 
     private void Awake()
     {
@@ -89,9 +97,38 @@ public class SongManager : PulloutManager
 
         AmbienceInstance = FMODUnity.RuntimeManager.CreateInstance(Ambience);
         AmbienceInstance.start();
+        SetCounterText();
     }
 
     #region Manager Setup
+
+    public void SetCounterText()
+    {
+        if (SongCounter != null)
+        {
+            if (SaveManager.instance != null)
+            {
+                int count = SaveManager.instance.ActiveSave.SongPlays;
+                SongCounter.text = count.ToString();
+                if(count > 30)
+                {
+                    SongCounter.color = Color.red;
+                }
+                else
+                {
+                    SongCounter.color = Color.white;
+                }
+            }
+            else
+            {
+                SongCounter.text = "0";
+            }
+        }
+        else
+        {
+            Debug.Log("Song Counter Not Assigned");
+        }
+    }
 
     #endregion
 
@@ -192,6 +229,10 @@ public class SongManager : PulloutManager
         ResetSongVolume();
         StopSong();
         StopButtonPressed = false;
+        if (CounterButton != null)
+        {
+            CounterButton.MoveAndSetCounterText();
+        }
         GameSceneManager.instance.PlayClick();
         float vol;
         AmbienceInstance.getVolume(out vol);
@@ -266,31 +307,34 @@ public class SongManager : PulloutManager
     {
         if (!SongTracklist.Contains(Song) || num != 0)
         {
-            GameObject NewSongButton = Instantiate(SongButtonPrefab);
-            NewSongButton.transform.SetParent(SongPlayer);
-            if (PositionToObjectInLists.Count != 0)
+            if (Song != Song.Lettuce || (int)SaveManager.instance.ActiveSave.MTaskNumber >= (int) TaskNumber.Six)
             {
-                NewSongButton.transform.localPosition = PositionToObjectInLists[PositionToObjectInLists.Count - 1].Position;
-            }
-            else
-            {
-                NewSongButton.transform.localPosition = new Vector3(Buffer.x, Buffer.y, 0);
-            }
-            NewSongButton.transform.localScale = Vector3.one;
-            NewSongButton.GetComponent<SongButton>().SetCharacterAndSong(CharName, Song);
-            if (num == 0)
-            {
-                SongTracklist.Add(Song);
-            }
-            AddToList(NewSongButton);
-            SongButtons.Add(NewSongButton);
-            if (SaveManager.instance.ActiveSave.MTaskNumber != TaskNumber.Tutorial)
-            {
-                TabManager.instance.SetTab(TabManager.instance.ReturnButton(GetComponent<PulloutManager>()), true);
-            }
-            if(num == 0)
-            {
-                SaveManager.instance.ActiveSave.SongTracklist.Add(new LinkAndSong(CharName, Song));
+                GameObject NewSongButton = Instantiate(SongButtonPrefab);
+                NewSongButton.transform.SetParent(SongPlayer);
+                if (PositionToObjectInLists.Count != 0)
+                {
+                    NewSongButton.transform.localPosition = PositionToObjectInLists[PositionToObjectInLists.Count - 1].Position;
+                }
+                else
+                {
+                    NewSongButton.transform.localPosition = new Vector3(Buffer.x, Buffer.y, 0);
+                }
+                NewSongButton.transform.localScale = Vector3.one;
+                NewSongButton.GetComponent<SongButton>().SetCharacterAndSong(CharName, Song);
+                if (num == 0)
+                {
+                    SongTracklist.Add(Song);
+                }
+                AddToList(NewSongButton);
+                SongButtons.Add(NewSongButton);
+                if (SaveManager.instance.ActiveSave.MTaskNumber != TaskNumber.Tutorial)
+                {
+                    TabManager.instance.SetTab(TabManager.instance.ReturnButton(GetComponent<PulloutManager>()), true);
+                }
+                if (num == 0)
+                {
+                    SaveManager.instance.ActiveSave.SongTracklist.Add(new LinkAndSong(CharName, Song));
+                }
             }
 
         }
@@ -343,6 +387,8 @@ public class SongManager : PulloutManager
 
     public void SetLyrics(string LyricLine)
     {
+        LyricCanvasGroup.alpha = 0;
+        LyricMask.sizeDelta = new Vector2(0, 50);
         if (LyricLine != "//END")
         {
             LyricText.text = LyricLine;
@@ -351,15 +397,15 @@ public class SongManager : PulloutManager
         {
             LyricText.text = "";
         }
-        StartCoroutine(StartSet(LyricLine.Length));
-        IEnumerator StartSet(int num)
+        LeanTween.value(gameObject, 0, 1, LyricFadeInTime).setOnUpdate((value) =>
+           {
+               LyricCanvasGroup.alpha = value;
+           });
+        LeanTween.value(gameObject, 0, 1, LyricMaskSpeed).setOnUpdate((value) =>
         {
-            for (int i = 0; i <= num; i++)
-            {
-               LyricText.maxVisibleCharacters = i;
-               yield return new WaitForSeconds(.05f);
-            }
-        }
+            float right = Mathf.Lerp(0, 800, value);
+            LyricMask.sizeDelta = new Vector2(right, 50);
+        }).setEaseInQuad();
     }
 
     #endregion
