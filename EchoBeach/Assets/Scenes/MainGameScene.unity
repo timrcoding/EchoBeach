@@ -480,6 +480,7 @@ MonoBehaviour:
   LastButton: {fileID: 0}
   SpareButton: {fileID: 0}
   SelectedButtonColor: {r: 1, g: 0.18604651, b: 0, a: 1}
+  InOutTime: 0.75
   Tabs:
   - Button: {fileID: 921731560}
     Pullout: {fileID: 552045108}
@@ -6786,6 +6787,78 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: AnimSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: AnimCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: AnimCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: AnimCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: AnimCurve.m_Curve.Array.data[1].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: AnimCurve.m_Curve.Array.data[1].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: SongToRecordCovers.Array.data[0].RecordCover
+      value: 
+      objectReference: {fileID: 21300000, guid: 89d9cb262df849747a746361cd7bee2a, type: 3}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: SongToRecordCovers.Array.data[1].RecordCover
+      value: 
+      objectReference: {fileID: 21300000, guid: 16ce09fc4e051ab4db68ae1ab4e18663, type: 3}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: SongToRecordCovers.Array.data[2].RecordCover
+      value: 
+      objectReference: {fileID: 21300000, guid: c5722532860488c47908912d6d3cf70d, type: 3}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: SongToRecordCovers.Array.data[3].RecordCover
+      value: 
+      objectReference: {fileID: 21300000, guid: 4b0e27067ae462c4c8b3779884a9c6c2, type: 3}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: SongToRecordCovers.Array.data[4].RecordCover
+      value: 
+      objectReference: {fileID: 21300000, guid: c86c5026d086c9e4ba62a4902fadea37, type: 3}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: SongToRecordCovers.Array.data[5].RecordCover
+      value: 
+      objectReference: {fileID: 21300000, guid: fed220d12d06d0348a4ab02dec0cb8af, type: 3}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: SongToRecordCovers.Array.data[6].RecordCover
+      value: 
+      objectReference: {fileID: 21300000, guid: 941e7a10a4cfb084d8a70aa57b4ff2c1, type: 3}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: SongToRecordCovers.Array.data[7].RecordCover
+      value: 
+      objectReference: {fileID: 21300000, guid: bd4595b175634604a8853f74b1288c93, type: 3}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: SongToRecordCovers.Array.data[8].RecordCover
+      value: 
+      objectReference: {fileID: 21300000, guid: 8622bf43909e6fa40ac6103422d5b92c, type: 3}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: SongToRecordCovers.Array.data[9].RecordCover
+      value: 
+      objectReference: {fileID: 21300000, guid: a446a1f648c18884fb1a40685b1de71a, type: 3}
+    - target: {fileID: 3808518922738140420, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: SongToRecordCovers.Array.data[10].RecordCover
+      value: 
+      objectReference: {fileID: 21300000, guid: cec0d2584d9fe0b4dab971abac65f441, type: 3}
+    - target: {fileID: 4391423356002672403, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4391423357836432545, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
       propertyPath: LyricMask
       value: 
@@ -6798,14 +6871,6 @@ PrefabInstance:
       propertyPath: VolumeSlider
       value: 
       objectReference: {fileID: 1400185956}
-    - target: {fileID: 4391423357836432545, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
-      propertyPath: LyricMaskSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4391423357836432545, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
-      propertyPath: LyricFadeInTime
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4391423357836432545, guid: e2c733c7cda38de479d15103d418a9b4, type: 3}
       propertyPath: LyricCanvasGroup
       value: 
@@ -10014,6 +10079,7 @@ GameObject:
   - component: {fileID: 1812774187}
   - component: {fileID: 1812774186}
   - component: {fileID: 1812774185}
+  - component: {fileID: 1812774189}
   m_Layer: 0
   m_Name: ToolsCanvas
   m_TagString: Untagged
@@ -10118,6 +10184,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
+--- !u!114 &1812774189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812774183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715945285092ca9408f30949640b4c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskResolutionScale: 1
+  maskLayer: 0
 --- !u!1 &1813556611
 GameObject:
   m_ObjectHideFlags: 0
@@ -11978,7 +12058,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -405.99744, y: -0.000015258789}
-  m_SizeDelta: {x: 800, y: 48}
+  m_SizeDelta: {x: 812.11, y: 48}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2066682563
 MonoBehaviour:
@@ -16193,7 +16273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6517631411592469796, guid: 639e9ee5bb2f87f4fa56cc9735fa1118, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6517631411592469796, guid: 639e9ee5bb2f87f4fa56cc9735fa1118, type: 3}
       propertyPath: m_AnchorMax.x
@@ -16261,11 +16341,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6517631411592469796, guid: 639e9ee5bb2f87f4fa56cc9735fa1118, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 786
+      value: 493
       objectReference: {fileID: 0}
     - target: {fileID: 6517631411592469796, guid: 639e9ee5bb2f87f4fa56cc9735fa1118, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -547
+      value: -482
       objectReference: {fileID: 0}
     - target: {fileID: 6517631411592469796, guid: 639e9ee5bb2f87f4fa56cc9735fa1118, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -50,7 +50,8 @@ public class SongManager : PulloutManager
     [SerializeField] private bool SequenceOrShuffle;
     private int SongIndexSelection;
 
-    [SerializeField] private LyricManager LyricManager;
+    private LyricManager LyricManager;
+    private RecordManager RecordManager;
     public FMOD.Studio.EventInstance musicInstance;
     FMOD.Studio.EventDescription TimeLineDesc;
     [SerializeField] private Slider TimeLineSlider;
@@ -88,6 +89,7 @@ public class SongManager : PulloutManager
     void Start()
     {
         LyricManager = GetComponent<LyricManager>();
+        RecordManager = GetComponent<RecordManager>();
         SetLyrics("");
         foreach (var song in SaveManager.instance.ActiveSave.SongTracklist)
         {
@@ -206,6 +208,7 @@ public class SongManager : PulloutManager
 
         Song SongChoice = SongTracklist[SongIndexSelection];
         PlaySong(SongChoice);
+        
     }
 
     int returnNewSelection(int num)
@@ -229,6 +232,7 @@ public class SongManager : PulloutManager
         ResetSongVolume();
         StopSong();
         StopButtonPressed = false;
+        RecordManager.CreateRecord(song);
         if (CounterButton != null)
         {
             CounterButton.MoveAndSetCounterText();
@@ -301,6 +305,7 @@ public class SongManager : PulloutManager
         {
             AmbienceInstance.setVolume(value);
         });
+        RecordManager.RemoveAllExistingRecords();
     }
 
     public void AddSong(DeepNetLinkName CharName, Song Song, int num = 0)

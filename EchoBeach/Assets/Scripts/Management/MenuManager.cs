@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject Postcard;
     [SerializeField] private CanvasGroup PostCardCanvGroup;
     [SerializeField] private TextMeshProUGUI VersionText;
+    [SerializeField] private GameObject Particles;
     [FMODUnity.EventRef]
     public string Ambience;
     private FMOD.Studio.EventInstance AmbientInst;
@@ -21,6 +22,7 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         Postcard.SetActive(true);
+        Particles.SetActive(false);
     }
 
     void Start()
@@ -56,6 +58,7 @@ public class MenuManager : MonoBehaviour
         Postcard.SetActive(false);
         AmbientInst = FMODUnity.RuntimeManager.CreateInstance(Ambience);
         AmbientInst.start();
+        Particles.SetActive(true);
     }
 
     public void FadeAndLoad(bool newGame)

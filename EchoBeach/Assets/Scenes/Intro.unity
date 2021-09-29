@@ -457,6 +457,27 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612381, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_text
+      value: '
+
+        Code/Audio: Tim Sheinman.
+
+
+        Art: Dan Duke.
+
+
+        Vox:
+        Dan, Gem, Hattie, Jet, Liv, Riley & Tina.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612381, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 301072164279612381, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 301072164288783345, guid: 815645245500bde4bbee8d3afbd1d4a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

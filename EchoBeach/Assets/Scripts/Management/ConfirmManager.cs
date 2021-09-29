@@ -38,7 +38,7 @@ public class ConfirmManager : InterimTextManager
 
     void DeleteAddedData()
     {
-        CutSceneTextScriptableObject.StringToTypes[0].Text = "WELL DONE EMPLOYEE.\n\nYOU HAVE APPREHENDED THE FOLLOWING CRIMINALS;";
+        CutSceneTextScriptableObject.StringToTypes[0].Text = "WELL DONE EMPLOYEE.\n\nYOU HAVE APPREHENDED THE FOLLOWING CRIMINALS:";
         if (SaveManager.instance != null) {
             int num = 9 - (int)SaveManager.instance.ActiveSave.MTaskNumber;
             if (num > 0 && num != 1)

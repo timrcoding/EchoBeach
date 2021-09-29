@@ -15,6 +15,7 @@ public class SongButton : MonoBehaviour
     void Start()
     {
         Button = GetComponent<Button>();
+        Button.onClick.AddListener(PlayPrintSound);
         name = MSong.ToString();
     }
 
@@ -25,6 +26,11 @@ public class SongButton : MonoBehaviour
         {
             ResetClicks();
         }
+    }
+
+    private void PlayPrintSound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(SearchableDatabaseManager.instance.PrintSound);
     }
 
     public void SetCharacterAndSong(DeepNetLinkName CharName, Song Song)

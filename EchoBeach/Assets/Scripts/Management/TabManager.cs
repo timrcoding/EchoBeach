@@ -10,6 +10,7 @@ public class TabManager : MonoBehaviour
     public Button LastButton;
     public Button SpareButton;
     [SerializeField] private Color SelectedButtonColor;
+    public float InOutTime = .75f;
 
     public List<Tab> Tabs;
     private void Awake()
@@ -89,16 +90,16 @@ public class TabManager : MonoBehaviour
         {
             if (turnOff)
             {
-                LeanTween.moveLocal(obj, TargetPos, .5f).setEaseInOutBack().setOnComplete(TurnOffObject).setOnCompleteParam(obj as object);
+                LeanTween.moveLocal(obj, TargetPos, InOutTime).setEaseInOutBack().setOnComplete(TurnOffObject).setOnCompleteParam(obj as object);
             }
             else
             {
-                LeanTween.moveLocal(obj, TargetPos, .5f).setEaseInOutBack();
+                LeanTween.moveLocal(obj, TargetPos, InOutTime).setEaseInOutBack();
             }
         }
         else
         {
-            LeanTween.moveLocal(obj, TargetPos, .5f).setEaseInOutBack();
+            LeanTween.moveLocal(obj, TargetPos, InOutTime).setEaseInOutBack();
         }
     }
 
